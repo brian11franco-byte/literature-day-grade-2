@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta name="description" content="Grade 2 Literature Day 2026: Learning about the effects of mining, deforestation, and human activities on wildlife and plants in Haiti, Suriname, and Bolivia (SDG 15 - Life on Land).">
   <title>EcoExplorers: Life on Land • Grade 2 Literature Day 2026</title>
   
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>">
+  
+  <!-- Google Fonts: Fredoka (Headings) & Lexend (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -17,10 +22,15 @@
   <!-- ========================================================
        TOP HEADER & ACCESSIBILITY NAVBAR
        ======================================================== -->
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="EcoExplorers Home">
-        <div class="brand-icon">🌱</div>
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </div>
         <div class="brand-info">
           <span class="brand-title" data-i18n="siteTitle">EcoExplorers: Life on Land</span>
           <span class="brand-subtitle" data-i18n="siteSubtitle">Grade 2 Literature Day • Bulan Bahasa 2026</span>
@@ -30,58 +40,184 @@
       <!-- Desktop Links -->
       <nav class="desktop-nav" aria-label="Main Navigation">
         <a href="#countrySection" class="nav-link" data-i18n="navCountries">Countries</a>
-        <a href="#sdgOverviewSection" class="nav-link" data-i18n="navThreats">Deforestation & Mining</a>
+        <a href="#sdgOverviewSection" class="nav-link" data-i18n="navThreats">Threats & Mining</a>
         <a href="#notebookSection" class="nav-link" data-i18n="navNotebook">Buku Halus Helper</a>
-        <a href="#quizSection" class="nav-link" data-i18n="navQuiz">Quiz</a>
-        <a href="#solutionsSection" class="nav-link" data-i18n="navSolutions">Solutions</a>
+        <a href="#quizSection" class="nav-link" data-i18n="navQuiz">Fun Quiz</a>
+        <a href="#badgesSection" class="nav-link" data-i18n="navBadges">Explorer Badges</a>
+        <a href="#solutionsSection" class="nav-link" data-i18n="navSolutions">How to Help</a>
       </nav>
 
-      <!-- Language Switcher Button -->
+      <!-- Header Actions: Country Chip, Passport Progress, Segmented Lang Toggle -->
       <div class="header-actions">
-        <button id="btnToggleLang" class="btn-lang" aria-label="Switch Language / Ganti Bahasa">
-          <span class="lang-flag">🇮🇩</span>
-          <span>Bahasa Indonesia</span>
+        <!-- Compact Country Switcher Chip (Mobile & Desktop) -->
+        <button id="headerCountryChip" class="header-country-chip" aria-label="Active Country: Haiti. Tap to switch." title="Switch country">
+          <span class="chip-flag" id="chipCountryFlag">🇭🇹</span>
+          <span class="chip-name" id="chipCountryName">Haiti</span>
+          <span class="chip-arrow" aria-hidden="true">▾</span>
         </button>
+
+        <!-- Mini Explorer Passport Ring -->
+        <a href="#badgesSection" id="btnHeaderPassport" class="header-passport-btn" aria-label="Explorer Passport: 0% complete" title="Explorer Passport">
+          <svg class="passport-ring-svg" viewBox="0 0 36 36" aria-hidden="true">
+            <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="ring-progress" id="passportRingCircle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+          <span class="passport-star-icon" aria-hidden="true">⭐</span>
+          <span class="passport-percent" id="passportPercent">0%</span>
+        </a>
+
+        <!-- Compact EN | ID Segmented Toggle -->
+        <div class="lang-toggle-segmented" role="group" aria-label="Language selection / Pilihan bahasa">
+          <button id="btnLangEn" class="lang-segment active" data-lang="en" aria-pressed="true">EN</button>
+          <button id="btnLangId" class="lang-segment" data-lang="id" aria-pressed="false">ID</button>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- ========================================================
-       HERO BANNER
+       HERO BANNER WITH SVG NATURE MASCOT
        ======================================================== -->
   <section class="hero-section" id="top">
-    <div class="container">
-      <div class="hero-badges">
-        <span class="badge-pill badge-sdg" data-i18n="sdgBadge">SDG 15: Life on Land</span>
-        <span class="badge-pill badge-classes" data-i18n="classesBadge">Classes 2A • 2B • 2C</span>
+    <div class="container hero-layout">
+      <div class="hero-text-content">
+        <div class="hero-badges">
+          <span class="badge-pill badge-sdg" data-i18n="sdgBadge">SDG 15: Life on Land</span>
+          <span class="badge-pill badge-classes" data-i18n="classesBadge">Classes 2A • 2B • 2C</span>
+        </div>
+
+        <h1 class="hero-headline" data-i18n="heroHeadline">
+          Protecting Our Animals & Plants From Mining and Deforestation
+        </h1>
+
+        <p class="hero-subhead" data-i18n="heroSubhead">
+          Welcome, Grade 2 Explorers! Discover amazing wildlife in Haiti, Suriname, and Bolivia, learn how human activities affect their homes, and find answers for your Buku Halus notebook!
+        </p>
+
+        <div class="hero-quick-actions">
+          <a href="#countryPickerSection" class="btn-hero btn-hero-primary">
+            <span>🐾</span> <span data-i18n="navAnimals">Animals & Plants</span>
+          </a>
+          <a href="#notebookSection" class="btn-hero btn-hero-secondary">
+            <span>📝</span> <span data-i18n="navNotebook">Buku Halus Helper</span>
+          </a>
+          <a href="#quizSection" class="btn-hero btn-hero-accent">
+            <span>🎮</span> <span data-i18n="navQuiz">Fun Quiz</span>
+          </a>
+        </div>
       </div>
 
-      <h1 class="hero-headline" data-i18n="heroHeadline">
-        Protecting Our Animals & Plants From Mining and Deforestation
-      </h1>
-
-      <p class="hero-subhead" data-i18n="heroSubhead">
-        Welcome, Grade 2 Explorers! Discover amazing wildlife in Haiti, Suriname, and Bolivia, learn how human activities affect their homes, and find answers for your Buku Halus notebook!
-      </p>
-
-      <div class="hero-quick-actions">
-        <a href="#countrySection" class="btn-hero">
-          <span>🐾</span> <span data-i18n="navAnimals">Animals & Plants</span>
-        </a>
-        <a href="#notebookSection" class="btn-hero" style="background: var(--secondary-light); border-color: #fde68a; color: #92400e;">
-          <span>📝</span> <span data-i18n="navNotebook">Buku Halus Helper</span>
-        </a>
-        <a href="#quizSection" class="btn-hero" style="background: var(--accent-light); border-color: #bae6fd; color: #0369a1;">
-          <span>🎮</span> <span data-i18n="navQuiz">Fun Quiz</span>
-        </a>
+      <!-- Friendly SVG Nature Explorer Mascot -->
+      <div class="hero-mascot-wrap" aria-hidden="true">
+        <div class="mascot-badge-halo"></div>
+        <svg class="hero-mascot-svg" viewBox="0 0 160 160" width="140" height="140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Body & Wings -->
+          <circle cx="80" cy="88" r="54" fill="#047857"/>
+          <circle cx="80" cy="92" r="42" fill="#d1fae5"/>
+          <ellipse cx="32" cy="92" rx="14" ry="24" fill="#065f46" transform="rotate(-15 32 92)"/>
+          <ellipse cx="128" cy="92" rx="14" ry="24" fill="#065f46" transform="rotate(15 128 92)"/>
+          <!-- Big Friendly Eyes -->
+          <circle cx="62" cy="74" r="16" fill="#ffffff"/>
+          <circle cx="98" cy="74" r="16" fill="#ffffff"/>
+          <circle cx="64" cy="74" r="9" fill="#0f172a"/>
+          <circle cx="96" cy="74" r="9" fill="#0f172a"/>
+          <circle cx="67" cy="71" r="3.5" fill="#ffffff"/>
+          <circle cx="99" cy="71" r="3.5" fill="#ffffff"/>
+          <!-- Beak / Smile -->
+          <polygon points="80,82 72,92 88,92" fill="#f59e0b"/>
+          <ellipse cx="80" cy="95" rx="6" ry="2.5" fill="#d97706"/>
+          <!-- Rosy Cheeks -->
+          <circle cx="48" cy="85" r="7" fill="#fca5a5" opacity="0.6"/>
+          <circle cx="112" cy="85" r="7" fill="#fca5a5" opacity="0.6"/>
+          <!-- Explorer Safari Hat -->
+          <ellipse cx="80" cy="48" rx="46" ry="10" fill="#d97706"/>
+          <path d="M52 46 C52 28, 108 28, 108 46 Z" fill="#b45309"/>
+          <path d="M54 44 Q80 38 106 44" stroke="#fef3c7" stroke-width="4"/>
+          <!-- Sprout on Hat -->
+          <path d="M80 32 C80 20 88 16 94 18 C94 25 86 28 80 32 Z" fill="#10b981"/>
+          <!-- Magnifying Glass held in wing -->
+          <circle cx="132" cy="116" r="12" stroke="#d97706" stroke-width="4" fill="#e0f2fe" opacity="0.85"/>
+          <line x1="124" y1="124" x2="114" y2="134" stroke="#92400e" stroke-width="5" stroke-linecap="round"/>
+        </svg>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       COUNTRY TABS (STICKY BAR)
+       ONE CLEAR FIRST ACTION: 3 LARGE COUNTRY HERO CARDS
        ======================================================== -->
-  <nav class="country-nav-wrapper" aria-label="Country Selection">
+  <section class="country-picker-section" id="countryPickerSection">
+    <div class="container">
+      <div class="section-heading-center">
+        <h2 class="section-title" data-i18n="countryCardsHeading">Choose Your Mission</h2>
+        <p class="section-desc" data-i18n="countryCardsSubhead">Tap a country to start exploring its wildlife!</p>
+      </div>
+
+      <div class="country-cards-grid">
+        <!-- Haiti Card -->
+        <button class="country-hero-card" data-country="haiti" aria-label="Explore Haiti, Class 2A">
+          <div class="country-hero-card-img-wrap">
+            <picture>
+              <source srcset="assets/images/haiti/hispaniolan_trogon.webp" type="image/webp">
+              <img src="assets/images/haiti/hispaniolan_trogon.jpg" alt="Haiti Nature" width="400" height="300" loading="eager" class="country-hero-img">
+            </picture>
+            <span class="country-hero-class">Class 2A</span>
+          </div>
+          <div class="country-hero-card-content">
+            <span class="country-hero-flag" aria-hidden="true">🇭🇹</span>
+            <div class="country-hero-text">
+              <h3 class="country-hero-name">Haiti</h3>
+              <p class="country-hero-sub">Cloud Mountains & Rare Trogons</p>
+            </div>
+            <span class="country-hero-arrow" aria-hidden="true">→</span>
+          </div>
+        </button>
+
+        <!-- Suriname Card -->
+        <button class="country-hero-card" data-country="suriname" aria-label="Explore Suriname, Class 2B">
+          <div class="country-hero-card-img-wrap">
+            <picture>
+              <source srcset="assets/images/suriname/harpy_eagle.webp" type="image/webp">
+              <img src="assets/images/suriname/harpy_eagle.jpg" alt="Suriname Nature" width="400" height="300" loading="eager" class="country-hero-img">
+            </picture>
+            <span class="country-hero-class">Class 2B</span>
+          </div>
+          <div class="country-hero-card-content">
+            <span class="country-hero-flag" aria-hidden="true">🇸🇷</span>
+            <div class="country-hero-text">
+              <h3 class="country-hero-name">Suriname</h3>
+              <p class="country-hero-sub">Lush Rainforests & Harpy Eagles</p>
+            </div>
+            <span class="country-hero-arrow" aria-hidden="true">→</span>
+          </div>
+        </button>
+
+        <!-- Bolivia Card -->
+        <button class="country-hero-card" data-country="bolivia" aria-label="Explore Bolivia, Class 2C">
+          <div class="country-hero-card-img-wrap">
+            <picture>
+              <source srcset="assets/images/bolivia/bolivian_river_dolphin.webp" type="image/webp">
+              <img src="assets/images/bolivia/bolivian_river_dolphin.jpg" alt="Bolivia Nature" width="400" height="300" loading="eager" class="country-hero-img">
+            </picture>
+            <span class="country-hero-class">Class 2C</span>
+          </div>
+          <div class="country-hero-card-content">
+            <span class="country-hero-flag" aria-hidden="true">🇧🇴</span>
+            <div class="country-hero-text">
+              <h3 class="country-hero-name">Bolivia</h3>
+              <p class="country-hero-sub">Andean Peaks & Pink River Dolphins</p>
+            </div>
+            <span class="country-hero-arrow" aria-hidden="true">→</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       DESKTOP STICKY COUNTRY TABS (HIDDEN ON MOBILE < 768px)
+       ======================================================== -->
+  <nav class="country-nav-wrapper" id="desktopCountryNav" aria-label="Country Selection">
     <div class="container">
       <div class="country-nav">
         <button class="country-tab-btn active" data-country="haiti">
@@ -108,7 +244,7 @@
   <!-- ========================================================
        MAIN CONTENT: COUNTRY SECTION
        ======================================================== -->
-  <main>
+  <main id="mainContent">
     <section class="country-section" id="countrySection">
       <div class="container">
         
@@ -118,7 +254,7 @@
         <!-- Threat / Mining Impact Alert (Rendered via JS) -->
         <div id="threatsAlertContainer"></div>
 
-        <!-- Organism Filter Pills -->
+        <!-- Organism Filter Pills & Speech Speed Controls -->
         <div class="filter-bar">
           <div class="filter-pills" role="tablist" aria-label="Organism Filters">
             <button class="filter-btn active" data-filter="all" data-i18n="filterAll">
@@ -131,6 +267,15 @@
               🌿 Plants (3)
             </button>
           </div>
+
+          <!-- Speed toggle for read aloud -->
+          <div class="speech-controls-bar" id="speechControlsBar">
+            <span class="speech-speed-label">Read Speed:</span>
+            <div class="speech-speed-pills" role="group" aria-label="Reading voice speed">
+              <button id="btnSpeedSlow" class="speed-pill-btn" data-rate="0.75" data-i18n="speechSpeedSlow">🐢 Slow</button>
+              <button id="btnSpeedNormal" class="speed-pill-btn active" data-rate="0.92" data-i18n="speechSpeedNormal">🐰 Normal</button>
+            </div>
+          </div>
         </div>
 
         <!-- Organism Cards Grid (Rendered via JS) -->
@@ -140,21 +285,21 @@
     </section>
 
     <!-- ========================================================
-         SDG 15 & DEFORESTATION OVERVIEW (FROM PPT SLIDES 11-14)
+         SDG 15 & DEFORESTATION OVERVIEW
          ======================================================== -->
     <section class="sdg-overview-section" id="sdgOverviewSection">
       <!-- Content populated dynamically via JS -->
     </section>
 
     <!-- ========================================================
-         BUKU HALUS WRITING HELPER (SLIDES 7-9 & 15-18)
+         BUKU HALUS WRITING HELPER
          ======================================================== -->
     <section class="notebook-helper-section" id="notebookSection">
       <div class="container">
         <div class="notebook-card">
           <div class="notebook-header">
-            <h2 class="notebook-title">
-              <span>✍️</span> <span data-i18n="notebookHelperTitle">Buku Halus Writing Helper</span>
+            <h2 class="notebook-title" data-i18n="notebookHelperTitle">
+              Buku Halus Writing Helper
             </h2>
             <p class="notebook-desc" data-i18n="notebookHelperDesc">
               Practice answering your teacher's questions and combine them into complete paragraphs for your fine writing book!
@@ -174,8 +319,18 @@
             </div>
           </div>
 
+          <!-- Mode Row: Try First Mode vs Show Model Answers -->
+          <div class="notebook-mode-switcher" role="group" aria-label="Writing Mode">
+            <button class="btn-mode-toggle active" id="btnModeTryFirst" data-i18n="tryFirstTab">
+              ✍️ Try First (Sentence Builder)
+            </button>
+            <button class="btn-mode-toggle" id="btnModeModel" data-i18n="modelAnswerTab">
+              📖 Show Model Answers
+            </button>
+          </div>
+
           <!-- Tabs (Country Questions vs Organism Questions) -->
-          <div class="notebook-tab-row" role="tablist">
+          <div class="notebook-tab-row" role="tablist" aria-label="Question type">
             <button class="btn-notebook-tab active" id="btnTabNbCountry" data-i18n="tabCountryQuestions">
               Country Questions (01 - 05)
             </button>
@@ -194,15 +349,15 @@
             <div class="paragraph-box">
               <div class="paragraph-box-header">
                 <span class="paragraph-title" id="nbParagraphTitle">📝 Combined Paragraph:</span>
-                <button class="btn-copy" id="btnCopyParagraph" data-i18n="copyParagraphBtn">
-                  📋 Copy Paragraph
+                <button class="btn-nb-action" id="btnListenParagraph" data-i18n="listenNotebookBtn">
+                  🔊 Listen
                 </button>
               </div>
               <div class="paragraph-content" id="nbParagraphContent"></div>
             </div>
           </div>
 
-          <!-- Bottom Action Buttons -->
+          <!-- Bottom Action Buttons: Listen & Print -->
           <div class="notebook-actions-bottom">
             <button class="btn-print" id="btnPrintWorksheet" data-i18n="printWorksheetBtn">
               🖨️ Print Worksheet
@@ -213,18 +368,45 @@
     </section>
 
     <!-- ========================================================
-         INTERACTIVE MINI QUIZ
+         INTERACTIVE MINI QUIZ WITH STARS & POSITIVE RETRY
          ======================================================== -->
     <section class="quiz-section" id="quizSection">
       <div class="container">
         <div class="section-heading-center">
-          <span class="badge-pill" style="background: #e0f2fe; color: #0369a1; margin-bottom: 8px;">🎮 Interactive Activity</span>
+          <span class="badge-pill badge-quiz" style="margin-bottom: 8px;">🎮 Interactive Activity</span>
           <h2 class="section-title" data-i18n="quizTitle">Junior Explorer Quiz</h2>
           <p class="section-desc" data-i18n="quizSubhead">Test what you learned about animals, plants, and mining!</p>
         </div>
 
+        <!-- Screen reader live region -->
+        <div id="quizFeedbackLive" class="sr-only" aria-live="polite"></div>
+
         <div id="quizContainer">
           <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         EXPLORER PASSPORT & NATURE GUARDIAN BADGES SECTION
+         ======================================================== -->
+    <section class="badges-section" id="badgesSection">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="badge-pill badge-sdg" style="margin-bottom: 8px;">🏆 Achievement Center</span>
+          <h2 class="section-title" data-i18n="passportTitle">Explorer Passport</h2>
+          <p class="section-desc" data-i18n="passportSubhead">
+            Collect stamps for every creature you meet, story you hear, and quiz you pass!
+          </p>
+        </div>
+
+        <div class="passport-dashboard-card" id="passportDashboard">
+          <!-- Rendered dynamically via JS -->
+        </div>
+
+        <!-- Guardian Award Screen (Appears when 100% completed) -->
+        <div class="guardian-certificate-card" id="guardianCertificateCard" style="display: none;">
+          <!-- Rendered dynamically via JS -->
         </div>
       </div>
     </section>
@@ -250,17 +432,22 @@
   </main>
 
   <!-- ========================================================
-       HIGH-RESOLUTION PHOTO MODAL / LIGHTBOX
+       HIGH-RESOLUTION PHOTO MODAL / BOTTOM SHEET
        ======================================================== -->
   <div id="photoModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title" id="modalTitle">Organism Details</h3>
-        <button class="btn-close-modal" id="btnCloseModal" aria-label="Close modal">✕</button>
+        <button class="btn-close-modal" id="btnCloseModal" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
       <div class="modal-scrollable-body">
         <div class="modal-image-wrap">
-          <img src="" alt="" class="modal-image" id="modalImage">
+          <img src="" alt="" class="modal-image" id="modalImage" width="800" height="600">
         </div>
         <div id="modalDetails"></div>
       </div>
@@ -268,28 +455,46 @@
   </div>
 
   <!-- ========================================================
-       MOBILE STICKY BOTTOM BAR (ERGONOMIC THUMB NAVIGATION)
+       MOBILE STICKY BOTTOM BAR (4 ITEMS: EXPLORE, NOTEBOOK, QUIZ, BADGES)
        ======================================================== -->
-  <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
-    <button class="bottom-nav-item active" data-country="haiti">
-      <span class="nav-icon">🇭🇹</span>
-      <span>Haiti</span>
+  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile Navigation">
+    <button class="bottom-nav-item active" data-target="countrySection" id="navItemExplore">
+      <span class="nav-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+        </svg>
+      </span>
+      <span class="nav-label" data-i18n="bottomNavExplore">Explore</span>
     </button>
-    <button class="bottom-nav-item" data-country="suriname">
-      <span class="nav-icon">🇸🇷</span>
-      <span>Suriname</span>
+    
+    <button class="bottom-nav-item" data-target="notebookSection" id="navItemNotebook">
+      <span class="nav-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </span>
+      <span class="nav-label" data-i18n="bottomNavNotebook">Notebook</span>
     </button>
-    <button class="bottom-nav-item" data-country="bolivia">
-      <span class="nav-icon">🇧🇴</span>
-      <span>Bolivia</span>
+    
+    <button class="bottom-nav-item" data-target="quizSection" id="navItemQuiz">
+      <span class="nav-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+      </span>
+      <span class="nav-label" data-i18n="bottomNavQuiz">Quiz</span>
     </button>
-    <button class="bottom-nav-item" data-scroll="notebookSection">
-      <span class="nav-icon">📝</span>
-      <span data-i18n="navNotebook">Notebook</span>
-    </button>
-    <button class="bottom-nav-item" data-scroll="quizSection">
-      <span class="nav-icon">🎮</span>
-      <span data-i18n="navQuiz">Quiz</span>
+    
+    <button class="bottom-nav-item" data-target="badgesSection" id="navItemBadges">
+      <span class="nav-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+      </span>
+      <span class="nav-label" data-i18n="bottomNavBadges">Badges</span>
     </button>
   </nav>
 
@@ -302,7 +507,7 @@
       <p class="footer-text" data-i18n="footerCredit">
         Prepared for Grade 2 Literature Day • Bulan Bahasa 2026 • SDG 15: Life on Land
       </p>
-      <p style="font-size: 0.8rem; color: #64748b;">
+      <p style="font-size: 0.88rem; color: #64748b; margin-top: 4px;">
         Haiti (2A) • Suriname (2B) • Bolivia (2C)
       </p>
     </div>
