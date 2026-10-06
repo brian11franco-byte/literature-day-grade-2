@@ -115,6 +115,10 @@ html, body {
   display: flex;
 }
 
+.story-screen:not(.active) {
+  display: none !important;
+}
+
 /* Top Navigation Headers */
 .screen-top-bar {
   display: flex;
@@ -995,7 +999,13 @@ html, body {
   border: 1px solid #fde047;
 }
 
+.creature-col-visual,
+.creature-col-content {
+  display: contents;
+}
+
 .creature-bottom-actions {
+  order: 10;
   width: 100%;
   flex-shrink: 0;
 }
@@ -1692,19 +1702,27 @@ html, body {
    ========================================================== */
 @media (min-width: 768px) {
   body {
-    background: radial-gradient(circle at 50% 15%, var(--country-light) 0%, #0f172a 80%);
+    background: linear-gradient(135deg, var(--country-bg) 0%, #e2e8f0 40%, var(--country-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .storybook-wrapper {
     max-width: 1140px;
-    height: 100dvh;
-    border-left: 2px solid rgba(0, 0, 0, 0.08);
-    border-right: 2px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
+    width: calc(100vw - 32px);
+    height: calc(100dvh - 32px);
+    max-height: calc(100dvh - 32px);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15), 0 4px 16px rgba(15, 23, 42, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    overflow: hidden;
   }
 
   .story-screen {
-    height: calc(100dvh - 72px);
+    height: calc(100dvh - 32px - 72px);
   }
 
   /* Desktop Top Navigation Bar */
@@ -1755,7 +1773,7 @@ html, body {
   }
 
   /* SCREEN 1: WELCOME DESKTOP */
-  #screenWelcome {
+  #screenWelcome.active {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1936,29 +1954,38 @@ html, body {
 
   /* SCREEN 4: MEET THE CREATURE DESKTOP (2-Column Showcase) */
   .creature-scroll-body {
-    display: grid;
-    grid-template-columns: 430px 1fr;
-    grid-template-areas:
-      "photo tiles"
-      "photo active-tile"
-      "title details"
-      "bottom stamp";
-    gap: 16px 24px;
-    padding: 20px 28px 40px;
-    max-width: 1040px;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    padding: 24px 32px 48px;
+    max-width: 1100px;
     margin: 0 auto;
-    align-items: start;
+    align-items: flex-start;
+  }
+
+  .creature-col-visual {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    flex-shrink: 0;
+    gap: 16px;
+  }
+
+  .creature-col-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 16px;
   }
 
   .creature-photo-hero {
-    grid-area: photo;
     height: 360px;
     min-height: 360px;
     border-radius: 24px;
   }
 
   .creature-title-section {
-    grid-area: title;
     border-radius: 20px;
     padding: 16px 20px;
   }
@@ -1971,8 +1998,18 @@ html, body {
     font-size: 15px;
   }
 
+  .creature-bottom-actions {
+    order: unset;
+    width: 100%;
+  }
+
+  .btn-creature-back {
+    min-height: 58px;
+    font-size: 20px;
+    border-radius: 29px;
+  }
+
   .creature-tiles-row {
-    grid-area: tiles;
     gap: 12px;
   }
 
@@ -1997,7 +2034,6 @@ html, body {
   }
 
   .active-tile-card {
-    grid-area: active-tile;
     padding: 20px 24px;
     border-radius: 22px;
   }
@@ -2008,7 +2044,7 @@ html, body {
   }
 
   .tell-me-more-section {
-    grid-area: details;
+    width: 100%;
   }
 
   .btn-toggle-details {
@@ -2032,18 +2068,7 @@ html, body {
   }
 
   .creature-stamp-banner {
-    grid-area: stamp;
     justify-content: flex-start;
-  }
-
-  .creature-bottom-actions {
-    grid-area: bottom;
-  }
-
-  .btn-creature-back {
-    min-height: 58px;
-    font-size: 20px;
-    border-radius: 29px;
   }
 
   /* SCREEN 6: QUIZ DESKTOP */
