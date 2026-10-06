@@ -586,7 +586,6 @@
 
         const isVisited = !!state.visited[organism.id];
         const orgName = getOrganismName(organism);
-        const shortName = orgName.split(' ')[0] || orgName;
 
         const bubbleBtn = document.createElement('button');
         bubbleBtn.type = 'button';
@@ -599,7 +598,7 @@
             <img src="${organism.image}" alt="${orgName}" width="82" height="82" loading="lazy" class="bubble-photo">
             <span class="bubble-stamp" aria-hidden="true">⭐</span>
           </div>
-          <span class="bubble-label">${shortName}</span>
+          <span class="bubble-label">${orgName}</span>
         `;
 
         bubbleBtn.addEventListener('click', () => {
