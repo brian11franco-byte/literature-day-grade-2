@@ -1686,6 +1686,597 @@ html, body {
 }
 
 /* ==========================================================
+   DESKTOP & TABLET SCREEN ADAPTATION (@media (min-width: 768px))
+   Maintains 100% mobile view for phones (< 768px).
+   Adapts layout gracefully for desktop/tablet use.
+   ========================================================== */
+@media (min-width: 768px) {
+  body {
+    background: radial-gradient(circle at 50% 15%, var(--country-light) 0%, #0f172a 80%);
+  }
+
+  .storybook-wrapper {
+    max-width: 1140px;
+    height: 100dvh;
+    border-left: 2px solid rgba(0, 0, 0, 0.08);
+    border-right: 2px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
+  }
+
+  .story-screen {
+    height: calc(100dvh - 72px);
+  }
+
+  /* Desktop Top Navigation Bar */
+  .screen-top-bar {
+    height: 64px;
+    min-height: 64px;
+    padding: 10px 24px;
+  }
+
+  .brand-chip {
+    font-size: 22px;
+  }
+
+  .screen-heading {
+    font-size: 26px;
+  }
+
+  .screen-heading-sm {
+    font-size: 22px;
+  }
+
+  .lang-segmented-toggle {
+    padding: 3px;
+  }
+
+  .lang-segment {
+    font-size: 15px;
+    padding: 6px 14px;
+    min-height: 40px;
+    min-width: 46px;
+  }
+
+  .country-switch-pill {
+    padding: 6px 14px;
+    font-size: 16px;
+    border-radius: 20px;
+    min-height: 44px;
+  }
+
+  .btn-speaker-sm {
+    width: 46px;
+    height: 46px;
+  }
+
+  .btn-icon-nav {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* SCREEN 1: WELCOME DESKTOP */
+  #screenWelcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 32px 40px;
+    gap: 20px;
+  }
+
+  .welcome-mascot-container {
+    flex: none;
+    padding: 0;
+    max-height: 380px;
+  }
+
+  .welcome-mascot {
+    max-width: 340px;
+    max-height: 340px;
+  }
+
+  .welcome-title {
+    font-size: 44px;
+  }
+
+  .welcome-subtitle {
+    font-size: 24px;
+  }
+
+  .welcome-action-area {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .btn-start {
+    min-height: 68px;
+    font-size: 26px;
+    border-radius: 34px;
+  }
+
+  /* SCREEN 2: PICK COUNTRY DESKTOP (3 Columns Side-by-Side) */
+  .country-cards-stack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 32px 28px;
+    height: calc(100% - 64px);
+    align-items: stretch;
+  }
+
+  .country-big-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 24px;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+  }
+
+  .country-big-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-gradient-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.15) 0%,
+      rgba(15, 23, 42, 0.65) 55%,
+      rgba(15, 23, 42, 0.95) 100%
+    );
+  }
+
+  .card-content {
+    max-width: 100%;
+    padding: 22px;
+    gap: 8px;
+  }
+
+  .card-country-name {
+    font-size: 32px;
+  }
+
+  .card-creature-highlight {
+    font-size: 18px;
+  }
+
+  .card-arrow-circle {
+    top: auto;
+    bottom: 22px;
+    right: 22px;
+    transform: none;
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  /* SCREEN 3: TRAIL DESKTOP (Spacious Nature Trail) */
+  .trail-progress-container {
+    padding: 12px 28px;
+  }
+
+  .trail-star-slot {
+    font-size: 28px;
+  }
+
+  .trail-progress-label {
+    font-size: 18px;
+  }
+
+  .trail-viewport {
+    padding: 24px 32px 48px;
+  }
+
+  .trail-path-svg {
+    display: none;
+  }
+
+  .trail-bubbles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 24px;
+    max-width: 880px;
+    margin: 16px auto 32px;
+  }
+
+  .trail-bubble-row {
+    width: 100%;
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+
+  .trail-bubble {
+    min-width: 130px;
+    gap: 10px;
+  }
+
+  .bubble-photo-ring {
+    width: 110px;
+    height: 110px;
+    border-width: 5px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  }
+
+  .bubble-photo-ring:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  }
+
+  .bubble-stamp {
+    font-size: 32px;
+    top: -10px;
+    right: -10px;
+  }
+
+  .bubble-label {
+    font-size: 16px;
+    padding: 6px 16px;
+    max-width: 200px;
+    border-radius: 16px;
+  }
+
+  .trail-end-card {
+    max-width: 520px;
+    margin: 20px auto 10px;
+    padding: 22px 26px;
+    border-radius: 24px;
+  }
+
+  .trail-end-text {
+    font-size: 20px;
+  }
+
+  .btn-trail-action {
+    max-width: 360px;
+    margin: 0 auto;
+    min-height: 60px;
+    font-size: 22px;
+  }
+
+  /* SCREEN 4: MEET THE CREATURE DESKTOP (2-Column Showcase) */
+  .creature-scroll-body {
+    display: grid;
+    grid-template-columns: 430px 1fr;
+    grid-template-areas:
+      "photo tiles"
+      "photo active-tile"
+      "title details"
+      "bottom stamp";
+    gap: 16px 24px;
+    padding: 20px 28px 40px;
+    max-width: 1040px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .creature-photo-hero {
+    grid-area: photo;
+    height: 360px;
+    min-height: 360px;
+    border-radius: 24px;
+  }
+
+  .creature-title-section {
+    grid-area: title;
+    border-radius: 20px;
+    padding: 16px 20px;
+  }
+
+  .creature-big-name {
+    font-size: 28px;
+  }
+
+  .creature-type-chip {
+    font-size: 15px;
+  }
+
+  .creature-tiles-row {
+    grid-area: tiles;
+    gap: 12px;
+  }
+
+  .picture-tile {
+    min-height: 80px;
+    padding: 12px 10px;
+    border-radius: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .picture-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  .tile-icon {
+    font-size: 28px;
+  }
+
+  .tile-label {
+    font-size: 15px;
+  }
+
+  .active-tile-card {
+    grid-area: active-tile;
+    padding: 20px 24px;
+    border-radius: 22px;
+  }
+
+  .tile-content-text {
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+  .tell-me-more-section {
+    grid-area: details;
+  }
+
+  .btn-toggle-details {
+    min-height: 56px;
+    font-size: 19px;
+  }
+
+  .details-drawer {
+    padding: 22px 24px;
+    border-radius: 22px;
+    gap: 16px;
+  }
+
+  .detail-block-title {
+    font-size: 19px;
+  }
+
+  .detail-block-text {
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  .creature-stamp-banner {
+    grid-area: stamp;
+    justify-content: flex-start;
+  }
+
+  .creature-bottom-actions {
+    grid-area: bottom;
+  }
+
+  .btn-creature-back {
+    min-height: 58px;
+    font-size: 20px;
+    border-radius: 29px;
+  }
+
+  /* SCREEN 6: QUIZ DESKTOP */
+  .quiz-scroll-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px 28px 48px;
+    gap: 20px;
+  }
+
+  .quiz-progress-text {
+    font-size: 20px;
+  }
+
+  .quiz-stars-earned {
+    font-size: 22px;
+  }
+
+  .quiz-question-box {
+    padding: 24px 28px;
+    border-radius: 24px;
+  }
+
+  .quiz-question-text {
+    font-size: 24px;
+    line-height: 1.45;
+  }
+
+  .quiz-options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 18px;
+  }
+
+  .quiz-opt-btn {
+    min-height: 80px;
+    padding: 16px 22px;
+    font-size: 20px;
+    border-radius: 22px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .quiz-opt-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .quiz-feedback-box {
+    padding: 20px 24px;
+    border-radius: 22px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .quiz-feedback-message {
+    font-size: 20px;
+  }
+
+  .btn-quiz-next {
+    max-width: 320px;
+    margin: 0 auto;
+    min-height: 60px;
+    font-size: 22px;
+  }
+
+  .quiz-completed-view {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 36px 32px;
+    border-radius: 28px;
+    gap: 18px;
+  }
+
+  .quiz-trophy-icon {
+    font-size: 72px;
+  }
+
+  .quiz-complete-title {
+    font-size: 34px;
+  }
+
+  .quiz-complete-msg {
+    font-size: 22px;
+  }
+
+  .btn-claim-badge {
+    max-width: 400px;
+    min-height: 64px;
+    font-size: 24px;
+  }
+
+  .btn-quiz-restart {
+    max-width: 320px;
+  }
+
+  /* SCREEN 7: BADGES & CERTIFICATE DESKTOP */
+  .badge-scroll-body {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 28px 48px;
+    gap: 20px;
+  }
+
+  .cert-input-card {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 26px;
+    border-radius: 24px;
+  }
+
+  .badge-student-input {
+    min-height: 60px;
+    font-size: 24px;
+    border-radius: 18px;
+  }
+
+  .official-certificate-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  .certificate-inner-border {
+    padding: 28px 36px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+
+  .cert-main-title {
+    font-size: 30px;
+  }
+
+  .cert-student-name {
+    font-size: 34px;
+    padding: 6px 32px;
+  }
+
+  .cert-statement {
+    font-size: 17px;
+    max-width: 680px;
+    line-height: 1.6;
+  }
+
+  .cert-meta-row {
+    gap: 16px;
+  }
+
+  .cert-country-pill, .cert-stars-pill {
+    font-size: 15px;
+    padding: 6px 16px;
+  }
+
+  .cert-gold-seal {
+    width: 64px;
+    height: 64px;
+  }
+
+  .seal-text {
+    font-size: 10px;
+  }
+
+  .seal-year {
+    font-size: 10px;
+  }
+
+  .seal-star {
+    font-size: 15px;
+  }
+
+  .badge-actions-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .btn-print-badge {
+    flex: 1;
+    min-height: 60px;
+    font-size: 20px;
+  }
+
+  .btn-badge-done {
+    flex: 1;
+    min-height: 60px;
+    font-size: 20px;
+  }
+
+  /* BOTTOM NAVIGATION BAR DESKTOP */
+  .story-bottom-bar {
+    height: 72px;
+    padding: 0 32px;
+  }
+
+  .bottom-nav-item {
+    max-width: 160px;
+    height: 62px;
+    border-radius: 20px;
+  }
+
+  .bottom-nav-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .bottom-nav-item .nav-icon {
+    font-size: 24px;
+  }
+
+  .bottom-nav-item .nav-label {
+    font-size: 14px;
+  }
+
+  /* FULL PHOTO LIGHTBOX DESKTOP */
+  .photo-lightbox-content {
+    max-width: 85vw;
+    max-height: 88vh;
+  }
+
+  .lightbox-image {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 20px;
+  }
+
+  .lightbox-caption {
+    font-size: 22px;
+  }
+}
+
+/* ==========================================================
    PRINT-READY CERTIFICATE STYLES (Issue 3)
    ========================================================== */
 @media print {
