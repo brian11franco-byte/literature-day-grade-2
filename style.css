@@ -1231,91 +1231,241 @@ html, body {
   gap: 14px;
 }
 
-.badge-certificate-card {
+/* Student Name Input Card */
+.cert-input-card {
   background: #ffffff;
-  border: 4px solid #f59e0b;
-  border-radius: 24px;
-  padding: 22px 18px;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  border: 2px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.badge-award-shield {
-  width: 80px;
-  height: 80px;
-}
-
-.shield-svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-}
-
-.badge-card-title {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 700;
-  color: #78350f;
-  line-height: 1.2;
-}
-
-.badge-country-tag {
-  background: #fef3c7;
-  color: #92400e;
-  font-weight: 800;
-  font-size: 15px;
-  padding: 4px 14px;
-  border-radius: 14px;
-}
-
-.badge-input-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin: 6px 0;
-}
-
-.badge-input-label {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-main);
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .badge-student-input {
   width: 100%;
-  min-height: 56px;
-  border: 3px solid #f59e0b;
-  border-radius: 16px;
-  padding: 10px 16px;
+  min-height: 54px;
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  padding: 8px 16px;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   text-align: center;
   color: var(--text-main);
   background: #fffbeb;
 }
 
-.badge-congrats-text {
-  font-size: 18px;
-  line-height: 1.45;
-  color: #475569;
+.badge-student-input:focus {
+  outline: none;
+  border-color: #d97706;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
 }
 
-.badge-seal-stamp {
+/* Official Print-Ready Certificate Container */
+.official-certificate-container {
+  background: #fffdf5;
+  border: 8px double #b45309;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.certificate-inner-border {
+  border: 2px solid #15803d;
+  border-radius: 10px;
+  padding: 20px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  background: radial-gradient(circle at center, #ffffff 60%, #fefce8 100%);
+}
+
+.cert-corner {
+  position: absolute;
+  font-size: 18px;
+  line-height: 1;
+  color: #15803d;
+}
+
+.corner-tl { top: 6px; left: 6px; }
+.corner-tr { top: 6px; right: 6px; }
+.corner-bl { bottom: 6px; left: 6px; }
+.corner-br { bottom: 6px; right: 6px; }
+
+.cert-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.cert-sdg-badge {
+  background: #ecfdf5;
+  border: 1px solid #10b981;
+  color: #047857;
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
-  color: #b45309;
   letter-spacing: 1px;
-  padding-top: 6px;
-  border-top: 1px dashed #f59e0b;
+  padding: 3px 12px;
+  border-radius: 12px;
+}
+
+.cert-main-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: #78350f;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.cert-award-type {
+  font-size: 14px;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.cert-presentation-text {
+  font-size: 15px;
+  color: #64748b;
+  font-style: italic;
+}
+
+.cert-student-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: #1e3a8a;
+  padding: 4px 18px;
+  border-bottom: 2px solid #b45309;
+  min-width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cert-statement {
+  font-size: 15px;
+  line-height: 1.45;
+  color: #334155;
+  max-width: 380px;
+}
+
+.cert-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.cert-country-pill {
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.cert-stars-pill {
+  background: #fef08a;
+  color: #854d0e;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.cert-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.cert-footer-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.cert-footer-label {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cert-footer-val {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cert-signature-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 1px solid #94a3b8;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+
+/* Gold Embossed Seal */
+.cert-gold-seal {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fde047, #d97706);
+  border: 2px solid #b45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(180, 83, 9, 0.4);
+  position: relative;
+}
+
+.seal-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.seal-star {
+  font-size: 12px;
+  color: #78350f;
+}
+
+.seal-text {
+  font-family: var(--font-display);
+  font-size: 8px;
+  font-weight: 900;
+  color: #78350f;
+  letter-spacing: 0.5px;
+}
+
+.seal-year {
+  font-family: var(--font-display);
+  font-size: 8px;
+  font-weight: 800;
+  color: #78350f;
 }
 
 .badge-actions-group {
@@ -1534,3 +1684,93 @@ html, body {
     animation: none !important;
   }
 }
+
+/* ==========================================================
+   PRINT-READY CERTIFICATE STYLES (Issue 3)
+   ========================================================== */
+@media print {
+  @page {
+    size: landscape;
+    margin: 8mm;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    overflow: visible !important;
+    height: auto !important;
+    color: #000000 !important;
+  }
+
+  /* Hide app frame & all interactive UI */
+  .storybook-wrapper {
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .screen-top-bar,
+  .story-bottom-bar,
+  .cert-input-card,
+  .badge-actions-group,
+  #screenWelcome,
+  #screenPickCountry,
+  #screenTrail,
+  #screenCreature,
+  #screenQuiz,
+  #photoLightboxModal {
+    display: none !important;
+  }
+
+  #screenBadge {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .badge-scroll-body {
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  /* Official Certificate fills page */
+  .official-certificate-container {
+    width: 96% !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border: 8px double #b45309 !important;
+    background: #ffffff !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  .certificate-inner-border {
+    padding: 24px 20px !important;
+    gap: 16px !important;
+    background: #ffffff !important;
+  }
+
+  .cert-main-title {
+    font-size: 28px !important;
+  }
+
+  .cert-student-name {
+    font-size: 32px !important;
+  }
+
+  .cert-statement {
+    font-size: 16px !important;
+    max-width: 600px !important;
+  }
+}
+
