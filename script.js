@@ -29,7 +29,9 @@
     quizScore: 0,
     quizAnswered: false,
     quizRetried: false,
-    studentName: ''
+    studentName: '',
+    isDesktop: false,
+    isPointerFine: false
   };
 
   function loadPersistedState() {
@@ -1269,11 +1271,47 @@
   }
 
   // --------------------------------------------------------
-  // 17. INITIALIZATION
+  // 17. DEVICE & SCREEN ADAPTATION DETECTION
+  // --------------------------------------------------------
+  function updateDeviceAdaptation() {
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    const isPointerFine = window.matchMedia('(pointer: fine)').matches;
+
+    state.isDesktop = isDesktop;
+    state.isPointerFine = isPointerFine;
+
+    document.documentElement.setAttribute('data-device', isDesktop ? 'desktop' : 'mobile');
+    document.documentElement.setAttribute('data-pointer', isPointerFine ? 'fine' : 'coarse');
+
+    if (document.body) {
+      document.body.classList.toggle('device-desktop', isDesktop);
+      document.body.classList.toggle('device-mobile', !isDesktop);
+      document.body.classList.toggle('is-desktop', isDesktop);
+      document.body.classList.toggle('is-mobile', !isDesktop);
+      document.body.classList.toggle('pointer-fine', isPointerFine);
+    }
+  }
+
+  // --------------------------------------------------------
+  // 18. INITIALIZATION
   // --------------------------------------------------------
   function init() {
     loadPersistedState();
     cacheDom();
+    updateDeviceAdaptation();
+
+    try {
+      const mql = window.matchMedia('(min-width: 768px)');
+      if (mql.addEventListener) {
+        mql.addEventListener('change', updateDeviceAdaptation);
+      } else if (mql.addListener) {
+        mql.addListener(updateDeviceAdaptation);
+      }
+      window.addEventListener('resize', updateDeviceAdaptation, { passive: true });
+    } catch (e) {
+      window.addEventListener('resize', updateDeviceAdaptation);
+    }
+
     applyCountryTheme(state.country);
     updateStaticText();
     renderCountryCards();
