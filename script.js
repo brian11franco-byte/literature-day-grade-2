@@ -309,14 +309,22 @@
       quizFinalScorePill: document.getElementById('quizFinalScorePill'),
       btnClaimBadge: document.getElementById('btnClaimBadge'),
       btnQuizRestart: document.getElementById('btnQuizRestart'),
-      // Badge Screen
+      // Badge Screen & Certificate
       btnBadgeBack: document.getElementById('btnBadgeBack'),
       badgeHeaderTitle: document.getElementById('badgeHeaderTitle'),
-      badgeCardTitle: document.getElementById('badgeCardTitle'),
-      badgeCountryTag: document.getElementById('badgeCountryTag'),
       labelStudentName: document.getElementById('labelStudentName'),
       badgeStudentName: document.getElementById('badgeStudentName'),
-      badgeCongratsText: document.getElementById('badgeCongratsText'),
+      officialCertificateContainer: document.getElementById('officialCertificateContainer'),
+      certMainTitle: document.getElementById('certMainTitle'),
+      certAwardType: document.getElementById('certAwardType'),
+      certPresentedTo: document.getElementById('certPresentedTo'),
+      certStudentNameDisplay: document.getElementById('certStudentNameDisplay'),
+      certAchievementStatement: document.getElementById('certAchievementStatement'),
+      certCountryPill: document.getElementById('certCountryPill'),
+      certStarsPill: document.getElementById('certStarsPill'),
+      certDateValue: document.getElementById('certDateValue'),
+      certDateLabel: document.getElementById('certDateLabel'),
+      certSignatureLabel: document.getElementById('certSignatureLabel'),
       btnPrintBadge: document.getElementById('btnPrintBadge'),
       btnBadgeBackToTrail: document.getElementById('btnBadgeBackToTrail'),
       // Photo Lightbox
@@ -477,13 +485,12 @@
     if (dom.btnClaimBadge) dom.btnClaimBadge.textContent = getGeneralString('claimBadgeBtn', 'Claim Guardian Badge 🛡️');
     if (dom.btnQuizRestart) dom.btnQuizRestart.textContent = getGeneralString('restartQuiz', 'Play Again 🔄');
 
-    // Badge labels
+    // Badge & Certificate labels
     if (dom.badgeHeaderTitle) dom.badgeHeaderTitle.textContent = getGeneralString('guardianBadgeTitle', 'Guardian Badge');
-    if (dom.badgeCardTitle) dom.badgeCardTitle.textContent = getGeneralString('guardianBadgeTitle', '🛡️ Guardian of Nature Award');
-    if (dom.labelStudentName) dom.labelStudentName.textContent = getGeneralString('namePrompt', 'Explorer Name:');
+    if (dom.labelStudentName) dom.labelStudentName.textContent = state.lang === 'id' ? 'Ketik nama untuk sertifikatmu:' : 'Type your name for your certificate:';
     if (dom.badgeStudentName) dom.badgeStudentName.placeholder = getGeneralString('namePlaceholder', 'Type your name here...');
-    if (dom.badgeCongratsText) dom.badgeCongratsText.textContent = getGeneralString('guardianBadgeCongrats', 'Congratulations!');
-    if (dom.btnPrintBadge) dom.btnPrintBadge.textContent = getGeneralString('printBadgeBtn', '🖨️ Print / Save Certificate');
+    if (dom.btnPrintBadge) dom.btnPrintBadge.textContent = state.lang === 'id' ? '🖨️ Cetak Sertifikat (Simpan PDF)' : '🖨️ Print Certificate (Save as PDF)';
+    if (dom.btnBadgeBackToTrail) dom.btnBadgeBackToTrail.textContent = state.lang === 'id' ? 'Kembali ke Jejak 🗺️' : 'Back to Trail 🗺️';
   }
 
   // --------------------------------------------------------
@@ -783,11 +790,21 @@
     renderCurrentQuizQuestion();
   }
 
-  function renderCurrentQuizQuestion() {
+  function getCurrentQuizQuestions() {
     const data = getAppData();
-    if (!data || !data.quiz) return;
-    const questions = data.quiz;
+    if (!data) return [];
+    if (data.countryQuizzes && data.countryQuizzes[state.country]) {
+      return data.countryQuizzes[state.country];
+    }
+    const country = getCurrentCountry();
+    if (country && country.quiz) return country.quiz;
+    return data.quiz || [];
+  }
+
+  function renderCurrentQuizQuestion() {
+    const questions = getCurrentQuizQuestions();
     const total = questions.length;
+    if (total === 0) return;
 
     if (state.quizIndex >= total) {
       showQuizCompletion(total);
@@ -841,8 +858,7 @@
       });
     }
 
-    // Auto-narrate question for young learners
-    speakText(`${qData.question}`);
+    // Do NOT auto-speak question - students read by themselves. Speaker button is available on demand.
   }
 
   function handleQuizAnswer(selectedIndex, qData, clickedBtn) {
@@ -860,7 +876,6 @@
         dom.quizFeedbackBox.style.display = 'flex';
         dom.quizFeedbackMessage.textContent = qData.explanation;
       }
-      speakText(qData.explanation);
     } else {
       clickedBtn.classList.add('wrong');
       playTapBoop();
@@ -872,7 +887,6 @@
           dom.quizFeedbackBox.style.display = 'flex';
           dom.quizFeedbackMessage.textContent = tryAgainMsg;
         }
-        speakText(tryAgainMsg);
       } else {
         // Show correct answer after retry
         state.quizAnswered = true;
@@ -880,7 +894,6 @@
           dom.quizFeedbackBox.style.display = 'flex';
           dom.quizFeedbackMessage.textContent = qData.explanation;
         }
-        speakText(qData.explanation);
       }
     }
   }
@@ -896,23 +909,88 @@
     }
 
     saveStateKey(STORAGE_KEYS.QUIZ_SCORE, state.quizScore);
-    const finishMsg = getGeneralString('quizFinishMsg', 'You completed the Junior Explorer Quiz! Fantastic job helping protect Life on Land!');
-    speakText(finishMsg);
   }
 
   // --------------------------------------------------------
-  // 14. SCREEN 7: GUARDIAN BADGE SCREEN
+  // 14. SCREEN 7: GUARDIAN BADGE & CERTIFICATE (Issue 3)
   // --------------------------------------------------------
   function updateBadgeScreen() {
     const country = getCurrentCountry();
     if (!country) return;
 
-    if (dom.badgeCountryTag) {
-      dom.badgeCountryTag.textContent = `${country.flagEmoji || '🌍'} ${getCountryName(country)} • Class ${country.classCode}`;
+    const data = getAppData();
+    const isId = state.lang === 'id';
+
+    // Student Name
+    const nameVal = state.studentName ? state.studentName.trim() : '';
+    if (dom.badgeStudentName) dom.badgeStudentName.value = nameVal;
+    if (dom.certStudentNameDisplay) {
+      dom.certStudentNameDisplay.textContent = nameVal || (isId ? 'PENJELAJAH CILIK' : 'SUPER EXPLORER');
     }
 
-    if (dom.badgeStudentName) {
-      dom.badgeStudentName.value = state.studentName || '';
+    // Country Pill
+    if (dom.certCountryPill) {
+      dom.certCountryPill.textContent = `${country.flagEmoji || '🌍'} ${getCountryName(country)} • Class ${country.classCode}`;
+    }
+
+    // Stars count
+    let collectedCount = 0;
+    (country.organisms || []).forEach(org => {
+      if (state.visited[org.id]) collectedCount++;
+    });
+    if (dom.certStarsPill) {
+      dom.certStarsPill.textContent = isId ?
+        `⭐ ${collectedCount} dari 6 Bintang Terkumpul` :
+        `⭐ ${collectedCount} of 6 Stars Earned`;
+    }
+
+    // Certificate Titles & Subtitles
+    if (dom.certMainTitle) {
+      dom.certMainTitle.textContent = isId ? 'SERTIFIKAT PENGHARGAAN' : 'CERTIFICATE OF ACHIEVEMENT';
+    }
+    if (dom.certAwardType) {
+      dom.certAwardType.textContent = isId ?
+        'Penghargaan Penjaga Bumi Resmi • Bulan Bahasa & Literature Day' :
+        'Official Earth Guardian Award • Grade 2 Literature Day 2026';
+    }
+    if (dom.certPresentedTo) {
+      dom.certPresentedTo.textContent = isId ? 'Diberikan dengan bangga kepada:' : 'This is proudly presented to:';
+    }
+
+    // Country-specific Achievement Statement
+    if (dom.certAchievementStatement) {
+      let statement = '';
+      if (data && data.certificateStatements && data.certificateStatements[state.country]) {
+        const cStmt = data.certificateStatements[state.country];
+        statement = (isId && cStmt.id) ? cStmt.id : cStmt.en;
+      }
+      if (!statement) {
+        if (state.country === 'haiti') {
+          statement = isId ?
+            'Atas dedikasi luar biasa dalam menjelajahi hutan pegunungan Haiti, melindungi Burung Trogon dan Solenodon dari kerusakan tambang, serta menjaga kehidupan satwa di darat untuk SDG 15.' :
+            'For outstanding dedication in exploring the cloud forests of Haiti, defending the Hispaniolan Trogon and Solenodon against mining destruction, and protecting wildlife for SDG 15: Life on Land.';
+        } else if (state.country === 'suriname') {
+          statement = isId ?
+            'Atas dedikasi luar biasa dalam menjelajahi hutan hujan Suriname, melindungi Berang-berang Raksasa dan Burung Cadas dari pencemaran tambang emas sungai, serta menjaga kehidupan satwa di darat untuk SDG 15.' :
+            'For outstanding dedication in exploring the lush rainforests of Suriname, defending the Giant Otter and Cock-of-the-rock from river gold mining pollution, and protecting wildlife for SDG 15: Life on Land.';
+        } else {
+          statement = isId ?
+            'Atas dedikasi luar biasa dalam menjelajahi pegunungan Andes Bolivia, melindungi Elang Kondor Andes dan Pohon Queñua dari pembukaan jalan tambang, serta menjaga kehidupan satwa di darat untuk SDG 15.' :
+            'For outstanding dedication in exploring the high Andes of Bolivia, defending the Andean Condor and Queñua trees against open-pit mining roads, and protecting wildlife for SDG 15: Life on Land.';
+        }
+      }
+      dom.certAchievementStatement.textContent = statement;
+    }
+
+    // Date & Signature Labels
+    if (dom.certDateValue) {
+      dom.certDateValue.textContent = isId ? 'Oktober 2026' : 'October 2026';
+    }
+    if (dom.certDateLabel) {
+      dom.certDateLabel.textContent = isId ? 'Tanggal Terbit' : 'Date Issued';
+    }
+    if (dom.certSignatureLabel) {
+      dom.certSignatureLabel.textContent = isId ? 'Pelindung Satwa Liar' : 'Wildlife Conservation Lead';
     }
   }
 
@@ -1026,12 +1104,11 @@
       });
     }
 
-    // 3 Picture Tiles Tabs
+    // 3 Picture Tiles Tabs (No auto-speech, promote independent reading)
     if (dom.tileLives) {
       dom.tileLives.addEventListener('click', () => {
         playTapBoop();
         renderCreatureTile('lives');
-        speakText(dom.tileContentText.textContent);
       });
     }
 
@@ -1039,7 +1116,6 @@
       dom.tileSpecial.addEventListener('click', () => {
         playTapBoop();
         renderCreatureTile('special');
-        speakText(dom.tileContentText.textContent);
       });
     }
 
@@ -1047,7 +1123,6 @@
       dom.tileThreats.addEventListener('click', () => {
         playTapBoop();
         renderCreatureTile('threats');
-        speakText(dom.tileContentText.textContent);
       });
     }
 
@@ -1143,11 +1218,16 @@
       dom.badgeStudentName.addEventListener('input', (e) => {
         state.studentName = e.target.value;
         saveStateKey(STORAGE_KEYS.STUDENT_NAME, state.studentName);
+        if (dom.certStudentNameDisplay) {
+          const isId = state.lang === 'id';
+          dom.certStudentNameDisplay.textContent = state.studentName.trim() || (isId ? 'PENJELAJAH CILIK' : 'SUPER EXPLORER');
+        }
       });
     }
 
     if (dom.btnPrintBadge) {
       dom.btnPrintBadge.addEventListener('click', () => {
+        playTapBoop();
         window.print();
       });
     }
