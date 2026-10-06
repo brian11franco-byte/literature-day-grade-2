@@ -1,6 +1,7 @@
 // ==========================================
 // ECO-EXPLORERS: GRADE 2 LITERATURE DAY 2026
 // Complete Bilingual Data (English & Bahasa Indonesia)
+// Normalized language keys: "en" and "id" across all sections
 // ==========================================
 
 const APP_DATA = {
@@ -20,34 +21,76 @@ const APP_DATA = {
       navNotebook: "Buku Halus Helper",
       navQuiz: "Fun Quiz",
       navSolutions: "How to Help",
+      navBadges: "Explorer Badges",
+      bottomNavExplore: "Explore",
+      bottomNavNotebook: "Notebook",
+      bottomNavQuiz: "Quiz",
+      bottomNavBadges: "Badges",
+      countryCardsHeading: "Choose Your Mission",
+      countryCardsSubhead: "Tap a country to start exploring its wildlife!",
+      switchCountryChip: "Change Country",
       filterAll: "🌟 All (6)",
       filterAnimals: "🐾 Animals (3)",
       filterPlants: "🌿 Plants (3)",
       readAloud: "Listen",
       stopAudio: "Stop",
+      speechSpeedSlow: "🐢 Slow",
+      speechSpeedNormal: "🐰 Normal",
+      quickReadTitle: "Quick Read",
+      fullStoryBtn: "📖 Full Story",
+      hideStoryBtn: "🔼 Short Story",
+      vocabTitle: "Vocabulary Words (Tap to hear):",
       zoomPhoto: "View Photo",
       closeModal: "Close",
       threatsTitle: "What is Threatening Nature Here?",
       countryProfileTitle: "Country Classroom Dossier",
       watchVideoBtn: "Watch Class Video",
-      notebookHelperTitle: "📝 Buku Halus Writing Helper",
+      videoPlayBadge: "Play Video",
+      notebookHelperTitle: "Buku Halus Writing Helper",
       notebookHelperDesc: "Practice answering your teacher's questions and combine them into complete paragraphs for your fine writing book!",
       selectCountryLabel: "1. Select Your Class & Country:",
       selectOrganismLabel: "2. Select an Animal or Plant to Describe:",
       tabCountryQuestions: "Country Questions (01 - 05)",
       tabOrganismQuestions: "Animal / Plant Questions (01 - 05)",
+      tryFirstTab: "✍️ Try First (Sentence Builder)",
+      modelAnswerTab: "📖 Show Model Answers",
+      wordBankTitle: "Word Bank (Tap words to build your answer):",
+      yourSentenceLabel: "Your Built Sentence:",
+      checkAnswerBtn: "Check with Model Answer",
+      modelAnswerLabel: "Teacher's Model Answer:",
+      clearSentenceBtn: "Reset Sentence",
       copyParagraphBtn: "📋 Copy Paragraph",
       copiedAlert: "Copied to clipboard! Now write it nicely in your Buku Halus!",
+      listenNotebookBtn: "🔊 Listen to Paragraph",
       printWorksheetBtn: "🖨️ Print Worksheet",
-      quizTitle: "🎮 Junior Explorer Quiz",
+      quizTitle: "Junior Explorer Quiz",
       quizSubhead: "Test what you learned about animals, plants, and mining!",
-      scoreLabel: "Score:",
+      quizProgress: "Question {current} of {total}",
+      quizScore: "Score:",
+      quizTryAgain: "Almost! Try one more time! 💪",
+      quizRetryBtn: "Try Again 🔄",
+      quizNextBtn: "Next Question ➡️",
+      quizFinishTitle: "🌟 Explorer Superstar!",
+      quizFinishMsg: "You completed the Junior Explorer Quiz! Fantastic job helping protect Life on Land!",
       restartQuiz: "Play Again 🔄",
-      solutionsTitle: "🛡️ 4 Ways We Can Protect Animals & Plants",
+      solutionsTitle: "4 Ways We Can Protect Animals & Plants",
       solutionsSubhead: "Action steps from our Science & English lessons to support SDG 15 (Life on Land)",
+      passportTitle: "Explorer Passport",
+      passportSubhead: "Collect stamps for every creature you meet, story you hear, and quiz you pass!",
+      passportProgress: "Passport Progress",
+      creaturesMet: "Creatures Met",
+      storiesHeard: "Stories Heard",
+      quizDone: "Quiz Passed",
+      stampUnlocked: "Stamp Unlocked!",
+      guardianBadgeTitle: "🛡️ Guardian of Nature Award",
+      guardianBadgeCongrats: "Congratulations, Super Explorer! You discovered every creature and completed all missions for SDG 15!",
+      namePrompt: "Explorer Name:",
+      namePlaceholder: "Type your name here...",
+      printBadgeBtn: "🖨️ Print Certificate",
+      audioUnsupported: "Speech audio is not available on this device.",
       footerCredit: "Prepared for Grade 2 Literature Day • Bulan Bahasa 2026 • SDG 15: Life on Land"
     },
-    id_lang: {
+    id: {
       siteTitle: "Petualang Bumi: Kehidupan di Darat",
       siteSubtitle: "Bulan Bahasa Oktober 2026 • Literature Day Kelas 2",
       sdgBadge: "SDG 15: Ekosistem Darat",
@@ -62,31 +105,73 @@ const APP_DATA = {
       navNotebook: "Bantuan Buku Halus",
       navQuiz: "Kuis Seru",
       navSolutions: "Solusi Kami",
+      navBadges: "Lencana Petualang",
+      bottomNavExplore: "Jelajah",
+      bottomNavNotebook: "Buku Halus",
+      bottomNavQuiz: "Kuis",
+      bottomNavBadges: "Lencana",
+      countryCardsHeading: "Pilih Misimu",
+      countryCardsSubhead: "Ketuk negara untuk mulai menjelajahi satwa dan tumbuhannya!",
+      switchCountryChip: "Ganti Negara",
       filterAll: "🌟 Semua (6)",
       filterAnimals: "🐾 Hewan (3)",
       filterPlants: "🌿 Tumbuhan (3)",
       readAloud: "Dengarkan",
       stopAudio: "Berhenti",
+      speechSpeedSlow: "🐢 Pelan",
+      speechSpeedNormal: "🐰 Normal",
+      quickReadTitle: "Baca Cepat",
+      fullStoryBtn: "📖 Cerita Lengkap",
+      hideStoryBtn: "🔼 Cerita Singkat",
+      vocabTitle: "Kata Kosakata (Ketuk untuk mendengar):",
       zoomPhoto: "Lihat Foto",
       closeModal: "Tutup",
       threatsTitle: "Apa Ancaman Alam di Negara Ini?",
       countryProfileTitle: "Profil Negara untuk Kelas",
       watchVideoBtn: "Tonton Video Kelas",
-      notebookHelperTitle: "📝 Panduan Menulis Buku Halus",
+      videoPlayBadge: "Putar Video",
+      notebookHelperTitle: "Panduan Menulis Buku Halus",
       notebookHelperDesc: "Latihan menjawab pertanyaan guru dan gabungkan menjadi satu paragraf rapi untuk ditulis di buku halusmu!",
       selectCountryLabel: "1. Pilih Kelas & Negaramu:",
       selectOrganismLabel: "2. Pilih Hewan atau Tumbuhan yang Ingin Diceritakan:",
       tabCountryQuestions: "Pertanyaan Negara (01 - 05)",
       tabOrganismQuestions: "Pertanyaan Hewan & Tumbuhan (01 - 05)",
+      tryFirstTab: "✍️ Coba Sendiri (Susun Kalimat)",
+      modelAnswerTab: "📖 Lihat Contoh Jawaban",
+      wordBankTitle: "Pilihan Kata (Ketuk kata untuk menyusun jawaban):",
+      yourSentenceLabel: "Kalimat yang Kamu Susun:",
+      checkAnswerBtn: "Bandingkan dengan Kunci Jawaban",
+      modelAnswerLabel: "Kunci Jawaban Guru:",
+      clearSentenceBtn: "Ulangi Kalimat",
       copyParagraphBtn: "📋 Salin Paragraf",
       copiedAlert: "Berhasil disalin! Sekarang tulis dengan tulisan tegak bersambung di Buku Halusmu ya!",
+      listenNotebookBtn: "🔊 Dengarkan Paragraf",
       printWorksheetBtn: "🖨️ Cetak Lembar Latihan",
-      quizTitle: "🎮 Kuis Petualang Cilik",
+      quizTitle: "Kuis Petualang Cilik",
       quizSubhead: "Uji pengetahuanmu tentang hewan, tumbuhan, dan dampak penambangan!",
-      scoreLabel: "Nilai:",
+      quizProgress: "Pertanyaan {current} dari {total}",
+      quizScore: "Nilai:",
+      quizTryAgain: "Hampir tepat! Coba sekali lagi ya! 💪",
+      quizRetryBtn: "Coba Lagi 🔄",
+      quizNextBtn: "Pertanyaan Berikutnya ➡️",
+      quizFinishTitle: "🌟 Penjelajah Hebat!",
+      quizFinishMsg: "Kamu berhasil menyelesaikan Kuis Petualang Cilik! Kerja hebat menjaga kehidupan di darat!",
       restartQuiz: "Main Lagi 🔄",
-      solutionsTitle: "🛡️ 4 Cara Kita Melindungi Hewan & Tumbuhan",
+      solutionsTitle: "4 Cara Kita Melindungi Hewan & Tumbuhan",
       solutionsSubhead: "Langkah nyata dari pelajaran Science & English untuk mendukung SDG 15 (Kehidupan di Darat)",
+      passportTitle: "Paspor Petualang",
+      passportSubhead: "Kumpulkan cap stempel untuk setiap satwa yang kamu temui, cerita yang didengar, dan kuis yang diselesaikan!",
+      passportProgress: "Progres Paspor",
+      creaturesMet: "Satwa Ditemui",
+      storiesHeard: "Cerita Didengar",
+      quizDone: "Kuis Selesai",
+      stampUnlocked: "Cap Terbuka!",
+      guardianBadgeTitle: "🛡️ Piagam Penjaga Alam Semesta",
+      guardianBadgeCongrats: "Selamat, Penjelajah Super! Kamu telah menemukan semua satwa dan menuntaskan misi SDG 15!",
+      namePrompt: "Nama Lengkapmu:",
+      namePlaceholder: "Ketik namamu di sini...",
+      printBadgeBtn: "🖨️ Cetak Piagam",
+      audioUnsupported: "Fitur audio suara tidak tersedia di perangkat ini.",
       footerCredit: "Disiapkan khusus untuk Literature Day Kelas 2 • Bulan Bahasa 2026 • SDG 15: Ekosistem Darat"
     }
   },
@@ -118,7 +203,7 @@ const APP_DATA = {
         ]
       }
     },
-    id_lang: {
+    id: {
       title: "Apa itu Deforestasi & Penambangan?",
       subtitle: "Materi penting dari pelajaran Bahasa Indonesia, Science, dan English",
       whatIsDeforestation: {
@@ -154,8 +239,11 @@ const APP_DATA = {
       id: "haiti",
       classCode: "2A",
       flagEmoji: "🇭🇹",
+      heroAnimalImage: "assets/images/haiti/hispaniolan_trogon.webp",
+      heroAnimalFallback: "assets/images/haiti/hispaniolan_trogon.jpg",
       videoUrl: "https://www.youtube.com/watch?v=EGhtv4UnxkA",
-      videoThumb: "assets/images/video_thumbnails/haiti_video.png",
+      videoThumb: "assets/images/video_thumbnails/haiti_video.webp",
+      videoThumbFallback: "assets/images/video_thumbnails/haiti_video.png",
       videoTitle: {
         en: "Class 2A Video: Unique & Fascinating Facts about Haiti",
         id: "Video Kelas 2A: Fakta Unik dan Menarik Haiti (Dunia Kita)"
@@ -173,7 +261,7 @@ const APP_DATA = {
         miningThreatsSummary: "Limestone quarries dig stone for cement, and metal open-pit strip mines scrape off the soil. Heavy bulldozers crush underground animal tunnels, while loggers cut down old mountain trees, leaving birds with no place to raise chicks.",
         combinedParagraph: "Haiti is located on the island of Hispaniola in the Caribbean Sea, and its capital city is Port-au-Prince. The people of Haiti speak French and Haitian Creole. Two interesting facts about Haiti are that it was the first independent Black republic in 1804 and it has ancient creatures that lived with dinosaurs. What makes Haiti unique is its name 'Ayiti' meaning 'Land of High Mountains', where rare mountain trogons and ancient solenodons live."
       },
-      id_lang: {
+      id: {
         name: "Haiti",
         location: "Laut Karibia, di bagian barat pulau tropis Hispaniola (berbatasan dengan Republik Dominika).",
         capital: "Port-au-Prince",
@@ -190,7 +278,8 @@ const APP_DATA = {
         {
           id: "hispaniolan_trogon",
           type: "animal",
-          image: "assets/images/haiti/hispaniolan_trogon.jpg",
+          image: "assets/images/haiti/hispaniolan_trogon.webp",
+          imageFallback: "assets/images/haiti/hispaniolan_trogon.jpg",
           scientificName: "Priotelus roseigaster",
           en: {
             name: "Hispaniolan Trogon",
@@ -198,21 +287,44 @@ const APP_DATA = {
             habitat: "Mountain pine forests and misty cloud forests in Haiti.",
             uniqueFeature: "It has a shimmering metallic green back and a bright crimson-red belly! It is the national bird of Haiti.",
             howItSurvives: "It eats wild fruits, berries, and large insects like cicadas. Because its beak is gentle, it cannot carve hard new wood — it must find soft, dead tree trunks ('snags') to build nest holes.",
-            whyThreatened: "When mines and logging roads clear the mountain forest, dead trees are knocked down first. Trogons are also afraid to fly across big, wide, barren mining pits, so they get trapped and cannot find enough fruit for their babies."
+            whyThreatened: "When mines and logging roads clear the mountain forest, dead trees are knocked down first. Trogons are also afraid to fly across big, wide, barren mining pits, so they get trapped and cannot find enough fruit for their babies.",
+            fullStory: "The Hispaniolan Trogon is Haiti's shimmering national bird. It lives high up in foggy mountain pine forests. Its beak is gentle, so it must find soft, dead tree trunks to make safe hollow nests. When stone quarries and timber loggers bulldoze old trees, trogons lose their hollow nesting homes and cannot find enough berry food for their chicks.",
+            quickRead: [
+              "The Hispaniolan Trogon is a colorful national bird of Haiti.",
+              "It needs soft dead trees to make safe nest holes.",
+              "Mining and tree cutting destroy its quiet forest home today."
+            ],
+            vocab: [
+              { word: "Trogon", meaning: "A colorful tropical forest bird that eats juicy fruits." },
+              { word: "Snag", meaning: "A dead standing tree that provides nesting holes for birds." },
+              { word: "Cloud Forest", meaning: "A misty, cool forest high up on tropical mountains." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Burung Trogon Hispaniola",
             typeLabel: "🐾 Burung (Hewan)",
             habitat: "Hutan pinus pegunungan dan hutan awan berkabut di Haiti.",
             uniqueFeature: "Punggungnya berwarna hijau berkilau seperti zamrud dan perutnya berwarna merah menyala! Burung ini adalah burung nasional negara Haiti.",
             howItSurvives: "Memakan buah-buahan hutan, buah beri, dan serangga. Burung ini tidak bisa melubangi kayu keras, jadi ia harus mencari batang pohon mati yang sudah lunak untuk membuat lubang sarang bertelur.",
-            whyThreatened: "Saat tambang dan jalan membuka hutan, pohon-pohon mati ditebang dan dibuang. Burung trogon juga takut terbang melewati lubang tambang terbuka yang gundul dan lebar, sehingga tidak bisa mencari makan untuk anak-anaknya."
+            whyThreatened: "Saat tambang dan jalan membuka hutan, pohon-pohon mati ditebang dan dibuang. Burung trogon juga takut terbang melewati lubang tambang terbuka yang gundul dan lebar, sehingga tidak bisa mencari makan untuk anak-anaknya.",
+            fullStory: "Burung Trogon Hispaniola adalah burung nasional Haiti berbulu hijau zamrud dan berparuh lembut. Mereka tinggal di hutan berkabut pegunungan tinggi. Karena paruhnya tidak bisa melubangi pohon keras, trogon mencari batang pohon tua lapuk untuk bertelur. Tambang terbuka dan penebangan liar merobohkan pohon lapuk sehingga anak-anak burung kehilangan tempat berteduh.",
+            quickRead: [
+              "Burung Trogon adalah burung nasional Haiti berbulu hijau zamrud indah.",
+              "Burung ini membuat sarang di dalam batang pohon tua lunak.",
+              "Penebangan pohon dan tambang merusak sarang burung trogon ini."
+            ],
+            vocab: [
+              { word: "Trogon", meaning: "Burung hutan tropis berwarna indah pemakan buah." },
+              { word: "Pohon Lapuk", meaning: "Batang pohon tua yang berlubang untuk sarang bertelur." },
+              { word: "Hutan Awan", meaning: "Hutan sejuk berkabut di lereng gunung tinggi." }
+            ]
           }
         },
         {
           id: "least_pauraque",
           type: "animal",
-          image: "assets/images/haiti/least_pauraque.jpg",
+          image: "assets/images/haiti/least_pauraque.webp",
+          imageFallback: "assets/images/haiti/least_pauraque.jpg",
           scientificName: "Siphonorhis brewsteri",
           en: {
             name: "Least Pauraque",
@@ -220,21 +332,44 @@ const APP_DATA = {
             habitat: "Dry scrublands and rocky limestone forests on the ground.",
             uniqueFeature: "Master of camouflage! Its brown mottled feathers look exactly like dry leaves and limestone rocks, making it nearly invisible when sleeping on the forest floor.",
             howItSurvives: "It rests quietly on the ground all day and flies out at dusk to catch flying beetles and moths with its wide mouth.",
-            whyThreatened: "Limestone quarries dig up rocks and crush the ground to make cement. Big excavators scrape away all leaves and rocks down to flat stone, leaving this ground-nesting bird with zero hiding spots to protect its eggs."
+            whyThreatened: "Limestone quarries dig up rocks and crush the ground to make cement. Big excavators scrape away all leaves and rocks down to flat stone, leaving this ground-nesting bird with zero hiding spots to protect its eggs.",
+            fullStory: "The Least Pauraque is a tiny ground bird with brown speckled feathers that match dry limestone rocks perfectly. It sleeps hidden on the forest floor during hot sunny days. At night, it opens its wide mouth to catch flying night moths. Stone quarries scrape away the rocks and leaves, leaving this bird with nowhere to hide its delicate eggs.",
+            quickRead: [
+              "The Least Pauraque is a clever little night bird.",
+              "Its brown mottled feathers hide it among dry leaves safely.",
+              "Limestone quarries scrape away the forest floor and rocks."
+            ],
+            vocab: [
+              { word: "Camouflage", meaning: "Special coloring that helps an animal blend into nature." },
+              { word: "Scrubland", meaning: "Dry land with bushes and small thorny plants." },
+              { word: "Quarry", meaning: "A deep open pit where builders dig out heavy rock." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Burung Pauraque Kerdil",
             typeLabel: "🐾 Burung (Hewan)",
             habitat: "Semak belukar kering dan lantai hutan berbatu kapur.",
             uniqueFeature: "Ahli menyamar (kamuflase)! Bulu cokelatnya bermotif persis daun kering dan bebatuan, sehingga musuh tidak bisa melihatnya saat ia tidur di atas tanah.",
             howItSurvives: "Beristirahat diam di permukaan tanah sepanjang siang, lalu terbang di malam hari untuk menangkap ngengat dan kumbang dengan paruhnya yang terbuka lebar.",
-            whyThreatened: "Pekerja tambang batu kapur mengeruk batu untuk pabrik semen. Buldoser mengupas permukaan tanah hingga menjadi batu telanjang, sehingga burung ini tidak memiliki tempat lagi untuk menyembunyikan telur dan serangga makanannya lenyap."
+            whyThreatened: "Pekerja tambang batu kapur mengeruk batu untuk pabrik semen. Buldoser mengupas permukaan tanah hingga menjadi batu telanjang, sehingga burung ini tidak memiliki tempat lagi untuk menyembunyikan telur dan serangga makanannya lenyap.",
+            fullStory: "Burung Pauraque Kerdil bersembunyi di tanah semak kering. Bulu cokelat belangnya menyamar persis seperti daun kering dan pecahan batu kapur sehingga tidak terlihat oleh musuh. Di malam hari, ia terbang menangkap kumbang. Pengerukan tambang kapur mengupas tanah dan merusak sarang telur burung ini di lantai hutan.",
+            quickRead: [
+              "Burung Pauraque adalah burung kecil yang aktif di malam hari.",
+              "Bulu cokelatnya menyamar persis seperti daun kering di tanah.",
+              "Pengerukan tambang batu kapur merusak sarangnya di atas tanah."
+            ],
+            vocab: [
+              { word: "Kamuflase", meaning: "Warna tubuh yang menyamar persis seperti lingkungan sekitar." },
+              { word: "Semak Belukar", meaning: "Lahan kering yang ditumbuhi tanaman perdu rendah." },
+              { word: "Tambang Kapur", meaning: "Tempat menggali batu kapur untuk membuat semen." }
+            ]
           }
         },
         {
           id: "hispaniolan_solenodon",
           type: "animal",
-          image: "assets/images/haiti/hispaniolan_solenodon.jpg",
+          image: "assets/images/haiti/hispaniolan_solenodon.webp",
+          imageFallback: "assets/images/haiti/hispaniolan_solenodon.jpg",
           scientificName: "Solenodon paradoxus",
           en: {
             name: "Hispaniolan Solenodon",
@@ -242,81 +377,172 @@ const APP_DATA = {
             habitat: "Dense forests with moist soil, deep caves, and rock piles.",
             uniqueFeature: "It looks like a giant shrew with a long, flexible, wiggly nose, and it is one of the only venomous mammals on Earth! Its teeth deliver venom to slow down insects.",
             howItSurvives: "It sleeps in long underground tunnels during the day. At night, it wiggles its flexible snout through moist dirt to sniff out crickets, grubs, and centipedes.",
-            whyThreatened: "Heavy mining bulldozers roll over the ground and crush underground tunnel systems, trapping solenodons inside. Mining strips away moist leaf litter, while new mine roads bring stray dogs that hunt this slow-moving creature."
+            whyThreatened: "Heavy mining bulldozers roll over the ground and crush underground tunnel systems, trapping solenodons inside. Mining strips away moist leaf litter, while new mine roads bring stray dogs that hunt this slow-moving creature.",
+            fullStory: "The Solenodon is an ancient creature that survived since the time of the dinosaurs. It has a wiggly snout and venomous bottom teeth to slow down tasty centipedes. It sleeps safely inside deep cool burrows under moist leaves. Big bulldozers crush its underground home, making it very rare today.",
+            quickRead: [
+              "The Hispaniolan Solenodon is an ancient shrew with venomous teeth.",
+              "It digs underground burrows and sniffs for tiny insects.",
+              "Heavy mining bulldozers crush its dark tunnels and moist soil."
+            ],
+            vocab: [
+              { word: "Venomous", meaning: "Having a natural mild poison used to catch insects." },
+              { word: "Burrow", meaning: "A cozy tunnel dug into the ground by small animals." },
+              { word: "Ancient", meaning: "Extremely old, living since the era of dinosaurs." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Solenodon Hispaniola",
             typeLabel: "🐾 Mamalia (Hewan)",
             habitat: "Hutan lebat dengan tanah lembap, gua kapur, dan celah bebatuan.",
-            uniqueFeature: "Bentuknya mirip celurut besar dengan hidung panjang yang bisa bergoyang fleksibel! Hewan ini adalah salah satu dari sedikit mamalia berbisa di dunia.",
-            howItSurvives: "Tidur di dalam lorong terowongan bawah tanah di siang hari. Pada malam hari, hidungnya yang lentur mengendus tanah gembur untuk berburu jangkrik dan cacing.",
-            whyThreatened: "Buldoser tambang yang berat meratakan tanah dan menghancurkan terowongan bawah tanah, mengurung solenodon di dalamnya. Tambang juga membuat tanah mengering, dan jalan tambang membawa anjing liar yang memangsa solenodon."
+            uniqueFeature: "Mirip tikus raksasa bermoncong panjang lentur dan merupakan salah satu mamalia berbisa langka di dunia! Giginya menyalurkan bisa untuk melumpuhkan serangga.",
+            howItSurvives: "Tidur di terowongan bawah tanah di siang hari. Pada malam hari, mengendus tanah lembap untuk mencari jangkrik, ulat, dan kelabang.",
+            whyThreatened: "Buldoser tambang yang berat meratakan tanah dan menghancurkan terowongan bawah tanah, menjebak solenodon di dalamnya. Jalan tambang baru juga membawa hewan pemangsa yang mengancam hewan lambat ini.",
+            fullStory: "Solenodon adalah hewan purba langka yang sudah hidup sejak zaman dinosaurus. Moncongnya yang panjang dapat bergoyang mengendus ulat di dalam tanah lembap. Gigi bawahnya memiliki bisa khusus untuk menangkap serangga. Buldoser tambang yang berat merusak liang tempat tidurnya di bawah tanah.",
+            quickRead: [
+              "Solenodon adalah mamalia purba dengan moncong panjang dan berbisa.",
+              "Hewan ini tidur di dalam lubang tanah yang lembap.",
+              "Buldoser tambang yang berat meratakan dan merusak liang sarangnya."
+            ],
+            vocab: [
+              { word: "Berbisa", meaning: "Memiliki zat alami untuk melumpuhkan serangga mangsa." },
+              { word: "Liang Tanah", meaning: "Terowongan tempat hewan tidur dan bersembunyi di tanah." },
+              { word: "Purba", meaning: "Sangat tua, sudah ada sejak zaman dinosaurus." }
+            ]
           }
         },
         {
           id: "cherry_palm",
           type: "plant",
-          image: "assets/images/haiti/cherry_palm.jpg",
+          image: "assets/images/haiti/cherry_palm.webp",
+          imageFallback: "assets/images/haiti/cherry_palm.jpg",
           scientificName: "Pseudophoenix ekmanii",
           en: {
             name: "Oviedo's Cherry Palm",
             typeLabel: "🌿 Palm Tree (Plant)",
-            habitat: "Harsh, rocky limestone plateaus near the coast.",
-            uniqueFeature: "It has a swollen, pot-bellied trunk that stores water during dry seasons! It grows extremely slowly on solid limestone rock.",
-            howItSurvives: "It wedges its roots tightly into small cracks and crevices in limestone rocks to capture moisture and nutrients.",
-            whyThreatened: "Limestone quarries smash mature palms with heavy excavators and blast away the rocky pockets where baby palm seeds sprout, leaving no new saplings to replace old trees."
+            habitat: "Dry limestone terraces and rocky coastal hills of Hispaniola.",
+            uniqueFeature: "A swollen trunk that looks like a pot-bellied bottle and clusters of bright red cherry-like fruits! It grows extremely slowly, sometimes taking 100 years to reach full height.",
+            howItSurvives: "Its swollen trunk acts as an internal water jug, storing moisture through scorching dry seasons on dry rock.",
+            whyThreatened: "Limestone quarries blast away the rocky cliffs where this palm roots itself. Because it grows at a snail's pace, when one tree is cut down or bulldozed, it cannot be replaced in a human lifetime.",
+            fullStory: "Oviedo's Cherry Palm has a friendly pot-bellied trunk that stores sweet water during dry summers. It produces bright red berries that hungry birds feast on. Because it takes nearly one hundred years to grow tall, mining dynamite that crushes rocky hills destroys seedlings that cannot be replaced quickly.",
+            quickRead: [
+              "The Cherry Palm is a rare tree growing in Haiti.",
+              "It produces tiny red fruits that wild animals love eating.",
+              "Quarries dig out the limestone hills where it grows slowly."
+            ],
+            vocab: [
+              { word: "Limestone", meaning: "A light rocky stone dug up to make construction cement." },
+              { word: "Extinction", meaning: "When all living members of a plant disappear forever." },
+              { word: "Seedling", meaning: "A very young plant that just sprouted from a seed." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Palem Ceri Oviedo",
             typeLabel: "🌿 Pohon Palem (Tumbuhan)",
-            habitat: "Tebing dan dataran tinggi berbatu kapur keras di dekat pantai.",
-            uniqueFeature: "Batangnya unik menggembung bulat seperti kendi atau perut buncit untuk menyimpan cadangan air! Pohon ini tumbuh sangat lambat di atas batu karang.",
-            howItSurvives: "Menyusupkan akar-akarnya ke celah-celah kecil bebatuan kapur untuk menyerap sedikit air dan mineral.",
-            whyThreatened: "Alat pengeruk tambang batu menghancurkan pohon palem dewasa dan merusak celah-celah batu tempat benih kecil tumbuh, sehingga pohon baru tidak bisa bertunas lagi."
+            habitat: "Teras batuan kapur kering dan perbukitan karang di Hispaniola.",
+            uniqueFeature: "Batangnya menggelembung seperti botol gemuk dan menghasilkan untaian buah ceri merah cerah! Tumbuhnya sangat lambat, butuh puluhan hingga seratus tahun untuk dewasa.",
+            howItSurvives: "Batangnya yang gemuk berfungsi sebagai kendi penyimpan air alami selama musim kemarau terik di atas bebatuan tandus.",
+            whyThreatened: "Penambang batu kapur meledakkan tebing karang tempat palem ini menancapkan akarnya. Karena pertumbuhannya sangat lambat, pohon yang ditebang atau digusur sulit digantikan dalam waktu singkat.",
+            fullStory: "Palem Ceri Oviedo memiliki batang unik yang menggembung menyerupai botol kendi penyimpan air. Di pucuknya, tergantung untaian buah ceri merah santapan burung. Pertumbuhannya sangat lambat, memerlukan puluhan tahun. Ledakan tambang batu kapur menghancurkan bukit karang tempat tumbuhnya.",
+            quickRead: [
+              "Palem Ceri Oviedo adalah pohon palem langka di Haiti.",
+              "Pohon ini menghasilkan buah ceri merah untuk makanan satwa.",
+              "Pengerukan batu kapur merusak bukit tempat pohon ini bertumbuh."
+            ],
+            vocab: [
+              { word: "Batu Kapur", meaning: "Batuan putih yang sering ditambang untuk bahan semen." },
+              { word: "Kepunahan", meaning: "Keadaan saat tumbuhan habis dan tidak tersisa lagi." },
+              { word: "Tunas", meaning: "Tumbuhan yang masih sangat muda dan baru tumbuh." }
+            ]
           }
         },
         {
           id: "bayahibe_rose",
           type: "plant",
-          image: "assets/images/haiti/bayahibe_rose.jpg",
+          image: "assets/images/haiti/bayahibe_rose.webp",
+          imageFallback: "assets/images/haiti/bayahibe_rose.jpg",
           scientificName: "Leuenbergeria quisqueyana",
           en: {
             name: "Bayahibe Rose",
-            typeLabel: "🌿 Cactus (Plant)",
-            habitat: "Dry coastal rocky limestone areas.",
-            uniqueFeature: "Even though it is technically a cactus, it has real, glossy green leaves and blooms with stunning bright pink flowers with delicate petals!",
-            howItSurvives: "It has spiny branches and thick leaves that allow it to survive fierce Caribbean heat and droughts.",
-            whyThreatened: "It only survives in a few small rocky spots. Road building machines, rock digging, and dynamite blasting scrape away the stony cliffs where it clings."
+            typeLabel: "🌿 Flowering Cactus (Plant)",
+            habitat: "Dry scrub forests and rocky coastal thickets.",
+            uniqueFeature: "One of the only cacti in the entire world that has real green leaves! It blooms with delicate, bright pink flowers with yellow centers.",
+            howItSurvives: "It has protective thorns along its bark to stop animals from eating its tender leaves, and it drops leaves in severe drought to keep its stems hydrated.",
+            whyThreatened: "Critically Endangered! Fewer than a few hundred wild plants remain. Metal mining, road clearing, and urban spread have bulldozed almost all of its scrubland homes.",
+            fullStory: "The Bayahibe Rose is a magical cactus with real green leaves and sweet pink blossoms. Sharp thorns guard its stem so desert goats do not chew it. Today it is one of the rarest plants on Earth because mining machinery bulldozed almost all of the coastal thickets where it lives.",
+            quickRead: [
+              "The Bayahibe Rose is a cactus with lovely pink flowers.",
+              "Sharp thorns protect its thick green leaves from hungry animals.",
+              "Clearing land for open-pit mining uproots these rare desert cacti."
+            ],
+            vocab: [
+              { word: "Succulent", meaning: "A juicy plant that stores water inside its stems." },
+              { word: "Cactus", meaning: "A prickly plant that thrives under bright warm sunshine." },
+              { word: "Habitat", meaning: "The natural outdoor home where a plant or animal lives." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Mawar Bayahibe",
             typeLabel: "🌿 Kaktus Berbunga (Tumbuhan)",
-            habitat: "Daerah bebatuan kapur kering di dekat pantai.",
-            uniqueFeature: "Walaupun sebenarnya termasuk keluarga kaktus, ia memiliki daun hijau asli yang lebar dan bunga berwarna merah muda (pink) yang sangat cantik!",
-            howItSurvives: "Batangnya berduri dan daunnya tebal sehingga mampu menahan panas terik matahari pesisir Karibia tanpa cepat layu.",
-            whyThreatened: "Populasinya sangat sedikit. Mesin pengeruk jalan dan peledakan batu kapur mengikis habis tanah berbatu tempat tanaman langka ini menempel."
+            habitat: "Semak belukar kering dan hutan pantai berbatu.",
+            uniqueFeature: "Salah satu jenis kaktus langka di dunia yang memiliki daun hijau sejati! Mahkota bunganya berwarna merah muda cerah dengan putik kuning.",
+            howItSurvives: "Memiliki duri tajam di batangnya untuk mencegah hewan memakan daunnya yang segar, dan dapat merontokkan daun saat kemarau panjang agar tidak kekeringan.",
+            whyThreatened: "Sangat Kritis Terancam Punah! Hanya tersisa sedikit di alam liar. Pembukaan tambang, pembuatan jalan, dan pembangunan kota telah menggusur habitat aslinya.",
+            fullStory: "Mawar Bayahibe adalah kaktus unik yang memiliki daun hijau lebar serta bunga merah muda yang anggun. Duri tajam di sekeliling batangnya menjaga kaktus ini dari hewan pemakan daun. Jumlahnya kini sangat sedikit di dunia karena lahan semak aslinya diratakan oleh tambang dan pembangunan.",
+            quickRead: [
+              "Mawar Bayahibe adalah kaktus unik berbunga merah muda cerah.",
+              "Duri tajamnya melindungi daun hijau dari hewan yang lapar.",
+              "Pembukaan tambang terbuka mencabut kaktus langka ini dari akarnya."
+            ],
+            vocab: [
+              { word: "Kaktus", meaning: "Tanaman berduri yang mampu menyimpan air di batangnya." },
+              { word: "Duri", meaning: "Bagian tajam pada tanaman untuk melindungi diri dari hewan." },
+              { word: "Habitat", meaning: "Tempat alami tempat tumbuhan dan hewan hidup tenteram." }
+            ]
           }
         },
         {
           id: "hispaniolan_pine",
           type: "plant",
-          image: "assets/images/haiti/hispaniolan_pine.jpg",
+          image: "assets/images/haiti/hispaniolan_pine.webp",
+          imageFallback: "assets/images/haiti/hispaniolan_pine.jpg",
           scientificName: "Pinus occidentalis",
           en: {
             name: "Hispaniolan Pine",
-            typeLabel: "🌿 Pine Tree (Plant)",
-            habitat: "High, chilly mountain slopes and ridges.",
-            uniqueFeature: "A majestic mountain conifer that can grow in chilly temperatures and thin mountain air, forming the backbone of the island's mountain forests.",
-            howItSurvives: "Its roots partner with special subterranean mushrooms (mycorrhizae) that help the tree gather nutrients from poor rocky soil.",
-            whyThreatened: "Open-pit strip mines scrape off the entire layer of topsoil down to bedrock. Without soil and the helpful mushrooms, young pine seeds cannot grow back."
+            typeLabel: "🌿 Mountain Pine Tree (Plant)",
+            habitat: "High misty mountain ridges and steep slopes above 1,000 meters.",
+            uniqueFeature: "The backbone of Haiti's mountain forests! It grows tall needle leaves that trap moisture from passing mountain clouds to make fresh rainwater for rivers.",
+            howItSurvives: "Its tough, resinous pine wood resists cold mountain winds and its deep root web grips steep soil to prevent dangerous mudslides.",
+            whyThreatened: "Mining companies cut down pine forests to build dirt access roads for heavy dump trucks. Without pine roots, mountain rain washes the topsoil away in dangerous mudslides.",
+            fullStory: "The Hispaniolan Pine stands tall like a green mountain guardian. Its long needle leaves catch misty cloud drops that trickle down to fill mountain rivers. Deep pine roots lock wet dirt in place. When miners cut down these tall pines to build hauling roads, steep mudslides wash away fertile soil.",
+            quickRead: [
+              "The Hispaniolan Pine grows tall on high mountain peaks.",
+              "Its strong roots hold steep soil so mudslides do not happen.",
+              "Mining roads and illegal logging cut down these great guardian trees."
+            ],
+            vocab: [
+              { word: "Canopy", meaning: "The high leafy roof formed by tall forest trees." },
+              { word: "Landslide", meaning: "Heavy mud and rocks sliding down a steep mountain." },
+              { word: "Erosion", meaning: "When rain washes away soil because no tree roots hold it." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Pinus Hispaniola",
-            typeLabel: "🌿 Pohon Pinus (Tumbuhan)",
-            habitat: "Lereng pegunungan tinggi yang berhawa dingin dan berkabut.",
-            uniqueFeature: "Pohon pinus pegunungan yang sangat tinggi dan kokoh, mampu bertahan di udara dingin pegunungan Karibia.",
-            howItSurvives: "Akarnya bersahabat dengan jamur hutan mikoriza di dalam tanah yang membantunya menyerap makanan dan air dari tanah berbatu.",
-            whyThreatened: "Tambang terbuka mengikis habis seluruh lapisan tanah subur. Tanpa tanah dan jamur pelindung, tunas pinus yang baru tidak bisa tumbuh kembali."
+            typeLabel: "🌿 Pohon Pinus Gunung (Tumbuhan)",
+            habitat: "Punggung pegunungan berkabut dan lereng curam di atas 1.000 meter.",
+            uniqueFeature: "Tulang punggung hutan pegunungan Haiti! Daun jarumnya menyaring butiran air dari kabut awan menjadi tetesan air bersih bagi sungai.",
+            howItSurvives: "Kayunya kaya getah tahan terhadap angin dingin gunung, dan jalinan akarnya yang dalam mencengkeram tanah lereng agar tidak terjadi tanah longsor.",
+            whyThreatened: "Perusahaan tambang membabat hutan pinus untuk membuat jalan truk pembawa tanah dan batu. Tanpa akar pinus, tanah lereng runtuh tersapu banjir longsor saat musim hujan.",
+            fullStory: "Pinus Hispaniola tumbuh gagah di puncak pegunungan Haiti. Daun jarumnya menyerap kabut dingin menjadi tetesan mata air bersih. Jaringan akarnya yang kokoh mengikat tanah lereng gunung. Saat perusahaan tambang menebang pohon pinus ini untuk membuka jalan truk, tebing gunung rawan runtuh.",
+            quickRead: [
+              "Pohon Pinus Hispaniola tumbuh gagah di puncak gunung tinggi.",
+              "Akar kuatnya mengikat tanah agar tidak terjadi tanah longsor.",
+              "Jalan tambang dan penebangan liar merobohkan pohon pelindung ini."
+            ],
+            vocab: [
+              { word: "Tajuk Hutan", meaning: "Bagian atas pepohonan rindang yang menyerupai payung raksasa." },
+              { word: "Tanah Longsor", meaning: "Tanah yang runtuh ke bawah tebing saat hujan lebat." },
+              { word: "Erosi", meaning: "Lapisan tanah subur yang terbawa air karena pohon ditebang." }
+            ]
           }
         }
       ]
@@ -329,169 +555,310 @@ const APP_DATA = {
       id: "suriname",
       classCode: "2B",
       flagEmoji: "🇸🇷",
+      heroAnimalImage: "assets/images/suriname/harpy_eagle.webp",
+      heroAnimalFallback: "assets/images/suriname/harpy_eagle.jpg",
       videoUrl: "https://www.youtube.com/watch?v=YckyTV4V2FE",
-      videoThumb: "assets/images/video_thumbnails/suriname_video.jpg",
+      videoThumb: "assets/images/video_thumbnails/suriname_video.webp",
+      videoThumbFallback: "assets/images/video_thumbnails/suriname_video.jpg",
       videoTitle: {
         en: "Class 2B Video: Suriname - The Javanese Sister Country in South America!",
         id: "Video Kelas 2B: Keturunan Asli Suku Jawa di Benua Amerika! Fakta Suriname"
       },
       en: {
         name: "Suriname",
-        location: "Northeast coast of South America, bordered by French Guiana, Guyana, and Brazil.",
+        location: "Northeastern coast of South America, bordered by French Guiana, Guyana, and Brazil.",
         capital: "Paramaribo",
-        languages: "Dutch (official), Sranan Tongo, Javanese, Sarnami Hindustani, English",
+        languages: "Dutch (official), Sranan Tongo, and Suriname Javanese (Basa Jawa Suriname)",
         interestingFacts: [
-          "Suriname is the greenest country on Earth — over 90% of its land is covered by dense rainforest!",
-          "Suriname has a huge population of Javanese people who moved from Indonesia over 100 years ago and still speak Javanese today!"
+          "Suriname has a large Javanese community who traveled there over 130 years ago and still speak Javanese today!",
+          "Suriname is the most forested country in the world — over 90% of its land is covered in lush green rainforest!"
         ],
-        uniqueness: "Suriname connects South America with Indonesian culture! You can hear Javanese spoken on the streets of Paramaribo and eat delicious Saoto soup right beside the Amazon rainforest.",
-        miningThreatsSummary: "Gold mining boats (dredges) use high-pressure water cannons that wash away riverbanks. Miners cut wide roads through the trees and use mercury, while rock blasting destroys steep mountain caves and nests.",
-        combinedParagraph: "Suriname is located on the northeastern coast of South America, and its capital city is Paramaribo. The official language is Dutch, but many people also speak Sranan Tongo and Javanese. Two interesting facts about Suriname are that more than 90% of its land is covered by rainforest and it is home to many Javanese people from Indonesia. What makes Suriname unique is its amazing mix of Amazonian wildlife and Indonesian cultural heritage."
+        uniqueness: "Suriname has magnificent granite rock mountains ('inselbergs') rising high above the green rainforest canopy, where extraordinary orange birds and eagles make homes.",
+        miningThreatsSummary: "Bauxite mining clears giant swaths of rainforest to extract aluminum ore, and river gold mining dredges release poisonous mercury into pristine rivers. Toxic sediment clouds river water, while roads carve wide barriers through the tree canopy.",
+        combinedParagraph: "Suriname is located on the northeastern coast of South America, and its capital city is Paramaribo. The languages spoken there include Dutch, Sranan Tongo, and Javanese. Two interesting facts about Suriname are that it has a large Javanese community and over 90% of its land is covered in thick rainforest. What makes Suriname unique are its towering granite inselberg mountains and giant trees where harpy eagles and colorful margay cats roam freely."
       },
-      id_lang: {
+      id: {
         name: "Suriname",
-        location: "Pesisir timur laut Benua Amerika Selatan, di antara Guyana, Guyana Prancis, dan Brasil.",
+        location: "Pesisir timur laut Amerika Selatan, berbatasan dengan Guyana Prancis, Guyana, dan Brasil.",
         capital: "Paramaribo",
-        languages: "Bahasa Belanda (resmi), Sranan Tongo, Bahasa Jawa, Hindustani, Inggris",
+        languages: "Bahasa Belanda (resmi), Sranan Tongo, dan Bahasa Jawa Suriname",
         interestingFacts: [
-          "Suriname adalah negara terhijau di dunia karena lebih dari 90% wilayahnya masih tertutup hutan hujan lebat!",
-          "Banyak penduduk Suriname adalah keturunan suku Jawa dari Indonesia yang merantau seabad lalu dan masih fasih berbahasa Jawa!"
+          "Suriname memiliki komunitas besar keturunan suku Jawa yang pindah ke sana sejak 130 tahun lalu dan masih fasih berbahasa Jawa!",
+          "Suriname adalah negara paling hijau di dunia — lebih dari 90% wilayahnya diselimuti hutan hujan tropis lebat!"
         ],
-        uniqueness: "Suriname adalah 'saudara jauh' Indonesia di Benua Amerika! Di sana kita bisa mendengar bahasa Jawa, melihat wayang, dan makan soto saoto di tepi hutan hujan Amazon.",
-        miningThreatsSummary: "Kapal tambang emas menyemprotkan air bertekanan tinggi yang meruntuhkan tebing sungai. Tambang membuka jalan tanah lebar yang membelah kanopi hutan, serta dinamit menghancurkan tebing sarang burung.",
-        combinedParagraph: "Negara Suriname terletak di bagian timur laut Benua Amerika Selatan, dan ibukotanya adalah Paramaribo. Bahasa resmi yang digunakan adalah Bahasa Belanda, serta banyak masyarakatnya menggunakan Bahasa Sranan Tongo dan Bahasa Jawa. Dua fakta menarik tentang Suriname adalah lebih dari 90% wilayahnya berupa hutan hujan lebat dan memiliki banyak warga keturunan suku Jawa dari Indonesia. Yang membuat Suriname unik adalah hubungan budayanya yang sangat dekat dengan Indonesia di tengah kekayaan alam Amazon."
+        uniqueness: "Suriname memiliki pegunungan batu granit raksasa ('inselberg') yang menjulang di tengah hutan belantara, tempat elang harpy raksasa dan burung oranye unik bersarang.",
+        miningThreatsSummary: "Tambang bauksit membabat hamparan hutan hujan untuk mengambil bijih aluminium, dan tambang emas sungai membuang merkuri beracun ke aliran air bersih. Sungai menjadi keruh dan jalan tambang memutus jembatan tajuk pohon tempat margay melompat.",
+        combinedParagraph: "Negara Suriname terletak di pesisir timur laut Benua Amerika Selatan, dan ibukotanya adalah Paramaribo. Bahasa yang digunakan masyarakatnya antara lain Bahasa Belanda, Sranan Tongo, dan Bahasa Jawa. Dua fakta menarik tentang Suriname adalah adanya warga keturunan Jawa yang masih berbahasa Jawa dan lebih dari 90% wilayahnya berupa hutan rimba alami. Yang membuat Suriname unik adalah bukit batu granit megah di tengah hutan hujan tempat elang harpy perkasa dan kucing margay hidup harmonis."
       },
       organisms: [
         {
           id: "harpy_eagle",
           type: "animal",
-          image: "assets/images/suriname/harpy_eagle.jpg",
+          image: "assets/images/suriname/harpy_eagle.webp",
+          imageFallback: "assets/images/suriname/harpy_eagle.jpg",
           scientificName: "Harpia harpyja",
           en: {
             name: "Harpy Eagle",
             typeLabel: "🐾 Bird of Prey (Animal)",
-            habitat: "Canopy of giant emergent trees in dense Amazonian rainforests.",
-            uniqueFeature: "One of the biggest and most powerful eagles on the planet! Its talons (claws) are as large as the claws of a grizzly bear, and it has an expressive double feather crest.",
-            howItSurvives: "It flies silently through the high treetops to hunt tree-dwelling sloths and monkeys, bringing food back to its massive tree nest.",
-            whyThreatened: "When loggers and miners cut down more than half the tall trees, sloths and monkeys vanish. Mother and father eagles cannot find enough food, and their fluffy baby chick starves in the nest."
+            habitat: "Lowland tropical rainforests with towering emergent trees.",
+            uniqueFeature: "The most powerful eagle on Earth! Its giant curved claws (talons) are as big as grizzly bear claws, and its wingspan stretches over 2 meters wide.",
+            howItSurvives: "It flies silently through the rainforest canopy to hunt tree-dwelling animals like sloths and monkeys, building giant stick nests in the highest forks of huge trees.",
+            whyThreatened: "Bauxite strip mines cut down the biggest, oldest trees in the forest. Because harpy eagles need giant trees that take centuries to grow, when these giants are chopped down, eagles have nowhere safe to build nests.",
+            fullStory: "The Harpy Eagle is the strongest eagle in South America. Its dark talons are as big as a grizzly bear's claws, helping it fly silently under the jungle canopy. It builds massive nests high in the forks of ancient hardwood trees. When bauxite mining flattens old forest giants, mother eagles cannot find safe nests to raise their chicks.",
+            quickRead: [
+              "The Harpy Eagle is the strongest eagle in South America.",
+              "It builds large nests in the crowns of giant trees.",
+              "Bauxite strip mines cut down huge trees needed for nesting."
+            ],
+            vocab: [
+              { word: "Talons", meaning: "Sharp curved claws used by hunting birds to catch prey." },
+              { word: "Raptor", meaning: "A bird of prey that flies high and hunts smaller animals." },
+              { word: "Apex Predator", meaning: "An animal at the top of the food chain with no natural hunters." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Elang Harpy",
             typeLabel: "🐾 Burung Pemangsa (Hewan)",
-            habitat: "Tajuk pohon raksasa tertinggi di hutan hujan Amazon Suriname.",
-            uniqueFeature: "Salah satu elang terbesar dan terkuat di muka bumi! Cakarnya sebesar cakar beruang grizzly dan memiliki jambul bulu ganda yang gagah di kepalanya.",
-            howItSurvives: "Terbang lincah di antara rimbunnya dedaunan tinggi untuk berburu kukang (sloth) dan monyet, lalu membawanya pulang ke sarang ranting raksasa.",
-            whyThreatened: "Ketika penebang dan penambang menebang lebih dari separuh pohon tinggi, monyet dan kukang menghilang. Induk elang kesulitan mencari mangsa, sehingga anak elang bisa mati kelaparan di sarangnya."
+            habitat: "Hutan hujan dataran rendah dengan pohon-pohon raksasa yang menjulang tinggi.",
+            uniqueFeature: "Elang terkuat di dunia! Cakarnya yang melengkung sebesar kuku beruang grizzly, dan bentang sayapnya mencapai lebih dari 2 meter.",
+            howItSurvives: "Terbang lincah di sela-sela tajuk pohon untuk berburu kukang dan monyet, serta membuat sarang besar dari ranting di cabang pohon tertinggi.",
+            whyThreatened: "Tambang bauksit menebang pohon-pohon tertua dan tertinggi di hutan. Karena elang harpy hanya bisa bersarang di pohon raksasa, hilangnya pohon purba membuat mereka tidak dapat membesarkan anak-anaknya.",
+            fullStory: "Elang Harpy adalah penguasa langit hutan rimba Suriname. Cakarnya sebesar cakar beruang untuk mencengkeram dahan dan berburu di antara pepohonan rimbun. Sarangnya sangat besar, diletakkan di puncak pohon kayu yang paling tinggi. Tambang bauksit merobohkan pohon-pohon tertua sehingga elang harpy kehilangan rumah.",
+            quickRead: [
+              "Elang Harpy adalah burung pemangsa terkuat di Amerika Selatan.",
+              "Elang ini membuat sarang besar di puncak pohon raksasa.",
+              "Tambang bauksit menebang pohon raksasa tempat burung ini bersarang."
+            ],
+            vocab: [
+              { word: "Cakar", meaning: "Kuku melengkung yang sangat tajam untuk mencengkeram mangsa." },
+              { word: "Predator", meaning: "Hewan pemangsa yang berburu hewan lain untuk makanan." },
+              { word: "Bauksit", meaning: "Mineral tanah merah yang ditambang untuk membuat aluminium." }
+            ]
           }
         },
         {
           id: "cock_of_the_rock",
           type: "animal",
-          image: "assets/images/suriname/cock_of_the_rock.jpg",
+          image: "assets/images/suriname/cock_of_the_rock.webp",
+          imageFallback: "assets/images/suriname/cock_of_the_rock.jpg",
           scientificName: "Rupicola rupicola",
           en: {
             name: "Guianan Cock-of-the-Rock",
             typeLabel: "🐾 Bird (Animal)",
-            habitat: "Rocky forested hills, granite boulders, and mountain caves.",
-            uniqueFeature: "The male bird is blazing bright neon orange with a magnificent fan-shaped crest that completely covers its beak! Groups of males clear dancing arenas on the forest floor.",
-            howItSurvives: "It feeds on wild forest fruits and builds sturdy mud nests on steep rock cliffs and cave walls sheltered from rain.",
-            whyThreatened: "Quarry companies blast rocks with dynamite to get stone for roads, shattering nesting cliffs into pieces. The deafening explosions also scare birds away from their traditional dancing grounds."
+            habitat: "Moist rainforests near giant granite rock boulders and cliffs.",
+            uniqueFeature: "The male has stunning neon-orange feathers with a round, fan-shaped crest that completely covers its beak like a bright helmet!",
+            howItSurvives: "It feeds on wild forest berries and fruits, then swallows them whole and drops seeds all over the forest floor, helping thousands of new trees sprout.",
+            whyThreatened: "River gold mining pumps mud and toxic mercury into jungle streams. The loud roar of motorized suction dredges scares the birds away from their cliff mating grounds.",
+            fullStory: "The Guianan Cock-of-the-Rock has brilliant orange feathers and a round crest that hides its face like a glowing helmet. It loves eating ripe jungle figs and drops seeds across the forest floor like a tiny flying gardener. Noisy river gold dredging machines scare these sensitive birds away from their nesting cliffs.",
+            quickRead: [
+              "The Cock-of-the-Rock has brilliant bright orange feathers and crest.",
+              "It eats forest fruits and spreads seeds across the rainforest.",
+              "Gold mining mud silts the streams where it finds food."
+            ],
+            vocab: [
+              { word: "Crest", meaning: "A crown of soft, colorful feathers on top of a bird's head." },
+              { word: "Dispersal", meaning: "Spreading seeds across the forest so new baby trees sprout." },
+              { word: "Boulders", meaning: "Huge rounded rock stones found near rushing jungle streams." }
+            ]
           },
-          id_lang: {
-            name: "Burung Cock-of-the-Rock Guiana",
+          id: {
+            name: "Burung Cadas Guyana",
             typeLabel: "🐾 Burung (Hewan)",
-            habitat: "Perbukitan hutan berbatu dan dinding gua pegunungan.",
-            uniqueFeature: "Burung jantan memiliki bulu oranye terang menyala dengan jambul setengah lingkaran seperti kipas yang menutupi paruhnya! Para pejantan berkumpul untuk menari memikat betina.",
-            howItSurvives: "Memakan buah-buahan hutan dan membangun sarang dari lumpur di dinding tebing curam dan gua yang terlindung dari hujan.",
-            whyThreatened: "Perusahaan batu meledakkan tebing menggunakan dinamit untuk mengambil batu jalan. Ledakan keras menghancurkan dinding sarang lumpur dan suara bising menakuti burung dari arena menarinya."
+            habitat: "Hutan hujan lembap di dekat tebing batu granit dan gua bebatuan.",
+            uniqueFeature: "Burung jantan memiliki bulu oranye menyala seperti wortel dengan jambul bulat melengkung menyerupai helm bundar yang menutupi paruhnya!",
+            howItSurvives: "Memakan buah-buahan hutan dan buah ara, lalu menyebarkan biji-bijian ke seluruh lantai hutan sehingga ribuan pohon baru dapat tumbuh subur.",
+            whyThreatened: "Tambang emas sungai membuang lumpur keruh dan merkuri ke sungai jernih. Suara bising mesin kapal sedot tambang juga menakuti burung ini hingga lari dari tebing sarang mereka.",
+            fullStory: "Burung Cadas Guyana memiliki bulu oranye cerah dan jambul melingkar indah. Burung ini berjasa menanam hutan karena memakan buah manis lalu menebarkan bijinya ke mana-mana. Suara bising mesin sedot tambang emas dan limbah lumpur mengusir burung ini dari tebing batu tempatnya bertelur.",
+            quickRead: [
+              "Burung ini memiliki bulu oranye terang dan jambul bundar.",
+              "Burung ini memakan buah hutan dan menyebarkan bibit biji.",
+              "Lumpur tambang emas mencemari sungai jernih tempat burung beristirahat."
+            ],
+            vocab: [
+              { word: "Jambul", meaning: "Mahkota bulu halus di atas kepala burung indah." },
+              { word: "Penyebaran Biji", meaning: "Membawa biji buah agar pohon baru dapat bertumbuh." },
+              { word: "Batu Cadas", meaning: "Batu besar di dekat tebing tempat burung bertelur." }
+            ]
           }
         },
         {
           id: "margay",
           type: "animal",
-          image: "assets/images/suriname/margay.png",
+          image: "assets/images/suriname/margay.webp",
+          imageFallback: "assets/images/suriname/margay.png",
           scientificName: "Leopardus wiedii",
           en: {
-            name: "Margay (Tree Ocelot)",
-            typeLabel: "🐾 Wildcat (Animal)",
-            habitat: "Thick canopy of humid tropical rainforests.",
-            uniqueFeature: "A tree acrobat! It has super flexible ankles that can rotate 180 degrees backwards, allowing it to run straight down vertical tree trunks headfirst like a squirrel!",
-            howItSurvives: "It spends almost its entire life in high tree branches, leaping between vines to hunt small rodents, tree frogs, and birds.",
-            whyThreatened: "When mines bulldoze wide dirt roads through the forest, the margay is too afraid to step onto open ground to cross. Families of cats become trapped in tiny tree patches where food quickly runs out."
+            name: "Margay",
+            typeLabel: "🐾 Wild Cat (Animal)",
+            habitat: "High canopy layers of dense primary tropical rainforest.",
+            uniqueFeature: "Super acrobat of the trees! Its ankles can rotate 180 degrees backwards, allowing it to run headfirst straight down tree trunks like a squirrel and hang from branches by one paw!",
+            howItSurvives: "It hunts quietly at night high up in the tree branches, catching tree frogs, lizards, and small rodents without ever having to touch the ground.",
+            whyThreatened: "Mining companies bulldoze wide open roads through the rainforest. Because margays spend their entire lives in the trees and are terrified of walking on open dirt, roads cut their home into tiny isolated islands.",
+            fullStory: "The Margay is a spotted wildcat that lives high up in the rainforest trees. Its hind paws can turn completely backwards so it can run down tree trunks face first. It hunts night lizards and jumps between vines. Wide dirt roads carved by mining trucks break the treetops, trapping margays in small forest patches.",
+            quickRead: [
+              "The Margay is a spotted wildcat that loves tall trees.",
+              "Its flexible paws can twist backwards to climb down trunks.",
+              "Wide mining roads divide the canopy so it cannot cross."
+            ],
+            vocab: [
+              { word: "Arboreal", meaning: "Living comfortably high up among leafy tree branches." },
+              { word: "Canopy", meaning: "The connected leafy roof where forest trees touch overhead." },
+              { word: "Nocturnal", meaning: "Sleeping during the day and being wide awake at night." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Kucing Margay",
             typeLabel: "🐾 Kucing Hutan (Hewan)",
-            habitat: "Cabang dan ranting tinggi di kanopi hutan hujan lebat.",
-            uniqueFeature: "Pesulap pohon sejati! Sendi pergelangan kakinya dapat berputar 180 derajat ke belakang, memungkinkannya berlari menuruni batang pohon dengan kepala menghadap ke bawah seperti tupai!",
-            howItSurvives: "Menghabiskan hampir seluruh hidupnya di atas pohon, melompat dari dahan ke dahan untuk berburu burung dan katak pohon di malam hari.",
-            whyThreatened: "Ketika tambang membuat jalan tanah yang sangat lebar, margay takut menyentuh tanah terbuka untuk menyeberang. Keluarga kucing terkurung di petak pohon kecil dan kelaparan."
+            habitat: "Lapisan kanopi atas hutan hujan tropis primer yang sangat rimbun.",
+            uniqueFeature: "Pesulap pemanjat pohon! Pergelangan kaki belakangnya dapat berputar 180 derajat terbalik, sehingga ia bisa menuruni batang pohon dengan kepala menghadap ke bawah seperti tupai!",
+            howItSurvives: "Berburu di dahan pohon pada malam hari, menangkap katak pohon, kadal, dan burung kecil tanpa perlu menyentuh tanah.",
+            whyThreatened: "Perusahaan tambang membuka jalan raya tanah yang sangat lebar di tengah hutan rimba. Karena margay takut menyentuh tanah terbuka, jalan tambang memutus jalur berpindahnya antar pohon.",
+            fullStory: "Kucing Margay adalah kucing hutan tutul yang hidup di atas tajuk pohon. Kaki belakangnya sangat ajaib karena bisa berputar terbalik untuk menuruni batang pohon secara vertikal. Hewan ini sangat jarang menginjak tanah. Jalan tambang yang lebar merusak sambungan dahan pohon sehingga margay terisolasi.",
+            quickRead: [
+              "Kucing Margay adalah kucing tutul yang lincah memanjat pohon.",
+              "Kakinya bisa berputar terbalik untuk menuruni batang pohon tinggi.",
+              "Jalan tambang memutus cabang pohon sehingga margay terperangkap di atas."
+            ],
+            vocab: [
+              { word: "Pohon (Arboreal)", meaning: "Kebiasaan hewan yang menghabiskan hidup di dahan pohon." },
+              { word: "Jembatan Tajuk", meaning: "Dahan-dahan pohon yang saling bersentuhan di atas hutan." },
+              { word: "Nokturnal", meaning: "Hewan yang tidur di siang hari dan aktif malam." }
+            ]
           }
         },
         {
           id: "clump_wallaba",
           type: "plant",
-          image: "assets/images/suriname/clump_wallaba.jpg",
-          scientificName: "Dicymbe corymbosa",
+          image: "assets/images/suriname/clump_wallaba.webp",
+          imageFallback: "assets/images/suriname/clump_wallaba.jpg",
+          scientificName: "Eperua grandiflora",
           en: {
             name: "Clump Wallaba",
             typeLabel: "🌿 Hardwood Tree (Plant)",
-            habitat: "White sand forests in the Guiana Shield.",
-            uniqueFeature: "A massive hardwood tree that grows tightly clustered together in dense groves on white sand soils where few other trees can survive.",
-            howItSurvives: "It sprouts multiple trunks and relies on special underground fungi that recycle leaf nutrients directly back into its roots.",
-            whyThreatened: "When strip mines and loggers clear-cut these groves, the fierce tropical sun bakes the bare white sand, drying out and killing the delicate soil fungi that young saplings need to live."
+            habitat: "White sand forests and riverbanks across Suriname.",
+            uniqueFeature: "It produces stunning deep purple flowers that hang on long, drooping cords below the leaves, followed by giant flat wooden seed pods.",
+            howItSurvives: "It has a super-strong resinous wood that naturally repels water, rot, and termites, allowing it to stand tall in wet, acidic sandy soil.",
+            whyThreatened: "Strip mining for bauxite scrapes away the sandy topsoil where Wallaba trees anchor. Its valuable durable timber is also targeted for heavy construction and fence poles.",
+            fullStory: "The Clump Wallaba is a magnificent hardwood tree with fragrant purple flowers hanging on cords like decorations. Its heavy wood is full of natural oil that keeps it safe from termites. Bauxite excavators scrape off the white sand soil where its roots drink, chopping down forests for aluminum ore pits.",
+            quickRead: [
+              "The Clump Wallaba is a grand hardwood tree in Suriname.",
+              "Its drooping purple blossoms drop heavy seed pods into soil.",
+              "Bauxite mines strip away topsoil and cut down this timber."
+            ],
+            vocab: [
+              { word: "Hardwood", meaning: "Dense, strong timber that takes decades to grow thick." },
+              { word: "Seed Pod", meaning: "A tough wooden case that protects seeds until they drop." },
+              { word: "White Sand", meaning: "Pale sandy forest soil common in sunny tropical woods." }
+            ]
           },
-          id_lang: {
-            name: "Pohon Clump Wallaba",
+          id: {
+            name: "Pohon Wallaba Rumpun",
             typeLabel: "🌿 Pohon Kayu Keras (Tumbuhan)",
-            habitat: "Hutan berpasir putih di kawasan Perisai Guiana.",
-            uniqueFeature: "Pohon kayu keras raksasa yang tumbuh bergerombol rapat di tanah pasir putih yang miskin hara, tempat di mana pohon lain sulit tumbuh.",
-            howItSurvives: "Tumbuh dengan banyak cabang batang kokoh dan dibantu oleh jamur tanah khusus yang mendaur ulang daun gugur menjadi pupuk alami.",
-            whyThreatened: "Saat tambang menebang hutan ini, terik matahari membakar pasir putih yang gundul. Ini membunuh jamur tanah yang sangat dibutuhkan oleh bibit pohon muda untuk bertahan hidup."
+            habitat: "Hutan berpasir putih dan tepi sungai di Suriname.",
+            uniqueFeature: "Menghasilkan bunga ungu pekat memesona yang menggantung pada tali panjang di bawah daun, disusul polong biji kayu yang besar dan keras.",
+            howItSurvives: "Memiliki serat kayu keras bergetah yang secara alami tahan air, pembusukan, dan rayap, membuatnya kokoh berdiri di tanah berpasir asam.",
+            whyThreatened: "Tambang terbuka bauksit mengeruk habis lapisan pasir putih tempat akar wallaba berpijak. Kayunya yang kuat juga sering ditebang untuk tiang bangunan.",
+            fullStory: "Pohon Wallaba adalah raksasa kayu keras di hutan pasir putih Suriname. Bunganya yang berwarna ungu menggantung anggun seperti lentera. Kayunya sangat padat sehingga tahan dari gigitan rayap dan air hujan. Penambangan bauksit mengupas tanah pasir tempat pohon ini tumbuh.",
+            quickRead: [
+              "Pohon Wallaba adalah pohon kayu keras yang tumbuh di Suriname.",
+              "Bunga ungunya yang indah menghasilkan polong biji yang berat.",
+              "Tambang bauksit mengupas tanah subur dan menebang pohon berharga ini."
+            ],
+            vocab: [
+              { word: "Kayu Keras", meaning: "Kayu pohon yang sangat padat, kokoh, dan berumur panjang." },
+              { word: "Polong Biji", meaning: "Kulit pelindung keras tempat menyimpan benih tanaman baru." },
+              { word: "Pasir Putih", meaning: "Lantai hutan berpasir tempat pohon wallaba tumbuh kokoh." }
+            ]
           }
         },
         {
           id: "marsh_pitcher_plant",
           type: "plant",
-          image: "assets/images/suriname/marsh_pitcher_plant.jpg",
+          image: "assets/images/suriname/marsh_pitcher_plant.webp",
+          imageFallback: "assets/images/suriname/marsh_pitcher_plant.jpg",
           scientificName: "Heliamphora nutans",
           en: {
             name: "Marsh Pitcher Plant",
-            typeLabel: "🌿 Carnivorous Plant",
-            habitat: "Wet, spongy moss on high, foggy mountain plateaus (tepuis).",
-            uniqueFeature: "A bug-eating pitcher! Its leaves form a tall green and red cup that fills with rainwater to trap insects and digest them for extra food.",
-            howItSurvives: "Because mountain rocks have very little soil food, it gets its vitamins by catching falling bugs in its water cups.",
-            whyThreatened: "When miners dig for diamonds and gold in highland mountain plateaus, they scrape away the spongy wet moss and dig ditches that divert streams, causing these delicate pitcher cups to dry out and die."
+            typeLabel: "🌿 Carnivorous Plant (Plant)",
+            habitat: "High misty plateau bogs and wet mountain summits in South America.",
+            uniqueFeature: "A meat-eating plant with rolled-up tubular leaves that look like green drinking pitchers filled with sweet rainwater to trap visiting insects!",
+            howItSurvives: "Because mountain rocks have almost no plant nutrients, it catches falling beetles and ants in its water cup and absorbs their nutrients to grow.",
+            whyThreatened: "Very sensitive to pollution! Dust, dirt, and heavy metals from nearby open-pit mines blow onto mountain plateaus, poisoning the pure rainwater ponds it relies on.",
+            fullStory: "The Marsh Pitcher Plant lives on windy, misty mountain bogs where soil has very few nutrients. It forms green funnel-shaped pitchers that catch rain and tempt insects with sweet nectar. Dust from nearby mining roads drifts onto high plateau wetlands, contaminating the pristine water inside its cups.",
+            quickRead: [
+              "The Marsh Pitcher Plant grows on misty mountain peaks.",
+              "Its green cups catch falling rainwater and trap tiny bugs.",
+              "Mining pollution pollutes the pure mountain springs it needs."
+            ],
+            vocab: [
+              { word: "Carnivorous", meaning: "A special plant that catches bugs to absorb extra food." },
+              { word: "Pitcher", meaning: "A rolled tubular leaf shaped like a hollow drinking cup." },
+              { word: "Nutrients", meaning: "Nourishing substances that living things need to grow strong." }
+            ]
           },
-          id_lang: {
-            name: "Kantong Semar Rawa Pegunungan",
-            typeLabel: "🌿 Tanaman Pemakan Serangga",
-            habitat: "Lumut basah di puncak dataran tinggi pegunungan berkabut (tepui).",
-            uniqueFeature: "Tanaman karnivora! Daunnya membentuk corong atau cangkir merah-kehijauan yang menampung air hujan untuk menjebak dan mencerna serangga.",
-            howItSurvives: "Karena tanah puncak gunung sangat miskin nutrisi, tanaman ini mendapatkan makanan tambahan dengan menangkap serangga yang terpeleset ke dalam cangkirnya.",
-            whyThreatened: "Ketika penambang menggali intan dan emas di puncak gunung, mereka mengikis lapisan lumut basah dan mengubah aliran air, membuat tanaman ini mengering dan mati."
+          id: {
+            name: "Kantong Semar Rawa",
+            typeLabel: "🌿 Tumbuhan Pemakan Serangga (Tumbuhan)",
+            habitat: "Rawa dataran tinggi berkabut dan puncak gunung basah di Amerika Selatan.",
+            uniqueFeature: "Tumbuhan karnivora unik dengan daun menggulung seperti corong cangkir piala yang menampung air hujan untuk menjebak serangga!",
+            howItSurvives: "Karena tanah puncak gunung sangat miskin unsur hara, tanaman ini menjebak semut dan kumbang di dalam air cangkirnya untuk diserap nutrisinya.",
+            whyThreatened: "Sangat peka terhadap polusi! Debu dan zat kimia dari area tambang terbawa angin ke puncak gunung, mencemari air hujan murni di dalam kantongnya.",
+            fullStory: "Kantong Semar Rawa adalah tanaman pemakan serangga di puncak bukit berkabut. Daunnya melengkung membentuk cangkir penampung air hujan beraroma manis yang memikat semut. Tanaman ini menyerap nutrisi dari serangga. Asap dan debu tambang terbuka mencemari air bersih yang dibutuhkan tanaman mungil ini.",
+            quickRead: [
+              "Kantong Semar Rawa tumbuh di puncak gunung berkabut sejuk.",
+              "Daunnya berbentuk cangkir berisi air untuk menjebak serangga kecil.",
+              "Polusi debu tambang mencemari air bersih yang dibutuhkan tanaman ini."
+            ],
+            vocab: [
+              { word: "Karnivora", meaning: "Tumbuhan unik yang mengambil nutrisi dari serangga kecil." },
+              { word: "Kantong", meaning: "Daun melengkung berbentuk cangkir yang menampung air hujan." },
+              { word: "Nutrisi", meaning: "Zat makanan penting yang membantu tanaman bertumbuh subur." }
+            ]
           }
         },
         {
           id: "sand_baromalli",
           type: "plant",
-          image: "assets/images/suriname/sand_baromalli.jpg",
+          image: "assets/images/suriname/sand_baromalli.webp",
+          imageFallback: "assets/images/suriname/sand_baromalli.jpg",
           scientificName: "Catostemma fragrans",
           en: {
             name: "Sand Baromalli",
-            typeLabel: "🌿 Riverbank Tree (Plant)",
-            habitat: "Moist sandy riverbanks and floodplains.",
-            uniqueFeature: "A tall river guardian tree with an expansive underground root network that anchors riverbanks firmly in place, stopping soil erosion.",
-            howItSurvives: "It absorbs water through deep roots and provides shade for river fish and freshwater creatures.",
-            whyThreatened: "Gold mining boats use powerful hydraulic water pumps and suction dredges to suck up riverbed dirt. The strong water jets wash away the soil under the roots, causing the riverbank to collapse into the river."
+            typeLabel: "🌿 Giant Canopy Tree (Plant)",
+            habitat: "Sandy rainforest soils across the Guiana Shield in Suriname.",
+            uniqueFeature: "A massive emergent tree that grows up to 40 meters tall, with fragrant white flowers and huge wooden buttress roots that look like giant fins!",
+            howItSurvives: "Its huge wall-like roots spread wide across the sandy forest floor, locking the sandy earth together and supporting its immense height against storms.",
+            whyThreatened: "Open-pit bauxite mines bulldoze whole stands of Baromalli. When these giant trees fall, the entire forest canopy is destroyed and soil quickly washes away into rivers.",
+            fullStory: "The Sand Baromalli is a towering giant of the Suriname rainforest. It stretches over forty meters into the sky with great wooden buttress roots that look like rocket fins. Its sweet-smelling flowers feed honey bees. Mining excavators topple these huge trees, tearing a hole in the forest canopy that takes centuries to heal.",
+            quickRead: [
+              "The Sand Baromalli is a towering rainforest giant tree.",
+              "Wide buttress roots hold it upright against heavy tropical winds.",
+              "Bulldozers uproot these gentle giants to dig deep open pits."
+            ],
+            vocab: [
+              { word: "Buttress Roots", meaning: "Wide wooden wall roots that brace very tall trees safely." },
+              { word: "Rainforest", meaning: "A lush, dense forest that receives abundant warm rain." },
+              { word: "Emergent", meaning: "Giant trees that reach higher than the main forest roof." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Pohon Baromalli Pasir",
-            typeLabel: "🌿 Pohon Tepi Sungai (Tumbuhan)",
-            habitat: "Tepian sungai berpasir dan dataran banjir hutan hujan.",
-            uniqueFeature: "Pohon penjaga tepi sungai yang sangat tinggi! Akarnya mencengkeram tanah tepian sungai dengan kuat agar tidak mudah longsor terkikis arus.",
-            howItSurvives: "Menyerap kelembapan tepi sungai dan kanopinya memberikan naungan sejuk bagi ikan dan makhluk air tawar di bawahnya.",
-            whyThreatened: "Mesin kapal tambang emas menyemprotkan air bertekanan dahsyat untuk menyedot lumpur dasar sungai. Ini mengikis tanah di bawah akar pohon, menyebabkan tebing sungai runtuh ke dalam air."
+            typeLabel: "🌿 Pohon Raksasa Hutan (Tumbuhan)",
+            habitat: "Hutan tanah berpasir di wilayah Dataran Tinggi Guiana, Suriname.",
+            uniqueFeature: "Pohon kanopi raksasa yang tingginya mencapai 40 meter, dengan bunga putih wangi dan akar papan besar seperti sirip kapal!",
+            howItSurvives: "Akar papannya yang melebar mengikat lantai pasir hutan dengan sangat kuat, menjaga batangnya yang menjulang tetap kokoh dari badai angin.",
+            whyThreatened: "Tambang terbuka bauksit meratakan rumpun pohon Baromalli. Tumbangnya pohon raksasa ini meruntuhkan seluruh lapisan kanopi hutan pelindung di sekitarnya.",
+            fullStory: "Pohon Baromalli Pasir adalah salah satu pohon tertinggi di belantara Suriname. Batangnya menjulang setinggi gedung sepuluh lantai dan ditopang akar banir tebal. Bunganya yang harum memikat lebah madu hutan. Tambang bauksit menumbangkan raksasa hijau ini, merusak keteduhan hutan yang menaungi satwa rimba.",
+            quickRead: [
+              "Pohon Baromalli adalah pohon raksasa di hutan hujan tropis.",
+              "Akar papan yang lebar menopang tubuhnya dari hembusan angin.",
+              "Buldoser tambang menumbangkan pohon raksasa ini demi menggali lubang tambang."
+            ],
+            vocab: [
+              { word: "Akar Papan", meaning: "Akar tebal menjulang seperti dinding penopang pohon tinggi." },
+              { word: "Hutan Hujan", meaning: "Hutan lebat yang selalu mendapat limpahan air hujan." },
+              { word: "Raksasa Hutan", meaning: "Pohon yang menjulang paling tinggi di atas hutan." }
+            ]
           }
         }
       ]
@@ -504,153 +871,272 @@ const APP_DATA = {
       id: "bolivia",
       classCode: "2C",
       flagEmoji: "🇧🇴",
+      heroAnimalImage: "assets/images/bolivia/bolivian_river_dolphin.webp",
+      heroAnimalFallback: "assets/images/bolivia/bolivian_river_dolphin.jpg",
       videoUrl: "https://www.youtube.com/watch?v=9ZK2TWFTbps",
-      videoThumb: "assets/images/video_thumbnails/bolivia_video.png",
+      videoThumb: "assets/images/video_thumbnails/bolivia_video.webp",
+      videoThumbFallback: "assets/images/video_thumbnails/bolivia_video.png",
       videoTitle: {
         en: "Class 2C Video: Bolivia - Facts about Bolivia (Kids Friendly)",
         id: "Video Kelas 2C: Fakta Menarik Bolivia untuk Anak-anak (The Edutainers PR)"
       },
       en: {
         name: "Bolivia",
-        location: "Heart of South America, surrounded by Brazil, Peru, Chile, Argentina, and Paraguay (landlocked).",
-        capital: "Sucre (constitutional capital) and La Paz (seat of government)",
-        languages: "Spanish, Quechua, Aymara, Guaraní, and over 30 indigenous languages!",
+        location: "Heart of central South America, bordered by Brazil, Paraguay, Argentina, Chile, and Peru.",
+        capital: "Sucre (constitutional) and La Paz (seat of government)",
+        languages: "Spanish, Quechua, Aymara, and Guaraní (over 30 official languages!)",
         interestingFacts: [
-          "Bolivia is home to Salar de Uyuni, the world's largest salt flat, which looks like a giant mirror of the sky!",
-          "La Paz is the highest capital city in the world, over 3,600 meters above sea level in the Andes Mountains!"
+          "Bolivia has the world's largest salt flat (Salar de Uyuni) which looks like a giant glowing mirror from space!",
+          "Bolivia has both freezing snow-capped Andean mountains AND warm, lush tropical Amazon rainforests!"
         ],
-        uniqueness: "Bolivia has incredible landscapes from freezing, snow-capped Andean volcanoes to warm, winding Amazonian rivers and dramatic dry canyons.",
-        miningThreatsSummary: "Gold dredging boats make rivers loud, muddy, and release poisonous mercury that sickens dolphins. Canyon road blasting shatters macaw cliff nests, and mountain mines freeze the roots of ancient dwarf trees.",
-        combinedParagraph: "Bolivia is located in central South America, and its capitals are Sucre and La Paz. The people speak Spanish along with indigenous languages like Quechua and Aymara. Two interesting facts about Bolivia are that it has the world's biggest salt flat at Salar de Uyuni and the highest administrative capital in the world. What makes Bolivia unique is its dramatic geography ranging from freezing Andean peaks to winding tropical rivers with rare pink dolphins."
+        uniqueness: "Bolivia is a land of extreme contrasts — from high Andean mountain peaks over 4,000 meters where ancient trees grow, down to winding Amazon rivers where unique pink dolphins swim.",
+        miningThreatsSummary: "River gold mining dredges use toxic mercury that washes into freshwater, poisoning dolphins and fish. In the highlands, metal mines scrape away mountainsides and build roads that crush rare dwarf alpine trees.",
+        combinedParagraph: "Bolivia is located in central South America, and its capitals are Sucre and La Paz. People in Bolivia speak Spanish, Quechua, and Aymara. Two interesting facts about Bolivia are that it has the giant Salar de Uyuni salt flat and it spans from snowy mountains to tropical rainforests. What makes Bolivia unique is its dramatic landscape where rare pink river dolphins swim in the lowlands and ancient Queñua trees survive freezing Andean peaks."
       },
-      id_lang: {
+      id: {
         name: "Bolivia",
-        location: "Bagian tengah Benua Amerika Selatan, dikelilingi Brasil, Peru, Chili, Argentina, dan Paraguay.",
+        location: "Jantung Benua Amerika Selatan bagian tengah, berbatasan dengan Brasil, Paraguay, Argentina, Chili, dan Peru.",
         capital: "Sucre (ibukota konstitusional) dan La Paz (pusat pemerintahan)",
-        languages: "Bahasa Spanyol, Quechua, Aymara, Guaraní, dan lebih dari 30 bahasa daerah!",
+        languages: "Bahasa Spanyol, Quechua, Aymara, dan Guaraní (lebih dari 30 bahasa resmi!)",
         interestingFacts: [
-          "Bolivia memiliki Salar de Uyuni, padang garam terbesar di dunia yang terlihat seperti cermin raksasa raksasa pemantul langit!",
-          "Kota La Paz adalah ibukota pemerintahan tertinggi di dunia, berada di ketinggian lebih dari 3.600 meter di atas permukaan laut!"
+          "Bolivia memiliki padang garam terbesar di dunia (Salar de Uyuni) yang tampak seperti cermin raksasa dari luar angkasa!",
+          "Wilayah Bolivia sangat beragam, mulai dari pegunungan Andes bersalju hingga hutan hujan Amazon yang tropis dan hangat!"
         ],
-        uniqueness: "Bolivia memiliki bentang alam yang luar biasa lengkap, mulai dari puncak bersalju Pegunungan Andes yang membeku hingga sungai tropis Amazon yang hangat dan ngarai ngarai batu kering.",
-        miningThreatsSummary: "Kapal keruk emas membuat air sungai berlumpur dan mencemari air dengan merkuri beracun yang meracuni lumba-lumba. Peledakan dinamit tebing meruntuhkan sarang burung makaw, dan tambang di gunung membekukan akar pohon kerdil.",
-        combinedParagraph: "Negara Bolivia terletak di tengah Benua Amerika Selatan, dan memiliki dua ibukota yaitu Sucre dan La Paz. Bahasa yang digunakan adalah Bahasa Spanyol dan bahasa asli daerah seperti Quechua dan Aymara. Dua fakta menarik tentang Bolivia adalah memiliki padang garam terbesar di dunia Salar de Uyuni dan memiliki ibukota tertinggi di dunia. Yang membuat Bolivia unik adalah keanekaragaman alamnya dari puncak es Pegunungan Andes hingga sungai Amazon tempat hidup lumba-lumba merah muda."
+        uniqueness: "Bolivia memiliki bentang alam yang luar biasa ekstrem — dari puncak Andes beku di ketinggian 4.000 meter tempat pohon queñua tumbuh, hingga sungai Amazon tempat lumba-lumba merah muda berenang.",
+        miningThreatsSummary: "Tambang emas sungai menggunakan cairan merkuri beracun yang mencemari air tawar dan meracuni lumba-lumba serta ikan. Di pegunungan, tambang logam mengeruk lereng bukit dan menghancurkan pohon kerdil pelindung es.",
+        combinedParagraph: "Negara Bolivia terletak di tengah Benua Amerika Selatan, dengan ibukota Sucre dan La Paz. Bahasa yang digunakan antara lain Bahasa Spanyol, Quechua, dan Aymara. Dua fakta menarik tentang Bolivia adalah memiliki padang garam cermin raksasa Salar de Uyuni dan memiliki wilayah salju hingga hutan Amazon. Yang membuat Bolivia unik adalah keanekaragaman alamnya yang dramatis, tempat lumba-lumba air tawar langka berenang dan pohon queñua purba bertahan di puncak beku Andes."
       },
       organisms: [
         {
           id: "bolivian_river_dolphin",
           type: "animal",
-          image: "assets/images/bolivia/bolivian_river_dolphin.jpg",
-          scientificName: "Inia boliviensis",
+          image: "assets/images/bolivia/bolivian_river_dolphin.webp",
+          imageFallback: "assets/images/bolivia/bolivian_river_dolphin.jpg",
+          scientificName: "Inia geoffrensis boliviensis",
           en: {
-            name: "Bolivian River Dolphin (Bufeo)",
+            name: "Bolivian River Dolphin",
             typeLabel: "🐾 Aquatic Mammal (Animal)",
-            habitat: "Freshwater rivers and flooded forests in the Bolivian Amazon.",
-            uniqueFeature: "A friendly freshwater dolphin with a beautiful pinkish blush on its body and a long, flexible neck that allows it to weave between flooded tree trunks!",
-            howItSurvives: "It makes clicking sounds underwater and listens for the echoes ('echolocation') to 'see' where it is swimming and find fish in cloudy river water.",
-            whyThreatened: "Gold mining boats use loud engines and suction tubes to scoop gravel from riverbeds, creating deafening noise and muddy water so dolphins cannot hear their clicks. Miners also use toxic mercury, which washes into the river, poisons fish, and makes the dolphins sick."
+            habitat: "Mamoré and Madeira river basins in the Bolivian Amazon lowlands.",
+            uniqueFeature: "A freshwater dolphin with a soft pink skin tone and an extraordinary flexible neck that can turn 90 degrees side-to-side to weave through flooded jungle tree trunks!",
+            howItSurvives: "It uses clicking sound waves (echolocation) to find catfish and crabs swimming in murky, muddy river water where eyesight is useless.",
+            whyThreatened: "Gold miners use toxic liquid mercury to separate gold flakes. The mercury washes into rivers, poisoning fish and building up in dolphins' bodies, making them sick.",
+            fullStory: "The Bolivian River Dolphin is a gentle pink dolphin that swims in warm Amazon river channels. Its neck is so flexible that it can turn sideways to dodge submerged logs in flooded forests. It finds fish by clicking its echolocation sonar. Toxic mercury from illegal river gold dredging washes downstream, poisoning river fish and dolphin families.",
+            quickRead: [
+              "The Bolivian River Dolphin swims in warm freshwater rivers.",
+              "Its flexible neck turns sideways to catch fish among trees.",
+              "Toxic mercury from river gold mining poisons its clean water."
+            ],
+            vocab: [
+              { word: "Freshwater", meaning: "Clean inland water in rivers and lakes that is not salty." },
+              { word: "Mercury", meaning: "A poisonous heavy chemical used in river gold mining." },
+              { word: "Echolocation", meaning: "Sending clicking sounds to find underwater objects by echo." }
+            ]
           },
-          id_lang: {
-            name: "Lumba-lumba Sungai Bolivia (Bufeo)",
+          id: {
+            name: "Lumba-lumba Sungai Bolivia",
             typeLabel: "🐾 Mamalia Air (Hewan)",
-            habitat: "Sungai air tawar dan hutan yang terendam banjir di Amazon Bolivia.",
-            uniqueFeature: "Lumba-lumba air tawar yang menggemaskan dengan semburat warna merah muda (pink)! Lehernya lentur sehingga bisa berbelok lincah di sela-sela pohon yang terendam air.",
-            howItSurvives: "Mengeluarkan suara detukan klik di bawah air dan mendengarkan pantulannya (ekolokasi) untuk 'melihat' jalan dan mendeteksi ikan mangsanya.",
-            whyThreatened: "Kapal tambang emas menggunakan mesin bising dan pipa penyedot kerikil, membuat air sungai sangat keruh dan bising hingga lumba-lumba tidak bisa mendengar pantulan suaranya. Penambang juga memakai cairan merkuri berbahaya yang meracuni ikan dan membuat lumba-lumba sakit."
+            habitat: "Aliran Sungai Mamoré dan Madeira di pedalaman hutan Amazon Bolivia.",
+            uniqueFeature: "Lumba-lumba air tawar berwarna merah muda cerah dengan leher sangat lentur yang bisa menoleh 90 derajat ke samping untuk meliuk di antara akar pohon hutan banjir!",
+            howItSurvives: "Menggunakan gelombang suara klik (ekolokasi) untuk mencari ikan dan kepiting di dalam air sungai keruh saat matanya tidak bisa melihat jelas.",
+            whyThreatened: "Penambang emas sungai memakai cairan merkuri untuk mengikat butiran emas. Merkuri beracun ini hanyut ke air sungai, meracuni ikan dan menumpuk di tubuh lumba-lumba hingga sakit.",
+            fullStory: "Lumba-lumba Sungai Bolivia adalah satwa air tawar berwarna merah muda yang berenang di sungai Amazon. Lehernya yang fleksibel dapat menoleh bebas untuk menangkap ikan di sela-sela akar pohon yang terendam banjir. Limbah merkuri dari tambang emas sungai mencemari air dan meracuni ikan yang dimakannya.",
+            quickRead: [
+              "Lumba-lumba Bolivia berenang di sungai air tawar yang hangat.",
+              "Leher fleksibelnya bisa menoleh bebas mencari ikan di air.",
+              "Limbah merkuri tambang emas mencemari air sungai dan ikannya."
+            ],
+            vocab: [
+              { word: "Air Tawar", meaning: "Air sungai alami yang bersih dan tidak berasa asin." },
+              { word: "Merkuri", meaning: "Zat kimia beracun yang digunakan penambang emas liar." },
+              { word: "Ekolokasi", meaning: "Mendengarkan pantulan suara klik untuk mencari ikan tersembunyi." }
+            ]
           }
         },
         {
           id: "blue_throated_macaw",
           type: "animal",
-          image: "assets/images/bolivia/blue_throated_macaw.jpg",
+          image: "assets/images/bolivia/blue_throated_macaw.webp",
+          imageFallback: "assets/images/bolivia/blue_throated_macaw.jpg",
           scientificName: "Ara glaucogularis",
           en: {
             name: "Blue-throated Macaw",
             typeLabel: "🐾 Parrot (Animal)",
-            habitat: "Grassy savanna plains with small clumps of palm trees called 'forest islands'.",
-            uniqueFeature: "A critically rare parrot adorned with brilliant turquoise-blue wings, bright yellow belly, and a distinctive blue patch on its throat!",
-            howItSurvives: "It eats the rich fruit of the Motacú palm tree and nests inside hollow trunks of old palm trees.",
-            whyThreatened: "When people dig up gravel for roads and excavate big drainage ditches to drain wetland water, the soil dries out. Old palm trees die and new ones cannot sprout, leaving macaws with no hollow trunks to raise their babies."
+            habitat: "Flooded savanna grasslands and isolated palm forest islands (Beni Savanna).",
+            uniqueFeature: "A brilliant turquoise-blue and sunflower-yellow parrot with a striking blue throat patch! It is found in the wild ONLY in northern Bolivia.",
+            howItSurvives: "It feeds on sweet oily palm nuts, cracking them with its immense beak, and nests in natural hollows of tall, dying motacú palm trees.",
+            whyThreatened: "Critically Endangered! Cattle ranch fires and land clearing for mining camps burn down ancient motacú palms, leaving fewer than 400 wild birds with no hollows to lay eggs.",
+            fullStory: "The Blue-throated Macaw is a gorgeous parrot with a turquoise crown and yellow chest. It lives only in the grassy savannas of Bolivia. It uses its powerful curved beak to crack rock-hard motacú palm nuts. When mining camps and forest fires burn down old palm trees, these macaws have no hollow trees to protect their baby chicks.",
+            quickRead: [
+              "The Blue-throated Macaw is a brilliant turquoise and yellow parrot.",
+              "It nests inside hollow palm trees in grassy wetland savannas.",
+              "Ranch clearing and gold mining burn down its nesting palms."
+            ],
+            vocab: [
+              { word: "Savanna", meaning: "A warm flat grassland with scattered palm tree clusters." },
+              { word: "Hollow", meaning: "An empty sheltered hole inside a tree trunk for birds." },
+              { word: "Endangered", meaning: "At very high risk of disappearing unless humans protect it." }
+            ]
           },
-          id_lang: {
-            name: "Burung Makaw Leher Biru",
-            typeLabel: "🐾 Burung Beo (Hewan)",
-            habitat: "Padang rumput basah dengan gugusan pohon palem yang disebut 'pulau hutan'.",
-            uniqueFeature: "Burung makaw yang sangat langka dengan bulu biru toska, dada kuning cerah, dan bercak biru khas di bagian tenggorokannya!",
-            howItSurvives: "Memakan buah pohon palem Motacú dan bersarang di dalam lubang batang pohon palem tua yang berongga.",
-            whyThreatened: "Ketika orang menggali kerikil untuk jalan atau membuat parit besar untuk mengeringkan air rawa, tanah menjadi kering. Pohon palem tua mati dan tunas baru tidak bisa tumbuh, sehingga makaw kehilangan tempat untuk membesarkan anak-anaknya."
+          id: {
+            name: "Makaw Leher Biru",
+            typeLabel: "🐾 Burung Nuri (Hewan)",
+            habitat: "Padang rumput sabana basah dan gugusan pulau palem di Beni, Bolivia.",
+            uniqueFeature: "Burung makaw berbulu biru toska berkilau dengan dada kuning matahari dan bercak biru cerah di lehernya! Burung ini HANYA hidup di alam liar Bolivia.",
+            howItSurvives: "Memakan buah dan kacang palem motacú yang berminyak dengan paruh besarnya yang sangat kuat, serta bertelur di lubang alami batang pohon palem tua.",
+            whyThreatened: "Sangat Kritis Terancam Punah! Kebakaran lahan dan penebangan untuk permukiman tambang membakar habis pohon palem tua, menyisakan kurang dari 400 ekor di alam liar.",
+            fullStory: "Makaw Leher Biru adalah burung nuri endemik Bolivia dengan warna bulu biru toska dan kuning menyala. Burung ini sangat pandai memecahkan kacang palem motacú yang keras. Sarangnya berada di dalam lubang batang pohon palem tua yang lapuk. Kebakaran hutan dan perambahan lahan tambang menghanguskan pohon sarangnya.",
+            quickRead: [
+              "Makaw Leher Biru adalah burung nuri berwarna kuning cerah.",
+              "Burung ini bersarang di dalam lubang batang pohon palem.",
+              "Pembakaran lahan dan tambang merusak pohon palem tempat bertelur."
+            ],
+            vocab: [
+              { word: "Sabana", meaning: "Padang rumput luas dengan sedikit pohon palem tersebar." },
+              { word: "Rongga Batang", meaning: "Lubang alami di pohon tempat burung membuat sarang." },
+              { word: "Terancam Punah", meaning: "Jumlahnya tinggal sedikit sehingga harus kita jaga bersama." }
+            ]
           }
         },
         {
           id: "red_fronted_macaw",
           type: "animal",
-          image: "assets/images/bolivia/red_fronted_macaw.jpg",
+          image: "assets/images/bolivia/red_fronted_macaw.webp",
+          imageFallback: "assets/images/bolivia/red_fronted_macaw.jpg",
           scientificName: "Ara rubrogenys",
           en: {
             name: "Red-fronted Macaw",
             typeLabel: "🐾 Parrot (Animal)",
-            habitat: "Dry, warm, rocky canyons and river valleys.",
-            uniqueFeature: "A bright green parrot with fiery red forehead, red ear patches, and bright orange-red underwings!",
-            howItSurvives: "Instead of nesting in trees, it nests inside natural cracks and crevices on steep sandstone cliffs, and eats cactus fruits and wild canyon seeds.",
-            whyThreatened: "Workers blast canyon cliffs with dynamite to widen roads or dig sand from the river below. The explosions shatter the cliff walls, collapsing the birds' nest holes and destroying the cactus bushes they rely on for food."
+            habitat: "Dry thorny valleys and rocky river canyons in the Bolivian Andes.",
+            uniqueFeature: "An olive-green macaw with a bright scarlet-red forehead patch and orange-red ear patches! Unlike tree parrots, it nests high on sheer vertical cliff faces.",
+            howItSurvives: "It climbs thorny cactus trees to eat wild cactus fruits and nuts, and roosts in steep cliff crevices where ground predators cannot reach.",
+            whyThreatened: "Stone quarries blast dynamite into rocky canyons to crush gravel for highways and mining supply roads, cracking the cliff faces and destroying macaw nests.",
+            fullStory: "The Red-fronted Macaw has olive-green feathers and a bright ruby forehead. It lives in dry Andean mountain canyons and builds nests on steep rocky cliffs rather than trees. It loves nibbling sweet cactus fruits. Dynamite blasting at stone quarries cracks cliff walls, destroying the caves where macaw babies sleep.",
+            quickRead: [
+              "The Red-fronted Macaw lives on rugged rocky mountain river cliffs.",
+              "It eats wild cactus fruits and nuts with its beak.",
+              "Dynamite quarry blasting cracks cliffs where its baby chicks sleep."
+            ],
+            vocab: [
+              { word: "Cliff", meaning: "A very steep, high rock wall beside river valleys." },
+              { word: "Blasting", meaning: "Using loud dynamite explosions to break mountain stone." },
+              { word: "Foraging", meaning: "Searching through dry forests to find wild fruits and seeds." }
+            ]
           },
-          id_lang: {
-            name: "Burung Makaw Dahi Merah",
-            typeLabel: "🐾 Burung Beo (Hewan)",
-            habitat: "Ngarai berbatu dan lembah sungai yang kering dan hangat.",
-            uniqueFeature: "Burung makaw berbulu hijau dengan dahi merah menyala, bercak merah di dekat telinga, dan sayap bawah berwarna jingga keemasan!",
-            howItSurvives: "Tidak bersarang di pohon, melainkan di celah-celah tebing batu pasir yang terjal, serta memakan buah kaktus dan biji-bijian semak berduri.",
-            whyThreatened: "Pekerja meledakkan tebing menggunakan dinamit untuk membuka jalan atau mengeruk pasir sungai. Ledakan meruntuhkan tebing, menghancurkan lubang sarang telur, serta merusak semak kaktus tempat makan makaw."
+          id: {
+            name: "Makaw Dahi Merah",
+            typeLabel: "🐾 Burung Nuri (Hewan)",
+            habitat: "Lembah berduri kering dan ngarai tebing berbatu di Pegunungan Andes Bolivia.",
+            uniqueFeature: "Burung makaw berbulu hijau zaitun dengan dahi merah menyala dan bercak jingga di telinganya! Tidak bersarang di pohon, melainkan di celah tebing batu terjal.",
+            howItSurvives: "Memanjat kaktus liar untuk memetik buah dan biji kaktus berduri, serta beristirahat di ceruk tebing tinggi yang tidak bisa dijangkau pemangsa darat.",
+            whyThreatened: "Tambang batu memecah tebing dengan dinamit untuk dijadikan kerikil bahan jalan raya proyek tambang, meruntuhkan tebing sarang tempat anak makaw berteduh.",
+            fullStory: "Makaw Dahi Merah adalah burung nuri unik yang hidup di ngarai kering Bolivia. Dahinya dihiasi bulu merah delima. Mereka tidak bertelur di pepohonan, melainkan di dinding tebing batu kapur yang curam. Ledakan dinamit dari tambang pemecah batu meruntuhkan tebing tempat anak-anak makaw bersarang.",
+            quickRead: [
+              "Makaw Dahi Merah hidup di tebing berbatu sungai Bolivia.",
+              "Paruh kuatnya memecahkan kacang dan buah kaktus berduri lezat.",
+              "Ledakan dinamit tambang batu meruntuhkan tebing sarang anak makaw."
+            ],
+            vocab: [
+              { word: "Tebing Cadas", meaning: "Dinding batu tinggi dan terjal di dekat lembah sungai." },
+              { word: "Dinamit", meaning: "Bahan peledak tambang yang memecah batu dan bersuara keras." },
+              { word: "Mencari Makan", meaning: "Terbang menjelajahi semak untuk memetik buah dan biji." }
+            ]
           }
         },
         {
           id: "golden_rat_tail_cactus",
           type: "plant",
-          image: "assets/images/bolivia/golden_rat_tail_cactus.jpg",
+          image: "assets/images/bolivia/golden_rat_tail_cactus.webp",
+          imageFallback: "assets/images/bolivia/golden_rat_tail_cactus.jpg",
           scientificName: "Cleistocactus winteri",
           en: {
             name: "Golden Rat Tail Cactus",
-            typeLabel: "🌿 Cliff Cactus (Plant)",
-            habitat: "Vertical sandstone cliffs in dry mountain canyons.",
-            uniqueFeature: "A trailing cliff cactus covered in soft golden bristles that hangs down rock faces like a monkey or rat tail, blooming with bright salmon-orange flowers!",
-            howItSurvives: "It anchors directly into tiny crevices on sheer rock walls, storing water inside its succulent stems to survive long dry spells.",
-            whyThreatened: "Rock cutting, quarry excavations, and dynamite blasting along canyon roads shatter the cliff faces, crushing these golden cacti and sending them falling into the abyss."
+            typeLabel: "🌿 Hanging Cactus (Plant)",
+            habitat: "Steep rocky cliff faces in dry inter-Andean valleys.",
+            uniqueFeature: "Long, trailing stems covered in dense golden-yellow spines that look like fuzzy animal tails hanging down from the rock, with bright salmon-orange flowers!",
+            howItSurvives: "Its long fleshy stems store gallons of water and its shimmering golden spines reflect blazing desert sun while trapping morning mountain dew.",
+            whyThreatened: "Gravel mining and highway blasting shake loose the rocky cliff faces where these cacti hang, causing whole colonies to plunge down the ravine.",
+            fullStory: "The Golden Rat Tail Cactus hangs from sheer mountain cliffs like soft furry animal tails. Its stems are wrapped in golden bristles that reflect the bright sun and collect dew. Long fleshy stems hold rainwater during droughts. When mining machines blast dynamite to build mountain highways, these fragile cacti fall into the gorge.",
+            quickRead: [
+              "The Golden Rat Tail Cactus clings to steep dry cliffs.",
+              "Its long spiny stems store water through hot sunny dry seasons.",
+              "Stone mining and road machines topple these golden hanging plants."
+            ],
+            vocab: [
+              { word: "Spines", meaning: "Sharp needle-like hairs that shade cacti and protect them." },
+              { word: "Drought", meaning: "A long stretch of dry weather without any rainfall." },
+              { word: "Pendant", meaning: "Hanging down gracefully from rocky cliff edges." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Kaktus Ekor Tikus Emas",
-            typeLabel: "🌿 Kaktus Tebing (Tumbuhan)",
-            habitat: "Dinding tebing batu pasir terjal di lembah pegunungan kering.",
-            uniqueFeature: "Batangnya menjuntai ke bawah dari tebing seperti ekor keemasan yang berbulu lembut, dan mekar dengan bunga berwarna jingga salem yang menawan!",
-            howItSurvives: "Mencengkeram erat retakan batu karang dan menyimpan air di dalam batangnya yang berdaging tebal saat musim kemarau panjang.",
-            whyThreatened: "Pekerjaan pemecah batu dan peledakan dinamit untuk membuat jalan ngarai membuat tebing batu pecah berantakan dan menghancurkan koloni kaktus emas ini."
+            typeLabel: "🌿 Kaktus Gantung (Tumbuhan)",
+            habitat: "Dinding tebing batu terjal di lembah kering antarmountain Andes.",
+            uniqueFeature: "Batangnya panjang terjuntai diselimuti duri kuning keemasan yang lebat seperti ekor hewan berbulu, dengan bunga jingga kemerahan yang mekar menawan!",
+            howItSurvives: "Batangnya yang tebal menyimpan air dalam jumlah banyak, sementara bulu duri emasnya memantulkan terik sinar matahari dan menangkap embun pagi.",
+            whyThreatened: "Tambang kerikil dan ledakan proyek jalan mengguncang tebing batu tempat kaktus ini bergelantungan, membuat rumpun kaktus langka ini jatuh dan hancur.",
+            fullStory: "Kaktus Ekor Tikus Emas adalah tanaman tebing yang menjuntai indah seperti ekor berbulu emas. Duri halusnya yang berwarna kuning memantulkan panas sinar matahari dan menangkap tetesan embun. Batang berairnya menyimpan cadangan air saat kemarau. Pengerukan batu dan getaran alat berat meruntuhkan tanaman kaktus langka ini.",
+            quickRead: [
+              "Kaktus Ekor Tikus Emas tumbuh menggantung di tebing terjal.",
+              "Batang berdurinya menyimpan cadangan air saat musim kemarau panjang.",
+              "Pengerukan tebing dan alat berat meruntuhkan tanaman kaktus langka ini."
+            ],
+            vocab: [
+              { word: "Duri Kaktus", meaning: "Jarum halus yang melindungi kaktus dari terik matahari." },
+              { word: "Kemarau", meaning: "Musim panas berkepanjangan tanpa ada tetesan air hujan." },
+              { word: "Menggantung", meaning: "Batang lentur yang terjuntai indah ke bawah tebing." }
+            ]
           }
         },
         {
           id: "cardenasiodendron_tree",
           type: "plant",
-          image: "assets/images/bolivia/cardenasiodendron_tree.jpg",
+          image: "assets/images/bolivia/cardenasiodendron_tree.webp",
+          imageFallback: "assets/images/bolivia/cardenasiodendron_tree.jpg",
           scientificName: "Cardenasiodendron brachypterum",
           en: {
             name: "Cardenasiodendron Tree",
-            typeLabel: "🌿 Dry-Valley Tree (Plant)",
-            habitat: "Dry inter-Andean river valleys.",
-            uniqueFeature: "A tough, resilient endemic tree found only in Bolivia's dry valleys that produces clusters of winged seeds and holds together dry mountain soil.",
-            howItSurvives: "It sends deep taproots deep down through rocky soil into the river valley bed to find hidden underground water reserves.",
-            whyThreatened: "When workers dig out river gravel and boulders for construction, heavy excavators scrape away the soil and tear apart the tree's deep water-seeking root systems."
+            typeLabel: "🌿 Dry Valley Tree (Plant)",
+            habitat: "Arid inter-Andean dry valleys in central and southern Bolivia.",
+            uniqueFeature: "A rare tree found only in Bolivia! It produces winged seeds designed to spin through mountain breezes and has tough leaves that never wither in the dry heat.",
+            howItSurvives: "It drives exceptionally deep taproots deep between rock fractures to reach hidden subterranean water tables beneath bone-dry mountain soil.",
+            whyThreatened: "Open-pit gravel and sand mining scrapes away valley soil, severing its deep taproots. Because it is endemic only to a small valley, any mine destroys its entire world range.",
+            fullStory: "The Cardenasiodendron Tree is a rare guardian of Bolivia's dry mountain valleys. It produces winged seeds that spin on mountain winds like little helicopters. Deep roots reach underground water buried beneath rocks. Gravel strip mines scrape away valley dirt, tearing its roots and threatening this special tree.",
+            quickRead: [
+              "The Cardenasiodendron is a rare tree unique to dry valleys.",
+              "Its deep roots tap into hidden groundwater beneath rocky soil.",
+              "Open gravel strip mines scrape away the dry valley soil."
+            ],
+            vocab: [
+              { word: "Endemic", meaning: "Living naturally in only one special place in the world." },
+              { word: "Inter-Andean", meaning: "Valleys nestled between the high mountain ridges of the Andes." },
+              { word: "Taproot", meaning: "A long primary root that digs deep down into dirt for water." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Pohon Cardenasiodendron",
             typeLabel: "🌿 Pohon Lembah Kering (Tumbuhan)",
-            habitat: "Lembah sungai kering di antara Pegunungan Andes.",
-            uniqueFeature: "Pohon tangguh endemik yang hanya ada di Bolivia! Pohon ini menghasilkan untaian biji bersayap dan akarnya menjaga tanah lembah agar tidak mudah runtuh.",
-            howItSurvives: "Menghujamkan akar tunggang yang sangat dalam menembus tanah berbatu untuk menyerap cadangan air tanah di bawah dasar lembah sungai.",
-            whyThreatened: "Ketika orang mengeruk kerikil dan pasir dasar sungai untuk bahan bangunan, alat berat mengupas tanah dan merusak akar-akar penopang pohon yang dalam."
+            habitat: "Lembah kering gersang antarmountain Andes di Bolivia tengah dan selatan.",
+            uniqueFeature: "Pohon langka yang hanya hidup di Bolivia! Memiliki biji bersayap yang berputar seperti helikopter saat tertiup angin gunung, serta daun tahan panas terik.",
+            howItSurvives: "Memiliki akar tunggang yang menembus celah bebatuan sangat dalam untuk menjangkau sumber air tanah tersembunyi di bawah tanah gersang.",
+            whyThreatened: "Pengerukan pasir dan tambang kerikil mengikis habis lapisan tanah lembah, memotong akar tunggangnya yang vital dan mengancam keberadaannya di bumi.",
+            fullStory: "Pohon Cardenasiodendron adalah pohon langka yang hanya tumbuh di lembah kering pegunungan Bolivia. Benihnya memiliki sayap tipis yang berputar tertiup angin seperti helikopter kecil. Akar utamanya menembus lapisan batu untuk mencari air tanah. Pengerukan tambang pasir mengikis tanah lembah tempat akarnya berpijak.",
+            quickRead: [
+              "Pohon Cardenasiodendron adalah pohon langka di lembah kering Bolivia.",
+              "Akar dalamnya mencari air tanah di sela bebatuan keras.",
+              "Tambang kerikil terbuka mengikis habis tanah lembah tempat bertumbuh."
+            ],
+            vocab: [
+              { word: "Endemik", meaning: "Tumbuhan khas yang hanya ditemukan di satu wilayah saja." },
+              { word: "Lembah Gunung", meaning: "Dataran kering yang diapit oleh pegunungan tinggi Andes." },
+              { word: "Akar Tunggang", meaning: "Akar utama yang menembus tanah dalam untuk menyerap air." }
+            ]
           }
         },
         {
           id: "quenua_de_altura",
           type: "plant",
-          image: "assets/images/bolivia/quenua_de_altura.jpg",
+          image: "assets/images/bolivia/quenua_de_altura.webp",
+          imageFallback: "assets/images/bolivia/quenua_de_altura.jpg",
           scientificName: "Polylepis tarapacana",
           en: {
             name: "Queñua de Altura",
@@ -658,15 +1144,37 @@ const APP_DATA = {
             habitat: "Extreme high elevations in the freezing Andes Mountains (over 4,000 meters!).",
             uniqueFeature: "The highest-growing tree in the world! It has shaggy, papery bark that peels in many thin layers like a winter coat to insulate it against sub-zero mountain cold.",
             howItSurvives: "It keeps its roots warm under a thick carpet of green moss and rocks on freezing slopes right below glaciers.",
-            whyThreatened: "When metal mines scrape away the rocks and moss to build haul roads, the tree roots lose their warm blanket and freeze to death in the harsh mountain frost."
+            whyThreatened: "When metal mines scrape away the rocks and moss to build haul roads, the tree roots lose their warm blanket and freeze to death in the harsh mountain frost.",
+            fullStory: "The Queñua is the highest-growing tree in the entire world, surviving close to freezing glacier ice. Its trunk is wrapped in dozens of thin papery bark layers like a warm down coat. A thick carpet of green moss keeps its roots cozy. Metal haul roads scrape away the rocks and moss, causing tree roots to freeze.",
+            quickRead: [
+              "The Queñua is the highest growing tree on the planet.",
+              "Layered papery bark keeps it warm in freezing alpine frost.",
+              "Road building and open-pit mines peel away its moss blanket."
+            ],
+            vocab: [
+              { word: "Alpine", meaning: "High mountain areas above where normal trees can grow." },
+              { word: "Insulation", meaning: "A cozy protective layer that keeps heat trapped in cold." },
+              { word: "Glacier", meaning: "A massive, frozen mountain field of ancient snow and ice." }
+            ]
           },
-          id_lang: {
+          id: {
             name: "Pohon Queñua Pegunungan",
             typeLabel: "🌿 Pohon Kerdil Salju (Tumbuhan)",
             habitat: "Lereng Pegunungan Andes yang sangat tinggi dan membeku (di atas 4.000 meter!).",
             uniqueFeature: "Pohon yang hidup di tempat tertinggi di dunia! Kulit batangnya berlapis-lapis tipis seperti kertas jaket tebal untuk melindunginya dari suhu beku es.",
             howItSurvives: "Menjaga akarnya tetap hangat di bawah permadani lumut hijau tebal dan bebatuan di dekat gletser salju.",
-            whyThreatened: "Ketika tambang logam mengeruk bebatuan dan lapisan lumut untuk membuat jalan truk, selimut pelindung akarnya hilang sehingga akar pohon membeku di udara dingin gunung."
+            whyThreatened: "Ketika tambang logam mengeruk bebatuan dan lapisan lumut untuk membuat jalan truk, selimut pelindung akarnya hilang sehingga akar pohon membeku di udara dingin gunung.",
+            fullStory: "Pohon Queñua Pegunungan adalah pohon yang sanggup hidup di tempat paling tinggi di dunia di dekat puncak salju. Batangnya memiliki kulit tipis berlapis-lapis seperti jaket musim dingin untuk menahan hawa beku. Lumut di sekelilingnya bertindak sebagai selimut akar. Proyek tambang mengeruk lumut pelindung ini hingga akarnya membeku.",
+            quickRead: [
+              "Pohon Queñua adalah pohon tertinggi di dunia dekat gletser.",
+              "Kulit batangnya berlapis-lapis tipis seperti jaket musim dingin.",
+              "Tambang mengikis lumut tebal yang melindungi akar dari es."
+            ],
+            vocab: [
+              { word: "Alpen (Pegunungan Es)", meaning: "Wilayah puncak gunung tinggi dengan hawa yang membeku." },
+              { word: "Isolasi", meaning: "Lapisan pelindung yang menahan panas agar tidak kedinginan." },
+              { word: "Gletser", meaning: "Hamparan es dan salju abadi di puncak gunung." }
+            ]
           }
         }
       ]
@@ -675,6 +1183,7 @@ const APP_DATA = {
 
   // ----------------------------------------------------
   // QUIZ QUESTIONS (Kids Friendly Grade 2)
+  // Normalized to "en" and "id"
   // ----------------------------------------------------
   quiz: [
     {
@@ -685,7 +1194,7 @@ const APP_DATA = {
         answer: 0,
         explanation: "Correct! The colorful Hispaniolan Trogon needs soft, old dead trees because it cannot drill hard wood."
       },
-      id_lang: {
+      id: {
         question: "Burung berwarna indah dari Haiti manakah yang membutuhkan batang pohon mati untuk bersarang?",
         options: ["Burung Trogon Hispaniola", "Elang Harpy", "Burung Pauraque", "Makaw Leher Biru"],
         answer: 0,
@@ -700,7 +1209,7 @@ const APP_DATA = {
         answer: 1,
         explanation: "Spot on! The Margay spends its life in tree branches and is too afraid to cross wide, empty mining roads on the ground."
       },
-      id_lang: {
+      id: {
         question: "Mengapa kucing Margay di Suriname bisa terperangkap saat ada jalan tambang baru?",
         options: ["Karena lupa jalan pulang", "Karena takut berjalan menyeberangi jalan tanah terbuka", "Karena suka bermain pasir", "Karena tidak bisa melompat"],
         answer: 1,
@@ -715,7 +1224,7 @@ const APP_DATA = {
         answer: 2,
         explanation: "That's right! Gold miners use toxic mercury, which washes into rivers and poisons fish and dolphins."
       },
-      id_lang: {
+      id: {
         question: "Zat kimia berbahaya apa yang digunakan tambang emas sungai sehingga membuat lumba-lumba Bolivia sakit?",
         options: ["Garam dapur", "Air kelapa", "Merkuri (Air raksa)", "Minyak goreng"],
         answer: 2,
@@ -730,7 +1239,7 @@ const APP_DATA = {
         answer: 1,
         explanation: "Awesome! Its shaggy, paper-like layered bark and thick moss carpet act like a warm winter jacket."
       },
-      id_lang: {
+      id: {
         question: "Apa yang melindungi pohon Queñua de Altura dari hawa dingin membeku di pegunungan Bolivia?",
         options: ["Pemanas listrik", "Kulit batang berlapis seperti kertas dan selimut lumut", "Buah tropis yang besar", "Kain terpal"],
         answer: 1,
@@ -745,7 +1254,7 @@ const APP_DATA = {
         answer: 1,
         explanation: "You got it! The Marsh Pitcher Plant forms water-filled cups that trap bugs for nutrients."
       },
-      id_lang: {
+      id: {
         question: "Tumbuhan apakah yang bentuknya seperti cangkir piala berisi air untuk menjebak serangga?",
         options: ["Palem Ceri Oviedo", "Kantong Semar Rawa (Marsh Pitcher Plant)", "Pinus Hispaniola", "Kaktus Ekor Tikus Emas"],
         answer: 1,
@@ -756,6 +1265,7 @@ const APP_DATA = {
 
   // ----------------------------------------------------
   // 4 SOLUTIONS FOR LIFE ON LAND (SDG 15)
+  // Normalized to "en" and "id"
   // ----------------------------------------------------
   solutions: {
     en: [
@@ -810,5 +1320,124 @@ const APP_DATA = {
         text: "Larang penggunaan dinamit di dekat ngarai terjal dan gua batu tempat burung makaw bertelur serta kaktus emas bertumbuh."
       }
     ]
+  },
+
+  // ----------------------------------------------------
+  // BUKU HALUS HELPER: SENTENCE BUILDER WORD BANKS
+  // Kids Grade 2 "Try First" Mode
+  // ----------------------------------------------------
+  notebookStarters: {
+    country: {
+      en: [
+        {
+          qNum: "01",
+          starter: "is located on",
+          words: ["Haiti", "Suriname", "Bolivia", "in South America", "in the Caribbean Sea", "on Hispaniola island", "near the mountains"]
+        },
+        {
+          qNum: "02",
+          starter: "The capital city is",
+          words: ["Port-au-Prince", "Paramaribo", "Sucre and La Paz", "a beautiful city", "with many people"]
+        },
+        {
+          qNum: "03",
+          starter: "People there speak",
+          words: ["French and Haitian Creole", "Dutch and Javanese", "Spanish and Quechua", "together with pride"]
+        },
+        {
+          qNum: "04",
+          starter: "Two interesting facts are",
+          words: ["ancient animals live here", "it gained independence in 1804", "over 90% is lush rainforest", "it has the giant salt flat", "people still speak Javanese"]
+        },
+        {
+          qNum: "05",
+          starter: "What makes it unique is",
+          words: ["its high cloud mountains", "its giant granite rock hills", "its snowy mountains and pink dolphins", "its rare wild animals"]
+        }
+      ],
+      id: [
+        {
+          qNum: "01",
+          starter: "terletak di",
+          words: ["Negara Haiti", "Negara Suriname", "Negara Bolivia", "Laut Karibia", "Amerika Selatan", "Pulau Hispaniola", "pegunungan megah"]
+        },
+        {
+          qNum: "02",
+          starter: "Ibu kotanya adalah",
+          words: ["Port-au-Prince", "Paramaribo", "Sucre dan La Paz", "kota yang indah", "pusat pemerintahan"]
+        },
+        {
+          qNum: "03",
+          starter: "Bahasa yang digunakan adalah",
+          words: ["Bahasa Prancis dan Kreol", "Bahasa Belanda dan Jawa", "Bahasa Spanyol dan Quechua", "oleh masyarakatnya"]
+        },
+        {
+          qNum: "04",
+          starter: "Dua fakta menariknya adalah",
+          words: ["memiliki hewan purba solenodon", "merdeka sejak tahun 1804", "negaranya paling hijau di dunia", "memiliki padang garam raksasa", "ada suku Jawa di sana"]
+        },
+        {
+          qNum: "05",
+          starter: "Yang membuat negara ini unik adalah",
+          words: ["pegunungan awan yang tinggi", "bukit batu granit di tengah hutan", "salju beku hingga hutan Amazon", "satwa langka yang mempesona"]
+        }
+      ]
+    },
+    organism: {
+      en: [
+        {
+          qNum: "01",
+          starter: "lives in",
+          words: ["in mountain forests", "high in the treetops", "in freshwater rivers", "on steep rocky cliffs", "in sunny savannas"]
+        },
+        {
+          qNum: "02",
+          starter: "Its special feature is",
+          words: ["its bright colorful feathers", "its strong climbing paws", "its pink flexible neck", "its golden protective thorns", "its warm layered bark"]
+        },
+        {
+          qNum: "03",
+          starter: "To survive, it",
+          words: ["eats forest fruits and nuts", "sleeps inside cozy nests", "uses echolocation for fish", "stores water inside thick stems", "keeps roots warm under moss"]
+        },
+        {
+          qNum: "04",
+          starter: "It is threatened because",
+          words: ["mining machines scrape away trees", "open dirt roads cut through forests", "toxic mercury poisons river water", "dynamite cracks nesting cliffs"]
+        },
+        {
+          qNum: "05",
+          starter: "We can protect it by",
+          words: ["stopping mining in parks", "leaving tall connected trees", "banning toxic mercury in rivers", "protecting rocky cliff homes"]
+        }
+      ],
+      id: [
+        {
+          qNum: "01",
+          starter: "hidup di",
+          words: ["hutan pegunungan berkabut", "tajuk pohon yang tinggi", "aliran sungai air tawar", "dinding tebing batu terjal", "padang rumput sabana"]
+        },
+        {
+          qNum: "02",
+          starter: "Ciri khas utamanya adalah",
+          words: ["bulu berwarna cerah indah", "kaki lincah memanjat", "leher lentur berwarna merah muda", "duri emas penyimpan air", "kulit batang berlapis jaket"]
+        },
+        {
+          qNum: "03",
+          starter: "Untuk bertahan hidup, mereka",
+          words: ["memakan buah dan biji hutan", "bersarang di rongga kayu lapuk", "memakai pantulan suara untuk berburu", "menyimpan air di batang tebal", "menghangatkan akar di bawah lumut"]
+        },
+        {
+          qNum: "04",
+          starter: "Mereka terancam punah karena",
+          words: ["tambang menebang pohon sarang", "jalan tambang memutus hutan", "limbah merkuri meracuni air", "ledakan dinamit meruntuhkan tebing"]
+        },
+        {
+          qNum: "05",
+          starter: "Kita dapat melindunginya dengan",
+          words: ["menghentikan tambang di cagar alam", "menjaga pohon tinggi tetap terhubung", "melarang merkuri di aliran sungai", "menjaga tebing sarang satwa"]
+        }
+      ]
+    }
   }
 };
