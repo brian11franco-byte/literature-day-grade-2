@@ -1263,86 +1263,415 @@ const APP_DATA = {
   ],
 
   // ----------------------------------------------------
-  // QUIZ QUESTIONS (Kids Friendly Grade 2)
-  // Normalized to "en" and "id"
+  // COUNTRY-SPECIFIC QUIZ QUESTIONS (Kids Friendly Grade 2)
+  // Issue 2: Specific questions for Haiti, Suriname, and Bolivia
   // ----------------------------------------------------
-  quiz: [
-    {
-      id: 1,
-      en: {
-        question: "Which bird from Haiti needs soft, dead trees ('snags') to build its nest holes?",
-        options: ["Hispaniolan Trogon", "Harpy Eagle", "Least Pauraque", "Blue-throated Macaw"],
-        answer: 0,
-        explanation: "Correct! The colorful Hispaniolan Trogon needs soft, old dead trees because it cannot drill hard wood."
+  countryQuizzes: {
+    haiti: [
+      {
+        id: 1,
+        en: {
+          question: "Where does the colorful Hispaniolan Trogon build its cozy nest?",
+          options: [
+            "Inside soft holes in dead trees (snags)",
+            "Deep under the ocean water",
+            "On top of busy car roofs",
+            "In sandy beach holes"
+          ],
+          answer: 0,
+          explanation: "Great job! The Hispaniolan Trogon has a gentle beak, so it makes its nest inside soft, old dead trees called snags!"
+        },
+        id_lang: {
+          question: "Di manakah burung Trogon Hispaniola yang cantik suka membuat sarangnya?",
+          options: [
+            "Di dalam lubang pohon tua yang lapuk (snags)",
+            "Jauh di dasar air laut yang dalam",
+            "Di atas atap mobil yang ramai di jalan",
+            "Di dalam lubang pasir pantai yang berangin"
+          ],
+          answer: 0,
+          explanation: "Bagus sekali! Paruh burung Trogon lembut, sehingga ia memilih batang pohon tua yang lapuk untuk membuat sarang yang nyaman!"
+        }
       },
-      id_lang: {
-        question: "Burung berwarna indah dari Haiti manakah yang membutuhkan batang pohon mati untuk bersarang?",
-        options: ["Burung Trogon Hispaniola", "Elang Harpy", "Burung Pauraque", "Makaw Leher Biru"],
-        answer: 0,
-        explanation: "Benar! Burung Trogon Hispaniola butuh pohon mati yang kayunya lunak karena paruhnya tidak bisa melubangi kayu keras."
+      {
+        id: 2,
+        en: {
+          question: "What special body feature helps the ancient Hispaniolan Solenodon find insects in the dark?",
+          options: [
+            "Feathery wings for high flying",
+            "A long, flexible snout for sniffing soil",
+            "Giant flippers for swimming",
+            "Shining headlights on its ears"
+          ],
+          answer: 1,
+          explanation: "Super! The solenodon has a long flexible snout that wiggles into the ground to sniff out tasty insects at night!"
+        },
+        id_lang: {
+          question: "Ciri tubuh istimewa apa yang membantu Solenodon Hispaniola mencari serangga di malam hari?",
+          options: [
+            "Sayap berbulu untuk terbang tinggi di langit",
+            "Moncong panjang yang lentur untuk mengendus tanah",
+            "Kaki berselaput lebar untuk menyelam di sungai",
+            "Lampu senter yang menyala terang di daun telinganya"
+          ],
+          answer: 1,
+          explanation: "Hebat! Solenodon memiliki moncong panjang yang sangat lincah untuk mengendus serangga lezat di dalam tanah pada malam hari!"
+        }
+      },
+      {
+        id: 3,
+        en: {
+          question: "What friendly feature gave the Rhinoceros Iguana its special name?",
+          options: [
+            "Big floppy elephant ears",
+            "Bright striped tiger fur",
+            "Three small horn-like bumps on its snout",
+            "A curly tail like a pig"
+          ],
+          answer: 2,
+          explanation: "Spot on! It has three little bumpy scales on its nose that look just like tiny rhino horns!"
+        },
+        id_lang: {
+          question: "Ciri apakah yang membuat Iguana Badak mendapatkan namanya yang unik?",
+          options: [
+            "Telinga lebar dan belalai panjang seperti gajah",
+            "Bulu lebat belang-belang seperti harimau",
+            "Tiga tonjolan sisik mirip cula badak di atas hidungnya",
+            "Ekor melingkar seperti ekor anak babi"
+          ],
+          answer: 2,
+          explanation: "Tepat sekali! Iguana ini memiliki tiga sisik menonjol di atas hidungnya yang tampak gagah mirip cula badak kecil!"
+        }
+      },
+      {
+        id: 4,
+        en: {
+          question: "How do Hispaniolan Pine trees help protect Haiti's steep mountains?",
+          options: [
+            "They turn mountain clouds into sweet juice",
+            "They build wooden houses by themselves",
+            "Their strong roots hold the soil so rain does not wash hillsides away",
+            "They blow cold wind like giant electric fans"
+          ],
+          answer: 2,
+          explanation: "Awesome! Deep pine roots hold the mountain dirt tightly like a strong net, preventing soil from washing away during heavy rains!"
+        },
+        id_lang: {
+          question: "Bagaimana pohon Pinus Hispaniola membantu melindungi pegunungan curam di Haiti?",
+          options: [
+            "Mengubah kabut gunung menjadi sirup manis",
+            "Membangun rumah kayu dengan sendirinya",
+            "Akar kuatnya mencengkeram tanah agar tidak longsor saat hujan lebat",
+            "Meniupkan angin dingin seperti kipas angin raksasa"
+          ],
+          answer: 2,
+          explanation: "Keren! Akar pohon pinus yang dalam mencengkeram tanah gunung dengan kuat seperti jaring penyelamat saat hujan lebat!"
+        }
+      },
+      {
+        id: 5,
+        en: {
+          question: "How can we help Haiti's cloud forests and support SDG 15 (Life on Land)?",
+          options: [
+            "Cut down all mountain trees for mining trucks",
+            "Leave plastic garbage along bird nests",
+            "Scrape away all fertile soil from hills",
+            "Plant new native trees and keep mining away from national parks"
+          ],
+          answer: 3,
+          explanation: "Fantastic! SDG 15 teaches us to protect wild cloud forests, replant native trees, and keep animal homes safe from harmful digging!"
+        },
+        id_lang: {
+          question: "Bagaimana cara kita membantu hutan awan Haiti dan mendukung SDG 15 (Ekosistem Daratan)?",
+          options: [
+            "Menebang semua pohon gunung untuk jalan truk tambang",
+            "Meninggalkan sampah plastik di sarang burung",
+            "Mengeruk habis seluruh lapisan tanah subur di perbukitan",
+            "Menanam kembali bibit pohon asli dan menjauhkan tambang dari hutan lindung"
+          ],
+          answer: 3,
+          explanation: "Luar biasa! SDG 15 mengajak kita menjaga hutan awan, menanam bibit pohon asli, dan melindungi rumah satwa dari kerusakan galian tambang!"
+        }
       }
+    ],
+    suriname: [
+      {
+        id: 1,
+        en: {
+          question: "What helps the Giant Otter swim super fast in Suriname's clean rivers?",
+          options: [
+            "Webbed paws and a strong flat tail",
+            "Heavy iron boots",
+            "Golden wings on its back",
+            "A floating plastic surfboard"
+          ],
+          answer: 0,
+          explanation: "Correct! Giant otters have webbed toes like natural swim flippers and a powerful tail that guides them like a boat paddle!"
+        },
+        id_lang: {
+          question: "Apa yang membantu Berang-berang Raksasa berenang sangat cepat di sungai bersih Suriname?",
+          options: [
+            "Kaki berselaput dan ekor pipih yang mendayung air",
+            "Sepatu bot dari besi yang berat",
+            "Sayap emas berbulu di punggungnya",
+            "Papan selancar terapung dari plastik"
+          ],
+          answer: 0,
+          explanation: "Benar sekali! Kaki berselaput dan ekor pipihnya bekerja seperti dayung perahu alami untuk meluncur lincah di dalam air!"
+        }
+      },
+      {
+        id: 2,
+        en: {
+          question: "What does the bright orange male Guianan Cock-of-the-rock show off to friends?",
+          options: [
+            "A shiny pair of sunglasses",
+            "A wonderful half-moon crest of orange feathers",
+            "A loud ringing bicycle bell",
+            "A necklace of river seashells"
+          ],
+          answer: 1,
+          explanation: "Super! The male has a glorious fan-shaped crest of bright orange feathers standing proudly on top of its head!"
+        },
+        id_lang: {
+          question: "Apa hiasan indah di kepala burung Cadas Guyana jantan yang berwarna jingga menyala?",
+          options: [
+            "Kacamata hitam yang berkilau",
+            "Jambul bulu jingga indah berbentuk kipas setengah lingkaran",
+            "Bel sepeda yang berbunyi nyaring",
+            "Kalung mutiara dari kerang sungai"
+          ],
+          answer: 1,
+          explanation: "Hebat! Burung jantan memiliki jambul bulu jingga terang berbentuk kipas setengah lingkaran yang berdiri anggun di kepalanya!"
+        }
+      },
+      {
+        id: 3,
+        en: {
+          question: "Why do Jaguars need big, connected rainforests to roam in Suriname?",
+          options: [
+            "They enjoy going to outdoor movie theaters",
+            "They only like walking on concrete roads",
+            "They need wide territories to hunt prey, swim in rivers, and raise cubs",
+            "They are scared of tall green trees"
+          ],
+          answer: 2,
+          explanation: "You got it! Jaguars are magnificent big cats that need plenty of connected jungle to hunt, swim, and protect their baby cubs!"
+        },
+        id_lang: {
+          question: "Mengapa Jaguar membutuhkan hutan hujan yang luas dan tersambung di Suriname?",
+          options: [
+            "Karena mereka suka bermain bola di lapangan rumput kota",
+            "Karena mereka hanya mau berjalan di jalan beraspal",
+            "Karena mereka butuh wilayah luas untuk berburu, berenang, dan membesarkan anak",
+            "Karena mereka takut melihat dedaunan pohon yang hijau"
+          ],
+          answer: 2,
+          explanation: "Pintar! Jaguar adalah kucing besar perkasa yang membutuhkan hutan lebat tak terputus untuk berburu mangsa, berenang bebas, dan menjaga anaknya!"
+        }
+      },
+      {
+        id: 4,
+        en: {
+          question: "What makes the Giant Water Lily in Suriname's calm waterways so amazing?",
+          options: [
+            "It shoots laser beams into the clouds",
+            "Its giant round floating pads are so wide small birds can walk on them",
+            "It produces cold chocolate milk",
+            "It sinks down to sleep in river mud every noon"
+          ],
+          answer: 1,
+          explanation: "Spot on! The Giant Water Lily has enormous floating round leaves that can grow two meters wide with strong upturned edges!"
+        },
+        id_lang: {
+          question: "Apa keajaiban daun Teratai Raksasa yang terapung di perairan tenang Suriname?",
+          options: [
+            "Tenggelam ke dasar sungai seperti batu kali yang berat",
+            "Daun bundar terapungnya sangat lebar sehingga burung kecil bisa berdiri di atasnya",
+            "Menghasilkan susu cokelat yang dingin dan manis",
+            "Tumbuh berduri tajam di pucuk pohon kelapa"
+          ],
+          answer: 1,
+          explanation: "Tepat sekali! Teratai Raksasa memiliki daun bundar mengapung selebar dua meter dengan tepi terlipat kokoh di atas permukaan air!"
+        }
+      },
+      {
+        id: 5,
+        en: {
+          question: "Why does SDG 15 encourage us to stop using toxic mercury in river gold mining?",
+          options: [
+            "Because mercury makes fish turn into gold coins",
+            "Because mercury helps river water freeze faster",
+            "Because loud river mining machines make water warm",
+            "Because mercury poisons river water and harms fish, otters, and people"
+          ],
+          answer: 3,
+          explanation: "Brilliant! Banning toxic mercury protects our freshwater rivers, keeping fish, river otters, and human communities safe and healthy!"
+        },
+        id_lang: {
+          question: "Mengapa SDG 15 mendorong penghentian penggunaan zat merkuri beracun pada tambang emas sungai?",
+          options: [
+            "Karena merkuri mengubah batu kali menjadi kue manis",
+            "Karena merkuri membuat air sungai cepat berubah jadi es",
+            "Karena suara mesin tambang membuat air menjadi hangat",
+            "Karena merkuri meracuni air sungai dan membahayakan ikan, berang-berang, serta manusia"
+          ],
+          answer: 3,
+          explanation: "Luar biasa! Melarang zat merkuri beracun menjaga kemurnian sungai agar ikan, berang-berang, dan masyarakat tetap aman dan sehat!"
+        }
+      }
+    ],
+    bolivia: [
+      {
+        id: 1,
+        en: {
+          question: "How does the Andean Condor soar high above Bolivia's snowy mountain peaks?",
+          options: [
+            "It flaps tiny wings a thousand times a minute",
+            "It spreads its huge wings and glides gracefully on rising mountain air",
+            "It rides on the backs of wild llamas",
+            "It climbs ladder steps carved into rocks"
+          ],
+          answer: 1,
+          explanation: "Awesome! With its massive three-meter wingspan, the condor glides gently across the sky on mountain breezes without tiring out!"
+        },
+        id_lang: {
+          question: "Bagaimana burung Kondor Andes melayang di langit pegunungan tinggi Bolivia?",
+          options: [
+            "Mengepakkan sayap kecil seribu kali setiap menit",
+            "Membentangkan sayap raksasanya dan melayang anggun mengikuti hembusan angin gunung",
+            "Menunggangi punggung kawanan llama liar",
+            "Menaiki tangga batu yang diukir di tebing"
+          ],
+          answer: 1,
+          explanation: "Hebat! Dengan bentang sayap raksasa hingga tiga meter, burung Kondor melayang anggun mengikuti angin gunung tanpa cepat lelah!"
+        }
+      },
+      {
+        id: 2,
+        en: {
+          question: "What special winter coat keeps the Queñua de Altura tree warm near freezing glaciers?",
+          options: [
+            "Layers of thin, papery bark and cozy moss around its roots",
+            "A knitted wool scarf around every branch",
+            "A glass dome built over the tree",
+            "A hot bath of boiling water"
+          ],
+          answer: 0,
+          explanation: "Spot on! The Queñua has peeling layers of papery bark that trap warm air like a puffy winter jacket, surviving high up in freezing frost!"
+        },
+        id_lang: {
+          question: "Jaket musim dingin alami apa yang melindungi pohon Queñua de Altura dari hawa dingin membeku di pegunungan Andes?",
+          options: [
+            "Kulit batang tipis berlapis-lapis mirip kertas dan selimut lumut tebal di akarnya",
+            "Syal wol rajutan hangat di setiap rantingnya",
+            "Kubah kaca pelindung di atas seluruh pohon",
+            "Bak air hangat mendidih di sekeliling batangnya"
+          ],
+          answer: 0,
+          explanation: "Bagus sekali! Kulit batangnya mengelupas berlapis-lapis seperti kertas untuk memerangkap udara hangat seperti jaket tebal di udara beku!"
+        }
+      },
+      {
+        id: 3,
+        en: {
+          question: "How does the little Short-tailed Chinchilla stay warm on freezing Andean mountaintops?",
+          options: [
+            "It drinks hot tea every morning",
+            "It wears thick rubber rain boots",
+            "It has super dense, ultra-soft fur that keeps out chilly winds",
+            "It sleeps inside warm caves made of ice"
+          ],
+          answer: 2,
+          explanation: "Great job! Chinchillas have the densest and softest fur of any land mammal, keeping them cozy and warm on icy mountain rocks!"
+        },
+        id_lang: {
+          question: "Bagaimana Chinchilla Ekor Pendek menjaga tubuhnya tetap hangat di puncak berbatu Andes yang dingin?",
+          options: [
+            "Meminum teh madu hangat setiap pagi",
+            "Memakai sepatu bot karet tebal warna-warni",
+            "Memiliki bulu yang sangat lebat dan luar biasa lembut untuk menahan angin beku",
+            "Tidur di dalam iglo yang terbuat dari balok es"
+          ],
+          answer: 2,
+          explanation: "Pintar! Chinchilla memiliki bulu paling lebat dan lembut di dunia yang melindunginya seperti mantel hangat di tengah hawa dingin pegunungan!"
+        }
+      },
+      {
+        id: 4,
+        en: {
+          question: "Why is South America's only bear called the Spectacled Bear?",
+          options: [
+            "It builds pairs of wooden spectacles for birds",
+            "It wears glass goggles to swim in deep pools",
+            "It has creamy yellow circles around its eyes that look like eyeglasses",
+            "It reads books in the mountain library"
+          ],
+          answer: 2,
+          explanation: "That's right! Light yellowish circles of fur around its eyes look just like a cute pair of eyeglasses (spectacles)!"
+        },
+        id_lang: {
+          question: "Mengapa satu-satunya jenis beruang asli Amerika Selatan ini dinamakan Beruang Kacamata (Spectacled Bear)?",
+          options: [
+            "Karena membuat kacamata kayu untuk burung di hutan",
+            "Karena suka memakai kacamata renang di dalam danau",
+            "Karena memiliki lingkaran bulu kuning cerah di sekitar matanya yang mirip kacamata",
+            "Karena suka membaca buku cerita di gua batu"
+          ],
+          answer: 2,
+          explanation: "Tepat sekali! Lingkaran bulu berwarna kuning muda di sekeliling matanya tampak lucu persis seperti kacamata bulat!"
+        }
+      },
+      {
+        id: 5,
+        en: {
+          question: "What does SDG 15 remind us to do when extracting metals and lithium in the high Andes?",
+          options: [
+            "Leave big empty digging pits with no cleanup",
+            "Protect precious mountain water and keep high-altitude wetland habitats safe",
+            "Take away all rocks where bears and chinchillas sleep",
+            "Turn off the sun over snowy peaks"
+          ],
+          answer: 1,
+          explanation: "Super! SDG 15 reminds us to protect mountain wetlands, conserve freshwater, and take good care of high mountain animals and plants!"
+        },
+        id_lang: {
+          question: "Apa pesan penting SDG 15 saat manusia menambang logam dan litium di pegunungan tinggi Andes?",
+          options: [
+            "Meninggalkan lubang galian raksasa tanpa dibersihkan kembali",
+            "Melindungi sumber air pegunungan yang berharga dan menjaga kelestarian habitat satwa liar",
+            "Membongkar seluruh bebatuan tempat tidur beruang dan chinchilla",
+            "Memadamkan cahaya matahari di atas puncak salju"
+          ],
+          answer: 1,
+          explanation: "Luar biasa! SDG 15 mengingatkan kita untuk menjaga kelestarian sumber air gunung, merawat lahan basah, dan menyayangi habitat satwa serta tumbuhan!"
+        }
+      }
+    ]
+  },
+
+  // Fallback single quiz
+  get quiz() {
+    return this.countryQuizzes.haiti;
+  },
+
+  // ----------------------------------------------------
+  // CERTIFICATE STATEMENTS PER COUNTRY (Issue 3)
+  // ----------------------------------------------------
+  certificateStatements: {
+    haiti: {
+      en: "For outstanding dedication in exploring the cloud forests of Haiti, defending the Hispaniolan Trogon and Solenodon against mining destruction, and protecting wildlife for SDG 15: Life on Land.",
+      id: "Atas dedikasi luar biasa dalam menjelajahi hutan awan Haiti, melindungi Burung Trogon dan Solenodon dari kerusakan tambang, serta menjaga kehidupan satwa di darat untuk SDG 15."
     },
-    {
-      id: 2,
-      en: {
-        question: "Why does the Margay cat in Suriname get trapped by mining roads?",
-        options: ["It forgets the way home", "It is afraid to walk on wide open dirt roads", "It likes playing in the sand", "It cannot jump"],
-        answer: 1,
-        explanation: "Spot on! The Margay spends its life in tree branches and is too afraid to cross wide, empty mining roads on the ground."
-      },
-      id_lang: {
-        question: "Mengapa kucing Margay di Suriname bisa terperangkap saat ada jalan tambang baru?",
-        options: ["Karena lupa jalan pulang", "Karena takut berjalan menyeberangi jalan tanah terbuka", "Karena suka bermain pasir", "Karena tidak bisa melompat"],
-        answer: 1,
-        explanation: "Tepat sekali! Margay adalah pemanjat pohon ulung dan merasa takut menyentuh tanah jalan tambang yang gundul dan terbuka."
-      }
+    suriname: {
+      en: "For outstanding dedication in exploring the lush rainforests of Suriname, defending the Giant Otter and Cock-of-the-rock from river gold mining pollution, and protecting wildlife for SDG 15: Life on Land.",
+      id: "Atas dedikasi luar biasa dalam menjelajahi hutan hujan Suriname, melindungi Berang-berang Raksasa dan Burung Cadas dari pencemaran tambang emas sungai, serta menjaga kehidupan satwa di darat untuk SDG 15."
     },
-    {
-      id: 3,
-      en: {
-        question: "What dangerous chemical used in river gold mining harms the Bolivian River Dolphin?",
-        options: ["Table salt", "Pure water", "Mercury", "Cooking oil"],
-        answer: 2,
-        explanation: "That's right! Gold miners use toxic mercury, which washes into rivers and poisons fish and dolphins."
-      },
-      id_lang: {
-        question: "Zat kimia berbahaya apa yang digunakan tambang emas sungai sehingga membuat lumba-lumba Bolivia sakit?",
-        options: ["Garam dapur", "Air kelapa", "Merkuri (Air raksa)", "Minyak goreng"],
-        answer: 2,
-        explanation: "Hebat! Merkuri adalah zat kimia beracun yang digunakan penambang emas dan mencemari sungai serta ikan."
-      }
-    },
-    {
-      id: 4,
-      en: {
-        question: "What special adaptation protects the Queñua de Altura tree from freezing in Bolivia's high Andes?",
-        options: ["An electric heater", "Multi-layered papery bark and moss carpets", "Giant tropical fruit", "Plastic wrap"],
-        answer: 1,
-        explanation: "Awesome! Its shaggy, paper-like layered bark and thick moss carpet act like a warm winter jacket."
-      },
-      id_lang: {
-        question: "Apa yang melindungi pohon Queñua de Altura dari hawa dingin membeku di pegunungan Bolivia?",
-        options: ["Pemanas listrik", "Kulit batang berlapis seperti kertas dan selimut lumut", "Buah tropis yang besar", "Kain terpal"],
-        answer: 1,
-        explanation: "Bagus sekali! Kulit batangnya berlapis-lapis seperti jaket tebal dan lumut menjaga akarnya tetap hangat."
-      }
-    },
-    {
-      id: 5,
-      en: {
-        question: "Which plant looks like a green cup that catches insects in foggy mountain moss?",
-        options: ["Oviedo's Cherry Palm", "Marsh Pitcher Plant", "Hispaniolan Pine", "Golden Rat Tail Cactus"],
-        answer: 1,
-        explanation: "You got it! The Marsh Pitcher Plant forms water-filled cups that trap bugs for nutrients."
-      },
-      id_lang: {
-        question: "Tumbuhan apakah yang bentuknya seperti cangkir piala berisi air untuk menjebak serangga?",
-        options: ["Palem Ceri Oviedo", "Kantong Semar Rawa (Marsh Pitcher Plant)", "Pinus Hispaniola", "Kaktus Ekor Tikus Emas"],
-        answer: 1,
-        explanation: "Pintar! Kantong Semar Rawa memiliki daun berbentuk cangkir berisi air untuk menangkap serangga di puncak gunung."
-      }
+    bolivia: {
+      en: "For outstanding dedication in exploring the high Andes of Bolivia, defending the Andean Condor and Queñua trees against open-pit mining roads, and protecting wildlife for SDG 15: Life on Land.",
+      id: "Atas dedikasi luar biasa dalam menjelajahi pegunungan Andes Bolivia, melindungi Elang Kondor Andes dan Pohon Queñua dari pembukaan jalan tambang, serta menjaga kehidupan satwa di darat untuk SDG 15."
     }
-  ],
+  },
 
   // ----------------------------------------------------
   // 4 SOLUTIONS FOR LIFE ON LAND (SDG 15)
@@ -1540,8 +1869,18 @@ if (APP_DATA.notebookStarters) {
   }
 }
 
+// Attach country quizzes directly to country objects
+if (APP_DATA.countries && APP_DATA.countryQuizzes) {
+  APP_DATA.countries.forEach(c => {
+    if (APP_DATA.countryQuizzes[c.id]) {
+      c.quiz = APP_DATA.countryQuizzes[c.id];
+    }
+  });
+}
+
 // Ensure global window exposure for browser scripts
 if (typeof window !== 'undefined') {
   window.APP_DATA = APP_DATA;
 }
+
 
