@@ -266,103 +266,109 @@
       <!-- Scrollable Creature Body -->
       <div class="creature-scroll-body" id="creatureScrollBody">
         
-        <!-- Photo Container (Fully uncropped photo view + Zoom button) -->
-        <div class="creature-photo-hero">
-          <img id="creatureHeroImg" src="" alt="" width="360" height="240" class="creature-main-photo">
-          <span class="creature-stamp-overlay" id="creatureStampOverlay" aria-hidden="true">⭐</span>
-          <button type="button" class="btn-view-full-photo" id="btnViewFullPhoto" aria-label="View photo in full screen">
-            <span aria-hidden="true">🔍</span> <span id="labelViewFullPhoto">Full Photo</span>
-          </button>
-        </div>
-
-        <!-- Name, Type, and Main Audio -->
-        <div class="creature-title-section">
-          <div class="creature-name-row">
-            <div>
-              <h2 class="creature-big-name" id="creatureBigName">Creature Name</h2>
-              <span class="creature-type-chip" id="creatureTypeChip">🐾 Animal</span>
-            </div>
-            <button type="button" class="btn-speaker" id="btnCreatureMainAudio" aria-label="Listen to creature introduction" title="Listen">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-              </svg>
+        <!-- Left Column (Visuals & Identity) -->
+        <div class="creature-col-visual">
+          <!-- Photo Container (Fully uncropped photo view + Zoom button) -->
+          <div class="creature-photo-hero">
+            <img id="creatureHeroImg" src="" alt="" width="360" height="240" class="creature-main-photo">
+            <span class="creature-stamp-overlay" id="creatureStampOverlay" aria-hidden="true">⭐</span>
+            <button type="button" class="btn-view-full-photo" id="btnViewFullPhoto" aria-label="View photo in full screen">
+              <span aria-hidden="true">🔍</span> <span id="labelViewFullPhoto">Full Photo</span>
             </button>
           </div>
+
+          <!-- Name, Type, and Main Audio -->
+          <div class="creature-title-section">
+            <div class="creature-name-row">
+              <div>
+                <h2 class="creature-big-name" id="creatureBigName">Creature Name</h2>
+                <span class="creature-type-chip" id="creatureTypeChip">🐾 Animal</span>
+              </div>
+              <button type="button" class="btn-speaker" id="btnCreatureMainAudio" aria-label="Listen to creature introduction" title="Listen">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Bottom Action Button -->
+          <div class="creature-bottom-actions">
+            <button type="button" class="btn-creature-back" id="btnCreatureContinue">Back to Trail 🗺️</button>
+          </div>
         </div>
 
-        <!-- 3 Picture Tiles: 🏠 Where It Lives, ⭐ What is Special, ⚠️ Human & Mining Threats -->
-        <div class="creature-tiles-row" role="tablist" aria-label="Creature topics">
-          <button type="button" class="picture-tile active" id="tileLives" data-tile="lives" role="tab" aria-selected="true">
-            <span class="tile-icon" aria-hidden="true">🏠</span>
-            <span class="tile-label" id="tileLivesLabel">Where It Lives</span>
-          </button>
-          <button type="button" class="picture-tile" id="tileSpecial" data-tile="special" role="tab" aria-selected="false">
-            <span class="tile-icon" aria-hidden="true">⭐</span>
-            <span class="tile-label" id="tileSpecialLabel">What is Special</span>
-          </button>
-          <button type="button" class="picture-tile tile-threat" id="tileThreats" data-tile="threats" role="tab" aria-selected="false">
-            <span class="tile-icon" aria-hidden="true">⚠️</span>
-            <span class="tile-label" id="tileThreatsLabel">Mining Threats</span>
-          </button>
-        </div>
-
-        <!-- Active Tile Display Card -->
-        <div class="active-tile-card" id="activeTileCard">
-          <div class="tile-content-row">
-            <div class="tile-badge-icon" id="tileBadgeIcon">🏠</div>
-            <p class="tile-content-text" id="tileContentText">Story sentence appears here.</p>
-            <button type="button" class="btn-speaker-sm" id="btnTileSpeak" aria-label="Listen to this card" title="Listen">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              </svg>
+        <!-- Right Column (Exploration Story & Details) -->
+        <div class="creature-col-content">
+          <!-- 3 Picture Tiles: 🏠 Where It Lives, ⭐ What is Special, ⚠️ Human & Mining Threats -->
+          <div class="creature-tiles-row" role="tablist" aria-label="Creature topics">
+            <button type="button" class="picture-tile active" id="tileLives" data-tile="lives" role="tab" aria-selected="true">
+              <span class="tile-icon" aria-hidden="true">🏠</span>
+              <span class="tile-label" id="tileLivesLabel">Where It Lives</span>
+            </button>
+            <button type="button" class="picture-tile" id="tileSpecial" data-tile="special" role="tab" aria-selected="false">
+              <span class="tile-icon" aria-hidden="true">⭐</span>
+              <span class="tile-label" id="tileSpecialLabel">What is Special</span>
+            </button>
+            <button type="button" class="picture-tile tile-threat" id="tileThreats" data-tile="threats" role="tab" aria-selected="false">
+              <span class="tile-icon" aria-hidden="true">⚠️</span>
+              <span class="tile-label" id="tileThreatsLabel">Mining Threats</span>
             </button>
           </div>
-        </div>
 
-        <!-- Tell Me More Expander (Rich facts, how it survives, deep mining impact, vocab chips) -->
-        <div class="tell-me-more-section">
-          <button type="button" class="btn-toggle-details" id="btnToggleDetails">
-            <span id="labelTellMeMore">📖 Tell Me More</span>
-          </button>
-
-          <div class="details-drawer" id="detailsDrawer" style="display: none;">
-            <!-- How It Survives / Food -->
-            <div class="detail-block">
-              <h3 class="detail-block-title" id="titleHowSurvives">How it Survives & Eats:</h3>
-              <p class="detail-block-text" id="textHowSurvives"></p>
-            </div>
-
-            <!-- Human Activities & Mining Impact (Addressing Issue 3) -->
-            <div class="detail-block threat-block">
-              <h3 class="detail-block-title" id="titleHumanThreats">How Mining & Humans Threaten It:</h3>
-              <p class="detail-block-text" id="textHumanThreats"></p>
-            </div>
-
-            <!-- Full Story -->
-            <div class="detail-block">
-              <h3 class="detail-block-title" id="titleFullStory">Full Classroom Story:</h3>
-              <p class="detail-block-text" id="textFullStory"></p>
-            </div>
-
-            <!-- Tappable Vocab Chips -->
-            <div class="vocab-section" id="vocabSection">
-              <h4 class="vocab-title">Vocabulary Words (Tap to hear):</h4>
-              <div class="vocab-chips-list" id="vocabChipsList"></div>
+          <!-- Active Tile Display Card -->
+          <div class="active-tile-card" id="activeTileCard">
+            <div class="tile-content-row">
+              <div class="tile-badge-icon" id="tileBadgeIcon">🏠</div>
+              <p class="tile-content-text" id="tileContentText">Story sentence appears here.</p>
+              <button type="button" class="btn-speaker-sm" id="btnTileSpeak" aria-label="Listen to this card" title="Listen">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+              </button>
             </div>
           </div>
-        </div>
 
-        <!-- Star Stamp Collected Feedback -->
-        <div class="creature-stamp-banner">
-          <span class="stamp-pill" id="creatureStampPill">⭐ Star Stamp Collected!</span>
-        </div>
+          <!-- Tell Me More Expander (Rich facts, how it survives, deep mining impact, vocab chips) -->
+          <div class="tell-me-more-section">
+            <button type="button" class="btn-toggle-details" id="btnToggleDetails">
+              <span id="labelTellMeMore">📖 Tell Me More</span>
+            </button>
 
-        <!-- Bottom Action Button -->
-        <div class="creature-bottom-actions">
-          <button type="button" class="btn-creature-back" id="btnCreatureContinue">Back to Trail 🗺️</button>
+            <div class="details-drawer" id="detailsDrawer" style="display: none;">
+              <!-- How It Survives / Food -->
+              <div class="detail-block">
+                <h3 class="detail-block-title" id="titleHowSurvives">How it Survives & Eats:</h3>
+                <p class="detail-block-text" id="textHowSurvives"></p>
+              </div>
+
+              <!-- Human Activities & Mining Impact (Addressing Issue 3) -->
+              <div class="detail-block threat-block">
+                <h3 class="detail-block-title" id="titleHumanThreats">How Mining & Humans Threaten It:</h3>
+                <p class="detail-block-text" id="textHumanThreats"></p>
+              </div>
+
+              <!-- Full Story -->
+              <div class="detail-block">
+                <h3 class="detail-block-title" id="titleFullStory">Full Classroom Story:</h3>
+                <p class="detail-block-text" id="textFullStory"></p>
+              </div>
+
+              <!-- Tappable Vocab Chips -->
+              <div class="vocab-section" id="vocabSection">
+                <h4 class="vocab-title">Vocabulary Words (Tap to hear):</h4>
+                <div class="vocab-chips-list" id="vocabChipsList"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Star Stamp Collected Feedback -->
+          <div class="creature-stamp-banner">
+            <span class="stamp-pill" id="creatureStampPill">⭐ Star Stamp Collected!</span>
+          </div>
         </div>
 
       </div>
