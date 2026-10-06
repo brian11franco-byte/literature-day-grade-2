@@ -111,7 +111,20 @@ const APP_DATA = {
       comingSoonQuizDesc: "Explore the trail first! The quiz opens on your next mission.",
       comingSoonBadgeDesc: "Collect all 6 stars on the trail to earn your Guardian Badge!",
       stampCollected: "⭐ Star Collected!",
-      continueTrailBtn: "Keep Exploring 🌟"
+      continueTrailBtn: "Keep Exploring 🌟",
+      tileLives: "Where It Lives",
+      tileSpecial: "What Is Special",
+      tileThreats: "Human Mining Threats",
+      tellMeMoreBtn: "📖 Tell Me More",
+      hideDetailsBtn: "🔼 Hide Details",
+      howSurvivesTitle: "How it Survives & Eats:",
+      humanThreatsTitle: "How Mining & Humans Threaten It:",
+      viewFullPhoto: "🔍 View Full Photo",
+      takeQuizBtn: "Take the Quiz 🚀",
+      claimBadgeBtn: "Claim Guardian Badge 🛡️",
+      trailCompleteNotice: "🎉 All 6 Stars Collected! Take the Quiz to earn your Guardian Badge!",
+      trailIncompleteNotice: "⭐ Meet all 6 friends on the trail to unlock your Quiz!",
+      closePhoto: "Close Photo ✕"
     },
     id_lang: {
       siteTitle: "Petualang Bumi: Kehidupan di Darat",
@@ -218,7 +231,20 @@ const APP_DATA = {
       comingSoonQuizDesc: "Jelajahi jalurnya dulu! Kuis terbuka di misi berikutnya.",
       comingSoonBadgeDesc: "Kumpulkan 6 bintang di jalur untuk mendapatkan Lencana Pelindung!",
       stampCollected: "⭐ Bintang Terkumpul!",
-      continueTrailBtn: "Lanjut Jelajah 🌟"
+      continueTrailBtn: "Lanjut Jelajah 🌟",
+      tileLives: "Tempat Tinggal",
+      tileSpecial: "Keunikan Satwa",
+      tileThreats: "Ancaman Tambang & Manusia",
+      tellMeMoreBtn: "📖 Cerita Lengkap",
+      hideDetailsBtn: "🔼 Tutup Rincian",
+      howSurvivesTitle: "Cara Bertahan Hidup & Makan:",
+      humanThreatsTitle: "Dampak Tambang & Kegiatan Manusia:",
+      viewFullPhoto: "🔍 Lihat Foto Penuh",
+      takeQuizBtn: "Mulai Kuis 🚀",
+      claimBadgeBtn: "Ambil Lencana Pelindung 🛡️",
+      trailCompleteNotice: "🎉 Semua 6 Bintang Terkumpul! Mulai kuis untuk meraih Lencana Pelindung!",
+      trailIncompleteNotice: "⭐ Kenali 6 sahabat di jalur untuk membuka Kuis!",
+      closePhoto: "Tutup Foto ✕"
     }
   },
 
