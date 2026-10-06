@@ -1514,3 +1514,8 @@ if (APP_DATA.notebookStarters) {
   }
 }
 
+// Ensure global window exposure for browser scripts
+if (typeof window !== 'undefined') {
+  window.APP_DATA = APP_DATA;
+}
+
