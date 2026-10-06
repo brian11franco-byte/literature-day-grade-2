@@ -1,0 +1,6 @@
+# Vercel deployment ignore file
+# Exclude raw documents and video to stay well within Vercel static upload limits
+*.mp4
+*.pdf
+.git
+.gitignore

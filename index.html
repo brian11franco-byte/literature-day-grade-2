@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Grade 2 Literature Day 2026: Learning about the effects of mining, deforestation, and human activities on wildlife and plants in Haiti, Suriname, and Bolivia (SDG 15 - Life on Land).">
+  <title>EcoExplorers: Life on Land • Grade 2 Literature Day 2026</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================================
+       TOP HEADER & ACCESSIBILITY NAVBAR
+       ======================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="EcoExplorers Home">
+        <div class="brand-icon">🌱</div>
+        <div class="brand-info">
+          <span class="brand-title" data-i18n="siteTitle">EcoExplorers: Life on Land</span>
+          <span class="brand-subtitle" data-i18n="siteSubtitle">Grade 2 Literature Day • Bulan Bahasa 2026</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#countrySection" class="nav-link" data-i18n="navCountries">Countries</a>
+        <a href="#sdgOverviewSection" class="nav-link" data-i18n="navThreats">Deforestation & Mining</a>
+        <a href="#notebookSection" class="nav-link" data-i18n="navNotebook">Buku Halus Helper</a>
+        <a href="#quizSection" class="nav-link" data-i18n="navQuiz">Quiz</a>
+        <a href="#solutionsSection" class="nav-link" data-i18n="navSolutions">Solutions</a>
+      </nav>
+
+      <!-- Language Switcher Button -->
+      <div class="header-actions">
+        <button id="btnToggleLang" class="btn-lang" aria-label="Switch Language / Ganti Bahasa">
+          <span class="lang-flag">🇮🇩</span>
+          <span>Bahasa Indonesia</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       HERO BANNER
+       ======================================================== -->
+  <section class="hero-section" id="top">
+    <div class="container">
+      <div class="hero-badges">
+        <span class="badge-pill badge-sdg" data-i18n="sdgBadge">SDG 15: Life on Land</span>
+        <span class="badge-pill badge-classes" data-i18n="classesBadge">Classes 2A • 2B • 2C</span>
+      </div>
+
+      <h1 class="hero-headline" data-i18n="heroHeadline">
+        Protecting Our Animals & Plants From Mining and Deforestation
+      </h1>
+
+      <p class="hero-subhead" data-i18n="heroSubhead">
+        Welcome, Grade 2 Explorers! Discover amazing wildlife in Haiti, Suriname, and Bolivia, learn how human activities affect their homes, and find answers for your Buku Halus notebook!
+      </p>
+
+      <div class="hero-quick-actions">
+        <a href="#countrySection" class="btn-hero">
+          <span>🐾</span> <span data-i18n="navAnimals">Animals & Plants</span>
+        </a>
+        <a href="#notebookSection" class="btn-hero" style="background: var(--secondary-light); border-color: #fde68a; color: #92400e;">
+          <span>📝</span> <span data-i18n="navNotebook">Buku Halus Helper</span>
+        </a>
+        <a href="#quizSection" class="btn-hero" style="background: var(--accent-light); border-color: #bae6fd; color: #0369a1;">
+          <span>🎮</span> <span data-i18n="navQuiz">Fun Quiz</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       COUNTRY TABS (STICKY BAR)
+       ======================================================== -->
+  <nav class="country-nav-wrapper" aria-label="Country Selection">
+    <div class="container">
+      <div class="country-nav">
+        <button class="country-tab-btn active" data-country="haiti">
+          <span class="tab-flag">🇭🇹</span>
+          <span>Haiti</span>
+          <span class="tab-class">2A</span>
+        </button>
+
+        <button class="country-tab-btn" data-country="suriname">
+          <span class="tab-flag">🇸🇷</span>
+          <span>Suriname</span>
+          <span class="tab-class">2B</span>
+        </button>
+
+        <button class="country-tab-btn" data-country="bolivia">
+          <span class="tab-flag">🇧🇴</span>
+          <span>Bolivia</span>
+          <span class="tab-class">2C</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================
+       MAIN CONTENT: COUNTRY SECTION
+       ======================================================== -->
+  <main>
+    <section class="country-section" id="countrySection">
+      <div class="container">
+        
+        <!-- Country Dossier Card (Rendered via JS) -->
+        <div id="countryDossierContainer"></div>
+
+        <!-- Threat / Mining Impact Alert (Rendered via JS) -->
+        <div id="threatsAlertContainer"></div>
+
+        <!-- Organism Filter Pills -->
+        <div class="filter-bar">
+          <div class="filter-pills" role="tablist" aria-label="Organism Filters">
+            <button class="filter-btn active" data-filter="all" data-i18n="filterAll">
+              🌟 All (6)
+            </button>
+            <button class="filter-btn" data-filter="animal" data-i18n="filterAnimals">
+              🐾 Animals (3)
+            </button>
+            <button class="filter-btn" data-filter="plant" data-i18n="filterPlants">
+              🌿 Plants (3)
+            </button>
+          </div>
+        </div>
+
+        <!-- Organism Cards Grid (Rendered via JS) -->
+        <div class="organisms-grid" id="organismsGrid"></div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SDG 15 & DEFORESTATION OVERVIEW (FROM PPT SLIDES 11-14)
+         ======================================================== -->
+    <section class="sdg-overview-section" id="sdgOverviewSection">
+      <!-- Content populated dynamically via JS -->
+    </section>
+
+    <!-- ========================================================
+         BUKU HALUS WRITING HELPER (SLIDES 7-9 & 15-18)
+         ======================================================== -->
+    <section class="notebook-helper-section" id="notebookSection">
+      <div class="container">
+        <div class="notebook-card">
+          <div class="notebook-header">
+            <h2 class="notebook-title">
+              <span>✍️</span> <span data-i18n="notebookHelperTitle">Buku Halus Writing Helper</span>
+            </h2>
+            <p class="notebook-desc" data-i18n="notebookHelperDesc">
+              Practice answering your teacher's questions and combine them into complete paragraphs for your fine writing book!
+            </p>
+          </div>
+
+          <!-- Selectors -->
+          <div class="notebook-selectors">
+            <div class="select-group">
+              <label for="selectCountryNb" data-i18n="selectCountryLabel">1. Select Your Class & Country:</label>
+              <select id="selectCountryNb" class="select-styled"></select>
+            </div>
+
+            <div class="select-group">
+              <label for="selectOrganismNb" data-i18n="selectOrganismLabel">2. Select an Animal or Plant to Describe:</label>
+              <select id="selectOrganismNb" class="select-styled"></select>
+            </div>
+          </div>
+
+          <!-- Tabs (Country Questions vs Organism Questions) -->
+          <div class="notebook-tab-row" role="tablist">
+            <button class="btn-notebook-tab active" id="btnTabNbCountry" data-i18n="tabCountryQuestions">
+              Country Questions (01 - 05)
+            </button>
+            <button class="btn-notebook-tab" id="btnTabNbOrganism" data-i18n="tabOrganismQuestions">
+              Animal / Plant Questions (01 - 05)
+            </button>
+          </div>
+
+          <!-- Lined Paper Notebook Simulation -->
+          <div class="notebook-paper-box">
+            <div class="notebook-questions-flow" id="nbQuestionsFlow">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Combined Paragraph Box -->
+            <div class="paragraph-box">
+              <div class="paragraph-box-header">
+                <span class="paragraph-title" id="nbParagraphTitle">📝 Combined Paragraph:</span>
+                <button class="btn-copy" id="btnCopyParagraph" data-i18n="copyParagraphBtn">
+                  📋 Copy Paragraph
+                </button>
+              </div>
+              <div class="paragraph-content" id="nbParagraphContent"></div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div class="notebook-actions-bottom">
+            <button class="btn-print" id="btnPrintWorksheet" data-i18n="printWorksheetBtn">
+              🖨️ Print Worksheet
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         INTERACTIVE MINI QUIZ
+         ======================================================== -->
+    <section class="quiz-section" id="quizSection">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="badge-pill" style="background: #e0f2fe; color: #0369a1; margin-bottom: 8px;">🎮 Interactive Activity</span>
+          <h2 class="section-title" data-i18n="quizTitle">Junior Explorer Quiz</h2>
+          <p class="section-desc" data-i18n="quizSubhead">Test what you learned about animals, plants, and mining!</p>
+        </div>
+
+        <div id="quizContainer">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SOLUTIONS & PROTECTION (SDG 15 ACTION HEROES)
+         ======================================================== -->
+    <section class="solutions-section" id="solutionsSection">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="badge-pill badge-sdg" style="margin-bottom: 8px;">🌍 Action Plan</span>
+          <h2 class="section-title" data-i18n="solutionsTitle">4 Ways We Can Protect Animals & Plants</h2>
+          <p class="section-desc" data-i18n="solutionsSubhead">
+            Action steps from our Science & English lessons to support SDG 15 (Life on Land)
+          </p>
+        </div>
+
+        <div class="solutions-grid" id="solutionsGrid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================
+       HIGH-RESOLUTION PHOTO MODAL / LIGHTBOX
+       ======================================================== -->
+  <div id="photoModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Organism Details</h3>
+        <button class="btn-close-modal" id="btnCloseModal" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-scrollable-body">
+        <div class="modal-image-wrap">
+          <img src="" alt="" class="modal-image" id="modalImage">
+        </div>
+        <div id="modalDetails"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MOBILE STICKY BOTTOM BAR (ERGONOMIC THUMB NAVIGATION)
+       ======================================================== -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+    <button class="bottom-nav-item active" data-country="haiti">
+      <span class="nav-icon">🇭🇹</span>
+      <span>Haiti</span>
+    </button>
+    <button class="bottom-nav-item" data-country="suriname">
+      <span class="nav-icon">🇸🇷</span>
+      <span>Suriname</span>
+    </button>
+    <button class="bottom-nav-item" data-country="bolivia">
+      <span class="nav-icon">🇧🇴</span>
+      <span>Bolivia</span>
+    </button>
+    <button class="bottom-nav-item" data-scroll="notebookSection">
+      <span class="nav-icon">📝</span>
+      <span data-i18n="navNotebook">Notebook</span>
+    </button>
+    <button class="bottom-nav-item" data-scroll="quizSection">
+      <span class="nav-icon">🎮</span>
+      <span data-i18n="navQuiz">Quiz</span>
+    </button>
+  </nav>
+
+  <!-- ========================================================
+       SITE FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">🌍 EcoExplorers</div>
+      <p class="footer-text" data-i18n="footerCredit">
+        Prepared for Grade 2 Literature Day • Bulan Bahasa 2026 • SDG 15: Life on Land
+      </p>
+      <p style="font-size: 0.8rem; color: #64748b;">
+        Haiti (2A) • Suriname (2B) • Bolivia (2C)
+      </p>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
