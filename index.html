@@ -3,517 +3,317 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <meta name="description" content="Grade 2 Literature Day 2026: Learning about the effects of mining, deforestation, and human activities on wildlife and plants in Haiti, Suriname, and Bolivia (SDG 15 - Life on Land).">
+  <meta name="description" content="EcoExplorers: Life on Land • Grade 2 Literature Day 2026. A swipe-through wildlife storybook for kids.">
   <title>EcoExplorers: Life on Land • Grade 2 Literature Day 2026</title>
   
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>">
   
-  <!-- Google Fonts: Fredoka (Headings) & Lexend (Body) -->
+  <!-- Google Fonts: Fredoka (Headings) & Nunito (Reading/Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="theme-haiti">
 
-  <!-- ========================================================
-       TOP HEADER & ACCESSIBILITY NAVBAR
-       ======================================================== -->
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="EcoExplorers Home">
-        <div class="brand-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-          </svg>
+  <div class="storybook-wrapper" id="storybookApp">
+    
+    <!-- Screen Reader Live Announcer -->
+    <div id="srLiveAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- ========================================================
+         SCREEN 1: WELCOME SCREEN
+         ======================================================== -->
+    <section class="story-screen active" id="screenWelcome" aria-label="Welcome Screen">
+      <!-- Top Utility Bar (Corner EN | ID toggle & Audio) -->
+      <header class="screen-top-bar welcome-bar">
+        <div class="brand-chip" aria-label="EcoExplorers">
+          <span class="brand-chip-icon" aria-hidden="true">🌍</span>
+          <span class="brand-chip-text">EcoExplorers</span>
         </div>
-        <div class="brand-info">
-          <span class="brand-title" data-i18n="siteTitle">EcoExplorers: Life on Land</span>
-          <span class="brand-subtitle" data-i18n="siteSubtitle">Grade 2 Literature Day • Bulan Bahasa 2026</span>
+        <div class="top-bar-right">
+          <div class="lang-segmented-toggle" role="group" aria-label="Language selection">
+            <button type="button" class="lang-segment active" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-segment" data-lang="id" aria-pressed="false">ID</button>
+          </div>
         </div>
-      </a>
+      </header>
 
-      <!-- Desktop Links -->
-      <nav class="desktop-nav" aria-label="Main Navigation">
-        <a href="#countrySection" class="nav-link" data-i18n="navCountries">Countries</a>
-        <a href="#sdgOverviewSection" class="nav-link" data-i18n="navThreats">Threats & Mining</a>
-        <a href="#notebookSection" class="nav-link" data-i18n="navNotebook">Buku Halus Helper</a>
-        <a href="#quizSection" class="nav-link" data-i18n="navQuiz">Fun Quiz</a>
-        <a href="#badgesSection" class="nav-link" data-i18n="navBadges">Explorer Badges</a>
-        <a href="#solutionsSection" class="nav-link" data-i18n="navSolutions">How to Help</a>
-      </nav>
+      <!-- Mascot Hero Area (Fills top half) -->
+      <div class="welcome-mascot-container">
+        <svg class="welcome-mascot" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Friendly Explorer Bear Mascot">
+          <defs>
+            <radialGradient id="mascotGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fef08a" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#fef08a" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="bearFur" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="hatGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fef3c7"/>
+              <stop offset="100%" stop-color="#fde68a"/>
+            </linearGradient>
+            <linearGradient id="vestGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+          </defs>
 
-      <!-- Header Actions: Country Chip, Passport Progress, Segmented Lang Toggle -->
-      <div class="header-actions">
-        <!-- Compact Country Switcher Chip (Mobile & Desktop) -->
-        <button id="headerCountryChip" class="header-country-chip" aria-label="Active Country: Haiti. Tap to switch." title="Switch country">
-          <span class="chip-flag" id="chipCountryFlag">🇭🇹</span>
-          <span class="chip-name" id="chipCountryName">Haiti</span>
-          <span class="chip-arrow" aria-hidden="true">▾</span>
-        </button>
+          <!-- Soft Glow Behind Mascot -->
+          <circle cx="160" cy="140" r="130" fill="url(#mascotGlow)"/>
 
-        <!-- Mini Explorer Passport Ring -->
-        <a href="#badgesSection" id="btnHeaderPassport" class="header-passport-btn" aria-label="Explorer Passport: 0% complete" title="Explorer Passport">
-          <svg class="passport-ring-svg" viewBox="0 0 36 36" aria-hidden="true">
-            <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            <path class="ring-progress" id="passportRingCircle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-          </svg>
-          <span class="passport-star-icon" aria-hidden="true">⭐</span>
-          <span class="passport-percent" id="passportPercent">0%</span>
-        </a>
+          <!-- Bear Ears -->
+          <circle cx="100" cy="95" r="28" fill="url(#bearFur)"/>
+          <circle cx="100" cy="95" r="16" fill="#fbcfe8"/>
+          <circle cx="220" cy="95" r="28" fill="url(#bearFur)"/>
+          <circle cx="220" cy="95" r="16" fill="#fbcfe8"/>
 
-        <!-- Compact EN | ID Segmented Toggle -->
-        <div class="lang-toggle-segmented" role="group" aria-label="Language selection / Pilihan bahasa">
-          <button id="btnLangEn" class="lang-segment active" data-lang="en" aria-pressed="true">EN</button>
-          <button id="btnLangId" class="lang-segment" data-lang="id" aria-pressed="false">ID</button>
-        </div>
-      </div>
-    </div>
-  </header>
+          <!-- Bear Head -->
+          <circle cx="160" cy="145" r="68" fill="url(#bearFur)"/>
 
-  <!-- ========================================================
-       HERO BANNER WITH SVG NATURE MASCOT
-       ======================================================== -->
-  <section class="hero-section" id="top">
-    <div class="container hero-layout">
-      <div class="hero-text-content">
-        <div class="hero-badges">
-          <span class="badge-pill badge-sdg" data-i18n="sdgBadge">SDG 15: Life on Land</span>
-          <span class="badge-pill badge-classes" data-i18n="classesBadge">Classes 2A • 2B • 2C</span>
-        </div>
+          <!-- Muzzle Area -->
+          <ellipse cx="160" cy="165" rx="34" ry="26" fill="#fef3c7"/>
+          <!-- Nose -->
+          <ellipse cx="160" cy="154" rx="12" ry="8" fill="#78350f"/>
+          <!-- Cheerful Smile -->
+          <path d="M150 167 C155 175, 165 175, 170 167" stroke="#78350f" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M160 158 L160 169" stroke="#78350f" stroke-width="3" stroke-linecap="round"/>
 
-        <h1 class="hero-headline" data-i18n="heroHeadline">
-          Protecting Our Animals & Plants From Mining and Deforestation
-        </h1>
-
-        <p class="hero-subhead" data-i18n="heroSubhead">
-          Welcome, Grade 2 Explorers! Discover amazing wildlife in Haiti, Suriname, and Bolivia, learn how human activities affect their homes, and find answers for your Buku Halus notebook!
-        </p>
-
-        <div class="hero-quick-actions">
-          <a href="#countryPickerSection" class="btn-hero btn-hero-primary">
-            <span>🐾</span> <span data-i18n="navAnimals">Animals & Plants</span>
-          </a>
-          <a href="#notebookSection" class="btn-hero btn-hero-secondary">
-            <span>📝</span> <span data-i18n="navNotebook">Buku Halus Helper</span>
-          </a>
-          <a href="#quizSection" class="btn-hero btn-hero-accent">
-            <span>🎮</span> <span data-i18n="navQuiz">Fun Quiz</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Friendly SVG Nature Explorer Mascot -->
-      <div class="hero-mascot-wrap" aria-hidden="true">
-        <div class="mascot-badge-halo"></div>
-        <svg class="hero-mascot-svg" viewBox="0 0 160 160" width="140" height="140" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Body & Wings -->
-          <circle cx="80" cy="88" r="54" fill="#047857"/>
-          <circle cx="80" cy="92" r="42" fill="#d1fae5"/>
-          <ellipse cx="32" cy="92" rx="14" ry="24" fill="#065f46" transform="rotate(-15 32 92)"/>
-          <ellipse cx="128" cy="92" rx="14" ry="24" fill="#065f46" transform="rotate(15 128 92)"/>
-          <!-- Big Friendly Eyes -->
-          <circle cx="62" cy="74" r="16" fill="#ffffff"/>
-          <circle cx="98" cy="74" r="16" fill="#ffffff"/>
-          <circle cx="64" cy="74" r="9" fill="#0f172a"/>
-          <circle cx="96" cy="74" r="9" fill="#0f172a"/>
-          <circle cx="67" cy="71" r="3.5" fill="#ffffff"/>
-          <circle cx="99" cy="71" r="3.5" fill="#ffffff"/>
-          <!-- Beak / Smile -->
-          <polygon points="80,82 72,92 88,92" fill="#f59e0b"/>
-          <ellipse cx="80" cy="95" rx="6" ry="2.5" fill="#d97706"/>
           <!-- Rosy Cheeks -->
-          <circle cx="48" cy="85" r="7" fill="#fca5a5" opacity="0.6"/>
-          <circle cx="112" cy="85" r="7" fill="#fca5a5" opacity="0.6"/>
-          <!-- Explorer Safari Hat -->
-          <ellipse cx="80" cy="48" rx="46" ry="10" fill="#d97706"/>
-          <path d="M52 46 C52 28, 108 28, 108 46 Z" fill="#b45309"/>
-          <path d="M54 44 Q80 38 106 44" stroke="#fef3c7" stroke-width="4"/>
-          <!-- Sprout on Hat -->
-          <path d="M80 32 C80 20 88 16 94 18 C94 25 86 28 80 32 Z" fill="#10b981"/>
-          <!-- Magnifying Glass held in wing -->
-          <circle cx="132" cy="116" r="12" stroke="#d97706" stroke-width="4" fill="#e0f2fe" opacity="0.85"/>
-          <line x1="124" y1="124" x2="114" y2="134" stroke="#92400e" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="118" cy="162" r="11" fill="#f472b6" fill-opacity="0.6"/>
+          <circle cx="202" cy="162" r="11" fill="#f472b6" fill-opacity="0.6"/>
+
+          <!-- Bright Expressive Eyes -->
+          <ellipse cx="132" cy="136" rx="9" ry="12" fill="#1e293b"/>
+          <circle cx="135" cy="132" r="4.5" fill="#ffffff"/>
+          <circle cx="130" cy="141" r="2" fill="#ffffff"/>
+
+          <ellipse cx="188" cy="136" rx="9" ry="12" fill="#1e293b"/>
+          <circle cx="191" cy="132" r="4.5" fill="#ffffff"/>
+          <circle cx="186" cy="141" r="2" fill="#ffffff"/>
+
+          <!-- Explorer Hat (Safari Pith Helmet) -->
+          <!-- Hat Crown -->
+          <path d="M105 105 C105 52, 215 52, 215 105 Z" fill="url(#hatGradient)"/>
+          <!-- Hat Ribbon -->
+          <path d="M105 102 C135 96, 185 96, 215 102 L215 107 C185 101, 135 101, 105 107 Z" fill="#047857"/>
+          <!-- Hat Leaf Badge -->
+          <circle cx="160" cy="98" r="9" fill="#10b981"/>
+          <path d="M160 93 C164 97, 163 103, 160 104 C157 103, 156 97, 160 93 Z" fill="#ffffff"/>
+          <!-- Hat Brim -->
+          <ellipse cx="160" cy="106" rx="72" ry="14" fill="#fbbf24"/>
+
+          <!-- Bear Body & Explorer Vest -->
+          <path d="M110 205 C110 190, 210 190, 210 205 L225 270 C225 285, 95 285, 95 270 Z" fill="url(#bearFur)"/>
+          <path d="M115 208 C130 200, 190 200, 205 208 L220 270 C190 262, 130 262, 100 270 Z" fill="url(#vestGradient)"/>
+          <path d="M160 202 L160 266" stroke="#065f46" stroke-width="3" stroke-dasharray="4 3"/>
+
+          <!-- Compass Badge on Vest -->
+          <circle cx="136" cy="235" r="9" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <polygon points="136 229, 139 235, 136 241, 133 235" fill="#ef4444"/>
+
+          <!-- Welcoming Waving Paw (Right) -->
+          <g class="mascot-waving-paw">
+            <ellipse cx="236" cy="180" rx="18" ry="15" fill="url(#bearFur)" transform="rotate(-20 236 180)"/>
+            <circle cx="236" cy="180" r="8" fill="#fef3c7"/>
+            <circle cx="228" cy="170" r="4" fill="#fef3c7"/>
+            <circle cx="236" cy="167" r="4" fill="#fef3c7"/>
+            <circle cx="245" cy="171" r="4" fill="#fef3c7"/>
+          </g>
+
+          <!-- Left Paw Resting on Vest -->
+          <ellipse cx="85" cy="225" rx="16" ry="14" fill="url(#bearFur)"/>
+          <circle cx="85" cy="225" r="7" fill="#fef3c7"/>
+
+          <!-- Floating Nature Sparkles -->
+          <g class="mascot-sparkles">
+            <path d="M60 90 L63 97 L70 100 L63 103 L60 110 L57 103 L50 100 L57 97 Z" fill="#f59e0b"/>
+            <path d="M265 80 L267 85 L272 87 L267 89 L265 94 L263 89 L258 87 L263 85 Z" fill="#10b981"/>
+            <circle cx="75" cy="150" r="4" fill="#38bdf8"/>
+            <circle cx="250" cy="140" r="4" fill="#f43f5e"/>
+          </g>
         </svg>
       </div>
-    </div>
-  </section>
 
-  <!-- ========================================================
-       ONE CLEAR FIRST ACTION: 3 LARGE COUNTRY HERO CARDS
-       ======================================================== -->
-  <section class="country-picker-section" id="countryPickerSection">
-    <div class="container">
-      <div class="section-heading-center">
-        <h2 class="section-title" data-i18n="countryCardsHeading">Choose Your Mission</h2>
-        <p class="section-desc" data-i18n="countryCardsSubhead">Tap a country to start exploring its wildlife!</p>
-      </div>
-
-      <div class="country-cards-grid">
-        <!-- Haiti Card -->
-        <button class="country-hero-card" data-country="haiti" aria-label="Explore Haiti, Class 2A">
-          <div class="country-hero-card-img-wrap">
-            <picture>
-              <source srcset="assets/images/haiti/hispaniolan_trogon.webp" type="image/webp">
-              <img src="assets/images/haiti/hispaniolan_trogon.jpg" alt="Haiti Nature" width="400" height="300" loading="eager" class="country-hero-img">
-            </picture>
-            <span class="country-hero-class">Class 2A</span>
-          </div>
-          <div class="country-hero-card-content">
-            <span class="country-hero-flag" aria-hidden="true">🇭🇹</span>
-            <div class="country-hero-text">
-              <h3 class="country-hero-name">Haiti</h3>
-              <p class="country-hero-sub">Cloud Mountains & Rare Trogons</p>
-            </div>
-            <span class="country-hero-arrow" aria-hidden="true">→</span>
-          </div>
-        </button>
-
-        <!-- Suriname Card -->
-        <button class="country-hero-card" data-country="suriname" aria-label="Explore Suriname, Class 2B">
-          <div class="country-hero-card-img-wrap">
-            <picture>
-              <source srcset="assets/images/suriname/harpy_eagle.webp" type="image/webp">
-              <img src="assets/images/suriname/harpy_eagle.jpg" alt="Suriname Nature" width="400" height="300" loading="eager" class="country-hero-img">
-            </picture>
-            <span class="country-hero-class">Class 2B</span>
-          </div>
-          <div class="country-hero-card-content">
-            <span class="country-hero-flag" aria-hidden="true">🇸🇷</span>
-            <div class="country-hero-text">
-              <h3 class="country-hero-name">Suriname</h3>
-              <p class="country-hero-sub">Lush Rainforests & Harpy Eagles</p>
-            </div>
-            <span class="country-hero-arrow" aria-hidden="true">→</span>
-          </div>
-        </button>
-
-        <!-- Bolivia Card -->
-        <button class="country-hero-card" data-country="bolivia" aria-label="Explore Bolivia, Class 2C">
-          <div class="country-hero-card-img-wrap">
-            <picture>
-              <source srcset="assets/images/bolivia/bolivian_river_dolphin.webp" type="image/webp">
-              <img src="assets/images/bolivia/bolivian_river_dolphin.jpg" alt="Bolivia Nature" width="400" height="300" loading="eager" class="country-hero-img">
-            </picture>
-            <span class="country-hero-class">Class 2C</span>
-          </div>
-          <div class="country-hero-card-content">
-            <span class="country-hero-flag" aria-hidden="true">🇧🇴</span>
-            <div class="country-hero-text">
-              <h3 class="country-hero-name">Bolivia</h3>
-              <p class="country-hero-sub">Andean Peaks & Pink River Dolphins</p>
-            </div>
-            <span class="country-hero-arrow" aria-hidden="true">→</span>
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       DESKTOP STICKY COUNTRY TABS (HIDDEN ON MOBILE < 768px)
-       ======================================================== -->
-  <nav class="country-nav-wrapper" id="desktopCountryNav" aria-label="Country Selection">
-    <div class="container">
-      <div class="country-nav">
-        <button class="country-tab-btn active" data-country="haiti">
-          <span class="tab-flag">🇭🇹</span>
-          <span>Haiti</span>
-          <span class="tab-class">2A</span>
-        </button>
-
-        <button class="country-tab-btn" data-country="suriname">
-          <span class="tab-flag">🇸🇷</span>
-          <span>Suriname</span>
-          <span class="tab-class">2B</span>
-        </button>
-
-        <button class="country-tab-btn" data-country="bolivia">
-          <span class="tab-flag">🇧🇴</span>
-          <span>Bolivia</span>
-          <span class="tab-class">2C</span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ========================================================
-       MAIN CONTENT: COUNTRY SECTION
-       ======================================================== -->
-  <main id="mainContent">
-    <section class="country-section" id="countrySection">
-      <div class="container">
-        
-        <!-- Country Dossier Card (Rendered via JS) -->
-        <div id="countryDossierContainer"></div>
-
-        <!-- Threat / Mining Impact Alert (Rendered via JS) -->
-        <div id="threatsAlertContainer"></div>
-
-        <!-- Organism Filter Pills & Speech Speed Controls -->
-        <div class="filter-bar">
-          <div class="filter-pills" role="tablist" aria-label="Organism Filters">
-            <button class="filter-btn active" data-filter="all" data-i18n="filterAll">
-              🌟 All (6)
-            </button>
-            <button class="filter-btn" data-filter="animal" data-i18n="filterAnimals">
-              🐾 Animals (3)
-            </button>
-            <button class="filter-btn" data-filter="plant" data-i18n="filterPlants">
-              🌿 Plants (3)
-            </button>
-          </div>
-
-          <!-- Speed toggle for read aloud -->
-          <div class="speech-controls-bar" id="speechControlsBar">
-            <span class="speech-speed-label">Read Speed:</span>
-            <div class="speech-speed-pills" role="group" aria-label="Reading voice speed">
-              <button id="btnSpeedSlow" class="speed-pill-btn" data-rate="0.75" data-i18n="speechSpeedSlow">🐢 Slow</button>
-              <button id="btnSpeedNormal" class="speed-pill-btn active" data-rate="0.92" data-i18n="speechSpeedNormal">🐰 Normal</button>
-            </div>
-          </div>
+      <!-- Welcome Text & Audio Area -->
+      <div class="welcome-content">
+        <div class="welcome-heading-row">
+          <h1 class="welcome-title" id="welcomeTitle">EcoExplorers!</h1>
+          <button type="button" class="btn-speaker" id="btnWelcomeAudio" aria-label="Listen to welcome message" title="Listen">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+          </button>
         </div>
+        <p class="welcome-subtitle" id="welcomeSub">Explore Amazing Wildlife!</p>
+      </div>
 
-        <!-- Organism Cards Grid (Rendered via JS) -->
-        <div class="organisms-grid" id="organismsGrid"></div>
-
+      <!-- Big Bottom Start Action -->
+      <div class="welcome-action-area">
+        <button type="button" class="btn-start" id="btnStartAdventure" aria-label="Start Adventure">
+          <span class="btn-start-text" id="startBtnLabel">Start Adventure 🚀</span>
+        </button>
       </div>
     </section>
 
     <!-- ========================================================
-         SDG 15 & DEFORESTATION OVERVIEW
+         SCREEN 2: PICK YOUR COUNTRY
          ======================================================== -->
-    <section class="sdg-overview-section" id="sdgOverviewSection">
-      <!-- Content populated dynamically via JS -->
-    </section>
-
-    <!-- ========================================================
-         BUKU HALUS WRITING HELPER
-         ======================================================== -->
-    <section class="notebook-helper-section" id="notebookSection">
-      <div class="container">
-        <div class="notebook-card">
-          <div class="notebook-header">
-            <h2 class="notebook-title" data-i18n="notebookHelperTitle">
-              Buku Halus Writing Helper
-            </h2>
-            <p class="notebook-desc" data-i18n="notebookHelperDesc">
-              Practice answering your teacher's questions and combine them into complete paragraphs for your fine writing book!
-            </p>
-          </div>
-
-          <!-- Selectors -->
-          <div class="notebook-selectors">
-            <div class="select-group">
-              <label for="selectCountryNb" data-i18n="selectCountryLabel">1. Select Your Class & Country:</label>
-              <select id="selectCountryNb" class="select-styled"></select>
-            </div>
-
-            <div class="select-group">
-              <label for="selectOrganismNb" data-i18n="selectOrganismLabel">2. Select an Animal or Plant to Describe:</label>
-              <select id="selectOrganismNb" class="select-styled"></select>
-            </div>
-          </div>
-
-          <!-- Mode Row: Try First Mode vs Show Model Answers -->
-          <div class="notebook-mode-switcher" role="group" aria-label="Writing Mode">
-            <button class="btn-mode-toggle active" id="btnModeTryFirst" data-i18n="tryFirstTab">
-              ✍️ Try First (Sentence Builder)
-            </button>
-            <button class="btn-mode-toggle" id="btnModeModel" data-i18n="modelAnswerTab">
-              📖 Show Model Answers
-            </button>
-          </div>
-
-          <!-- Tabs (Country Questions vs Organism Questions) -->
-          <div class="notebook-tab-row" role="tablist" aria-label="Question type">
-            <button class="btn-notebook-tab active" id="btnTabNbCountry" data-i18n="tabCountryQuestions">
-              Country Questions (01 - 05)
-            </button>
-            <button class="btn-notebook-tab" id="btnTabNbOrganism" data-i18n="tabOrganismQuestions">
-              Animal / Plant Questions (01 - 05)
-            </button>
-          </div>
-
-          <!-- Lined Paper Notebook Simulation -->
-          <div class="notebook-paper-box">
-            <div class="notebook-questions-flow" id="nbQuestionsFlow">
-              <!-- Rendered via JS -->
-            </div>
-
-            <!-- Combined Paragraph Box -->
-            <div class="paragraph-box">
-              <div class="paragraph-box-header">
-                <span class="paragraph-title" id="nbParagraphTitle">📝 Combined Paragraph:</span>
-                <button class="btn-nb-action" id="btnListenParagraph" data-i18n="listenNotebookBtn">
-                  🔊 Listen
-                </button>
-              </div>
-              <div class="paragraph-content" id="nbParagraphContent"></div>
-            </div>
-          </div>
-
-          <!-- Bottom Action Buttons: Listen & Print -->
-          <div class="notebook-actions-bottom">
-            <button class="btn-print" id="btnPrintWorksheet" data-i18n="printWorksheetBtn">
-              🖨️ Print Worksheet
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         INTERACTIVE MINI QUIZ WITH STARS & POSITIVE RETRY
-         ======================================================== -->
-    <section class="quiz-section" id="quizSection">
-      <div class="container">
-        <div class="section-heading-center">
-          <span class="badge-pill badge-quiz" style="margin-bottom: 8px;">🎮 Interactive Activity</span>
-          <h2 class="section-title" data-i18n="quizTitle">Junior Explorer Quiz</h2>
-          <p class="section-desc" data-i18n="quizSubhead">Test what you learned about animals, plants, and mining!</p>
-        </div>
-
-        <!-- Screen reader live region -->
-        <div id="quizFeedbackLive" class="sr-only" aria-live="polite"></div>
-
-        <div id="quizContainer">
-          <!-- Rendered via JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         EXPLORER PASSPORT & NATURE GUARDIAN BADGES SECTION
-         ======================================================== -->
-    <section class="badges-section" id="badgesSection">
-      <div class="container">
-        <div class="section-heading-center">
-          <span class="badge-pill badge-sdg" style="margin-bottom: 8px;">🏆 Achievement Center</span>
-          <h2 class="section-title" data-i18n="passportTitle">Explorer Passport</h2>
-          <p class="section-desc" data-i18n="passportSubhead">
-            Collect stamps for every creature you meet, story you hear, and quiz you pass!
-          </p>
-        </div>
-
-        <div class="passport-dashboard-card" id="passportDashboard">
-          <!-- Rendered dynamically via JS -->
-        </div>
-
-        <!-- Guardian Award Screen (Appears when 100% completed) -->
-        <div class="guardian-certificate-card" id="guardianCertificateCard" style="display: none;">
-          <!-- Rendered dynamically via JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         SOLUTIONS & PROTECTION (SDG 15 ACTION HEROES)
-         ======================================================== -->
-    <section class="solutions-section" id="solutionsSection">
-      <div class="container">
-        <div class="section-heading-center">
-          <span class="badge-pill badge-sdg" style="margin-bottom: 8px;">🌍 Action Plan</span>
-          <h2 class="section-title" data-i18n="solutionsTitle">4 Ways We Can Protect Animals & Plants</h2>
-          <p class="section-desc" data-i18n="solutionsSubhead">
-            Action steps from our Science & English lessons to support SDG 15 (Life on Land)
-          </p>
-        </div>
-
-        <div class="solutions-grid" id="solutionsGrid">
-          <!-- Rendered via JS -->
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ========================================================
-       HIGH-RESOLUTION PHOTO MODAL / BOTTOM SHEET
-       ======================================================== -->
-  <div id="photoModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 class="modal-title" id="modalTitle">Organism Details</h3>
-        <button class="btn-close-modal" id="btnCloseModal" aria-label="Close modal">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
+    <section class="story-screen" id="screenPickCountry" aria-label="Pick Your Country Screen">
+      <!-- Screen Header -->
+      <header class="screen-top-bar">
+        <button type="button" class="btn-icon-nav" id="btnBackToWelcome" aria-label="Back to Welcome">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
         </button>
-      </div>
-      <div class="modal-scrollable-body">
-        <div class="modal-image-wrap">
-          <img src="" alt="" class="modal-image" id="modalImage" width="800" height="600">
+        <div class="screen-title-group">
+          <h1 class="screen-heading" id="pickCountryHeading">Pick Your Country</h1>
+          <button type="button" class="btn-speaker-sm" id="btnPickCountryAudio" aria-label="Listen to instructions" title="Listen">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
         </div>
-        <div id="modalDetails"></div>
+        <div class="lang-segmented-toggle" role="group" aria-label="Language selection">
+          <button type="button" class="lang-segment active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-segment" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+      </header>
+
+      <!-- Three Giant Country Cards Stacked Vertically (~1/3 height each) -->
+      <div class="country-cards-stack" id="countryCardsContainer">
+        <!-- Rendered dynamically by script.js with large photos & per-country colors -->
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SCREEN 3: THE TRAIL
+         ======================================================== -->
+    <section class="story-screen" id="screenTrail" aria-label="The Wildlife Trail Screen">
+      <!-- Trail Top Bar -->
+      <header class="screen-top-bar trail-bar">
+        <button type="button" class="country-switch-pill" id="btnTrailCountryPill" aria-label="Active country. Tap to change country.">
+          <span class="pill-flag" id="trailFlag">🇭🇹</span>
+          <span class="pill-name" id="trailCountryName">Haiti</span>
+          <span class="pill-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="screen-title-group">
+          <h1 class="screen-heading-sm" id="trailHeading">Wildlife Trail</h1>
+          <button type="button" class="btn-speaker-sm" id="btnTrailAudio" aria-label="Listen to trail instructions" title="Listen">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="lang-segmented-toggle" role="group" aria-label="Language selection">
+          <button type="button" class="lang-segment active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-segment" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+      </header>
+
+      <!-- Star Progress Indicator Bar -->
+      <div class="trail-progress-container">
+        <div class="trail-stars-row" id="trailStarsRow" aria-label="Star progress">
+          <!-- 6 Stars rendered dynamically -->
+        </div>
+        <p class="trail-progress-label" id="trailProgressLabel">0 of 6 Stars</p>
+      </div>
+
+      <!-- Winding Trail Viewport -->
+      <div class="trail-viewport" id="trailViewport">
+        <!-- Connecting SVG Path -->
+        <svg class="trail-path-svg" id="trailPathSvg" viewBox="0 0 340 540" fill="none" aria-hidden="true">
+          <path id="trailCurvedLine" d="M 75,55 C 265,95 265,160 265,190 C 265,225 75,255 75,285 C 75,320 265,350 265,380 C 265,415 165,445 165,475" stroke="var(--country-theme)" stroke-width="10" stroke-dasharray="14 12" stroke-linecap="round" opacity="0.35"/>
+        </svg>
+
+        <!-- 6 Creature Bubbles positioned along the winding trail -->
+        <div class="trail-bubbles-grid" id="trailBubblesGrid">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         BOTTOM BAR (4 Items: Home, Trail, Quiz, My Badges)
+         ======================================================== -->
+    <nav class="story-bottom-bar" id="storyBottomNav" aria-label="Storybook navigation">
+      <button type="button" class="bottom-nav-item" id="navItemHome" data-screen="welcome" aria-label="Home screen">
+        <span class="nav-icon" aria-hidden="true">🏡</span>
+        <span class="nav-label" id="bottomNavHomeLabel">Home</span>
+      </button>
+      <button type="button" class="bottom-nav-item active" id="navItemTrail" data-screen="trail" aria-label="Wildlife Trail">
+        <span class="nav-icon" aria-hidden="true">🗺️</span>
+        <span class="nav-label" id="bottomNavTrailLabel">Trail</span>
+      </button>
+      <button type="button" class="bottom-nav-item" id="navItemQuiz" data-screen="quiz" aria-label="Quiz">
+        <span class="nav-icon" aria-hidden="true">⭐</span>
+        <span class="nav-label" id="bottomNavQuizLabel">Quiz</span>
+      </button>
+      <button type="button" class="bottom-nav-item" id="navItemBadges" data-screen="badges" aria-label="My Badges">
+        <span class="nav-icon" aria-hidden="true">🛡️</span>
+        <span class="nav-label" id="bottomNavBadgesLabel">My Badges</span>
+      </button>
+    </nav>
+
+    <!-- ========================================================
+         CREATURE PREVIEW MODAL / BOTTOM SHEET
+         (Feedback when tapping a trail bubble)
+         ======================================================== -->
+    <div class="story-sheet-backdrop" id="creatureSheet" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sheetCreatureName">
+      <div class="story-sheet">
+        <button type="button" class="sheet-close-btn" id="btnSheetClose" aria-label="Close dialog">✕</button>
+        <div class="sheet-photo-container">
+          <img id="sheetCreatureImg" src="" alt="" width="320" height="220" class="sheet-creature-photo">
+          <span class="sheet-stamp-pop" id="sheetStampBadge" aria-hidden="true">⭐</span>
+        </div>
+        <div class="sheet-body">
+          <div class="sheet-title-row">
+            <h2 class="sheet-creature-name" id="sheetCreatureName">Creature Name</h2>
+            <button type="button" class="btn-speaker" id="btnSheetAudio" aria-label="Listen to creature description" title="Listen">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </button>
+          </div>
+          <span class="sheet-type-pill" id="sheetTypePill">🐾 Animal</span>
+          <p class="sheet-quick-read" id="sheetQuickRead">Quick read sentence goes here.</p>
+          <div class="sheet-feedback" id="sheetFeedback">
+            <span class="stamp-pill" id="sheetStampPill">⭐ Star Stamp Collected!</span>
+          </div>
+          <button type="button" class="btn-sheet-action" id="btnSheetContinue">Keep Exploring 🌟</button>
+        </div>
       </div>
     </div>
+
+    <!-- ========================================================
+         INFO / TEASER MODAL FOR QUIZ & BADGES
+         ======================================================== -->
+    <div class="story-sheet-backdrop" id="teaserSheet" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="teaserTitle">
+      <div class="story-sheet teaser-sheet">
+        <button type="button" class="sheet-close-btn" id="btnTeaserClose" aria-label="Close dialog">✕</button>
+        <div class="teaser-icon" id="teaserIcon">🌟</div>
+        <h2 class="teaser-title" id="teaserTitle">Almost There!</h2>
+        <p class="teaser-desc" id="teaserDesc">Explore all 6 creatures on the trail to unlock this screen!</p>
+        <button type="button" class="btn-sheet-action" id="btnTeaserAction">Back to Trail 🗺️</button>
+      </div>
+    </div>
+
   </div>
 
-  <!-- ========================================================
-       MOBILE STICKY BOTTOM BAR (4 ITEMS: EXPLORE, NOTEBOOK, QUIZ, BADGES)
-       ======================================================== -->
-  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile Navigation">
-    <button class="bottom-nav-item active" data-target="countrySection" id="navItemExplore">
-      <span class="nav-icon" aria-hidden="true">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-        </svg>
-      </span>
-      <span class="nav-label" data-i18n="bottomNavExplore">Explore</span>
-    </button>
-    
-    <button class="bottom-nav-item" data-target="notebookSection" id="navItemNotebook">
-      <span class="nav-icon" aria-hidden="true">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-        </svg>
-      </span>
-      <span class="nav-label" data-i18n="bottomNavNotebook">Notebook</span>
-    </button>
-    
-    <button class="bottom-nav-item" data-target="quizSection" id="navItemQuiz">
-      <span class="nav-icon" aria-hidden="true">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-        </svg>
-      </span>
-      <span class="nav-label" data-i18n="bottomNavQuiz">Quiz</span>
-    </button>
-    
-    <button class="bottom-nav-item" data-target="badgesSection" id="navItemBadges">
-      <span class="nav-icon" aria-hidden="true">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-      </span>
-      <span class="nav-label" data-i18n="bottomNavBadges">Badges</span>
-    </button>
-  </nav>
-
-  <!-- ========================================================
-       SITE FOOTER
-       ======================================================== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-logo">🌍 EcoExplorers</div>
-      <p class="footer-text" data-i18n="footerCredit">
-        Prepared for Grade 2 Literature Day • Bulan Bahasa 2026 • SDG 15: Life on Land
-      </p>
-      <p style="font-size: 0.88rem; color: #64748b; margin-top: 4px;">
-        Haiti (2A) • Suriname (2B) • Bolivia (2C)
-      </p>
-    </div>
-  </footer>
-
-  <!-- Application Scripts -->
+  <!-- Scripts -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
