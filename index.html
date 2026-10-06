@@ -460,36 +460,74 @@
       <!-- Badge Scroll Body -->
       <div class="badge-scroll-body" id="badgeScrollBody">
         
-        <!-- Printable / Screenshot Certificate Card -->
-        <div class="badge-certificate-card" id="badgeCertificateCard">
-          <div class="badge-award-shield">
-            <svg viewBox="0 0 100 100" class="shield-svg" aria-hidden="true">
-              <path d="M50 5 L88 22 L88 55 C88 78 50 95 50 95 C50 95 12 78 12 55 L12 22 Z" fill="#f59e0b" stroke="#b45309" stroke-width="4"/>
-              <path d="M50 12 L80 26 L80 53 C80 72 50 86 50 86 C50 86 20 72 20 53 L20 26 Z" fill="#fbbf24"/>
-              <text x="50" y="58" font-size="34" text-anchor="middle" fill="#78350f">🛡️</text>
-            </svg>
-          </div>
+        <!-- Student Name Input Card -->
+        <div class="cert-input-card">
+          <label for="badgeStudentName" class="badge-input-label" id="labelStudentName">Type your name for your certificate:</label>
+          <input type="text" id="badgeStudentName" class="badge-student-input" placeholder="Type your name here..." maxlength="35" autocomplete="name">
+        </div>
 
-          <h2 class="badge-card-title" id="badgeCardTitle">🛡️ Guardian of Nature Award</h2>
-          <div class="badge-country-tag" id="badgeCountryTag">🇭🇹 Haiti • Class 2A</div>
-          
-          <div class="badge-input-group">
-            <label for="badgeStudentName" class="badge-input-label" id="labelStudentName">Explorer Name:</label>
-            <input type="text" id="badgeStudentName" class="badge-student-input" placeholder="Type your name here..." maxlength="30">
-          </div>
+        <!-- Official Print-Ready Certificate (Issue 3) -->
+        <div class="official-certificate-container" id="officialCertificateContainer">
+          <div class="certificate-inner-border">
+            <!-- Corner ornaments -->
+            <div class="cert-corner corner-tl" aria-hidden="true">🌿</div>
+            <div class="cert-corner corner-tr" aria-hidden="true">🌿</div>
+            <div class="cert-corner corner-bl" aria-hidden="true">🌿</div>
+            <div class="cert-corner corner-br" aria-hidden="true">🌿</div>
 
-          <p class="badge-congrats-text" id="badgeCongratsText">
-            Congratulations, Super Explorer! You discovered every creature and completed all missions for SDG 15: Life on Land!
-          </p>
+            <!-- Header with SDG 15 & Title -->
+            <div class="cert-header">
+              <div class="cert-sdg-badge" id="certSdgBadge">🌍 SDG 15: LIFE ON LAND • 2026 🌍</div>
+              <h2 class="cert-main-title" id="certMainTitle">CERTIFICATE OF ACHIEVEMENT</h2>
+              <p class="cert-award-type" id="certAwardType">Official Earth Guardian Award • Grade 2 Literature Day</p>
+            </div>
 
-          <div class="badge-seal-stamp">
-            <span>⭐ CERTIFIED GUARDIAN 2026 ⭐</span>
+            <!-- Presentation Line -->
+            <div class="cert-presentation-text" id="certPresentedTo">This is proudly presented to:</div>
+
+            <!-- Student Name -->
+            <div class="cert-student-name" id="certStudentNameDisplay">SUPER EXPLORER</div>
+
+            <!-- Achievement Statement -->
+            <p class="cert-statement" id="certAchievementStatement">
+              For outstanding dedication in exploring the wildlife of Haiti, discovering rare animals and plants, learning how to stop habitat destruction from mining, and protecting Life on Land.
+            </p>
+
+            <!-- Country & Class Metadata -->
+            <div class="cert-meta-row">
+              <span class="cert-country-pill" id="certCountryPill">🇭🇹 Haiti • Class 2A</span>
+              <span class="cert-stars-pill" id="certStarsPill">⭐ 6 of 6 Stars Earned</span>
+            </div>
+
+            <!-- Footer: Date, Gold Seal, Signature -->
+            <div class="cert-footer">
+              <div class="cert-footer-col cert-date-col">
+                <span class="cert-footer-val" id="certDateValue">October 2026</span>
+                <span class="cert-footer-label" id="certDateLabel">Date Issued</span>
+              </div>
+
+              <div class="cert-footer-col cert-seal-col">
+                <div class="cert-gold-seal" aria-hidden="true">
+                  <div class="seal-inner">
+                    <span class="seal-star">★</span>
+                    <span class="seal-text">GUARDIAN</span>
+                    <span class="seal-year">2026</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cert-footer-col cert-signature-col">
+                <span class="cert-signature-name">EcoExplorers Team</span>
+                <span class="cert-footer-label" id="certSignatureLabel">Wildlife Conservation Lead</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
         <!-- Badge Actions -->
         <div class="badge-actions-group">
-          <button type="button" class="btn-print-badge" id="btnPrintBadge">🖨️ Print / Save Certificate</button>
+          <button type="button" class="btn-print-badge" id="btnPrintBadge">🖨️ Print Certificate (Save as PDF)</button>
           <button type="button" class="btn-badge-done" id="btnBadgeBackToTrail">Back to Trail 🗺️</button>
         </div>
 
