@@ -733,7 +733,21 @@ section[id] {
 
 @media (max-width: 768px) {
   .country-nav-wrapper {
-    display: none !important; /* HIDE STICKY COUNTRY TABS ON MOBILE */
+    position: static; /* Non-sticky on mobile: never blocks content */
+    background: #f8fafc;
+    border-bottom: 2px solid var(--border-subtle);
+    box-shadow: none;
+  }
+
+  .country-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 16px;
+    scrollbar-width: none;
+  }
+
+  .country-nav::-webkit-scrollbar {
+    display: none;
   }
 }
 

@@ -90,7 +90,7 @@ const APP_DATA = {
       audioUnsupported: "Speech audio is not available on this device.",
       footerCredit: "Prepared for Grade 2 Literature Day • Bulan Bahasa 2026 • SDG 15: Life on Land"
     },
-    id: {
+    id_lang: {
       siteTitle: "Petualang Bumi: Kehidupan di Darat",
       siteSubtitle: "Bulan Bahasa Oktober 2026 • Literature Day Kelas 2",
       sdgBadge: "SDG 15: Ekosistem Darat",
@@ -203,7 +203,7 @@ const APP_DATA = {
         ]
       }
     },
-    id: {
+    id_lang: {
       title: "Apa itu Deforestasi & Penambangan?",
       subtitle: "Materi penting dari pelajaran Bahasa Indonesia, Science, dan English",
       whatIsDeforestation: {
@@ -261,7 +261,7 @@ const APP_DATA = {
         miningThreatsSummary: "Limestone quarries dig stone for cement, and metal open-pit strip mines scrape off the soil. Heavy bulldozers crush underground animal tunnels, while loggers cut down old mountain trees, leaving birds with no place to raise chicks.",
         combinedParagraph: "Haiti is located on the island of Hispaniola in the Caribbean Sea, and its capital city is Port-au-Prince. The people of Haiti speak French and Haitian Creole. Two interesting facts about Haiti are that it was the first independent Black republic in 1804 and it has ancient creatures that lived with dinosaurs. What makes Haiti unique is its name 'Ayiti' meaning 'Land of High Mountains', where rare mountain trogons and ancient solenodons live."
       },
-      id: {
+      id_lang: {
         name: "Haiti",
         location: "Laut Karibia, di bagian barat pulau tropis Hispaniola (berbatasan dengan Republik Dominika).",
         capital: "Port-au-Prince",
@@ -300,7 +300,7 @@ const APP_DATA = {
               { word: "Cloud Forest", meaning: "A misty, cool forest high up on tropical mountains." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Burung Trogon Hispaniola",
             typeLabel: "🐾 Burung (Hewan)",
             habitat: "Hutan pinus pegunungan dan hutan awan berkabut di Haiti.",
@@ -345,7 +345,7 @@ const APP_DATA = {
               { word: "Quarry", meaning: "A deep open pit where builders dig out heavy rock." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Burung Pauraque Kerdil",
             typeLabel: "🐾 Burung (Hewan)",
             habitat: "Semak belukar kering dan lantai hutan berbatu kapur.",
@@ -390,7 +390,7 @@ const APP_DATA = {
               { word: "Ancient", meaning: "Extremely old, living since the era of dinosaurs." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Solenodon Hispaniola",
             typeLabel: "🐾 Mamalia (Hewan)",
             habitat: "Hutan lebat dengan tanah lembap, gua kapur, dan celah bebatuan.",
@@ -435,7 +435,7 @@ const APP_DATA = {
               { word: "Seedling", meaning: "A very young plant that just sprouted from a seed." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Palem Ceri Oviedo",
             typeLabel: "🌿 Pohon Palem (Tumbuhan)",
             habitat: "Teras batuan kapur kering dan perbukitan karang di Hispaniola.",
@@ -480,7 +480,7 @@ const APP_DATA = {
               { word: "Habitat", meaning: "The natural outdoor home where a plant or animal lives." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Mawar Bayahibe",
             typeLabel: "🌿 Kaktus Berbunga (Tumbuhan)",
             habitat: "Semak belukar kering dan hutan pantai berbatu.",
@@ -525,7 +525,7 @@ const APP_DATA = {
               { word: "Erosion", meaning: "When rain washes away soil because no tree roots hold it." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Pinus Hispaniola",
             typeLabel: "🌿 Pohon Pinus Gunung (Tumbuhan)",
             habitat: "Punggung pegunungan berkabut dan lereng curam di atas 1.000 meter.",
@@ -577,7 +577,7 @@ const APP_DATA = {
         miningThreatsSummary: "Bauxite mining clears giant swaths of rainforest to extract aluminum ore, and river gold mining dredges release poisonous mercury into pristine rivers. Toxic sediment clouds river water, while roads carve wide barriers through the tree canopy.",
         combinedParagraph: "Suriname is located on the northeastern coast of South America, and its capital city is Paramaribo. The languages spoken there include Dutch, Sranan Tongo, and Javanese. Two interesting facts about Suriname are that it has a large Javanese community and over 90% of its land is covered in thick rainforest. What makes Suriname unique are its towering granite inselberg mountains and giant trees where harpy eagles and colorful margay cats roam freely."
       },
-      id: {
+      id_lang: {
         name: "Suriname",
         location: "Pesisir timur laut Amerika Selatan, berbatasan dengan Guyana Prancis, Guyana, dan Brasil.",
         capital: "Paramaribo",
@@ -616,7 +616,7 @@ const APP_DATA = {
               { word: "Apex Predator", meaning: "An animal at the top of the food chain with no natural hunters." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Elang Harpy",
             typeLabel: "🐾 Burung Pemangsa (Hewan)",
             habitat: "Hutan hujan dataran rendah dengan pohon-pohon raksasa yang menjulang tinggi.",
@@ -661,7 +661,7 @@ const APP_DATA = {
               { word: "Boulders", meaning: "Huge rounded rock stones found near rushing jungle streams." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Burung Cadas Guyana",
             typeLabel: "🐾 Burung (Hewan)",
             habitat: "Hutan hujan lembap di dekat tebing batu granit dan gua bebatuan.",
@@ -706,7 +706,7 @@ const APP_DATA = {
               { word: "Nocturnal", meaning: "Sleeping during the day and being wide awake at night." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Kucing Margay",
             typeLabel: "🐾 Kucing Hutan (Hewan)",
             habitat: "Lapisan kanopi atas hutan hujan tropis primer yang sangat rimbun.",
@@ -751,7 +751,7 @@ const APP_DATA = {
               { word: "White Sand", meaning: "Pale sandy forest soil common in sunny tropical woods." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Pohon Wallaba Rumpun",
             typeLabel: "🌿 Pohon Kayu Keras (Tumbuhan)",
             habitat: "Hutan berpasir putih dan tepi sungai di Suriname.",
@@ -796,7 +796,7 @@ const APP_DATA = {
               { word: "Nutrients", meaning: "Nourishing substances that living things need to grow strong." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Kantong Semar Rawa",
             typeLabel: "🌿 Tumbuhan Pemakan Serangga (Tumbuhan)",
             habitat: "Rawa dataran tinggi berkabut dan puncak gunung basah di Amerika Selatan.",
@@ -841,7 +841,7 @@ const APP_DATA = {
               { word: "Emergent", meaning: "Giant trees that reach higher than the main forest roof." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Pohon Baromalli Pasir",
             typeLabel: "🌿 Pohon Raksasa Hutan (Tumbuhan)",
             habitat: "Hutan tanah berpasir di wilayah Dataran Tinggi Guiana, Suriname.",
@@ -893,7 +893,7 @@ const APP_DATA = {
         miningThreatsSummary: "River gold mining dredges use toxic mercury that washes into freshwater, poisoning dolphins and fish. In the highlands, metal mines scrape away mountainsides and build roads that crush rare dwarf alpine trees.",
         combinedParagraph: "Bolivia is located in central South America, and its capitals are Sucre and La Paz. People in Bolivia speak Spanish, Quechua, and Aymara. Two interesting facts about Bolivia are that it has the giant Salar de Uyuni salt flat and it spans from snowy mountains to tropical rainforests. What makes Bolivia unique is its dramatic landscape where rare pink river dolphins swim in the lowlands and ancient Queñua trees survive freezing Andean peaks."
       },
-      id: {
+      id_lang: {
         name: "Bolivia",
         location: "Jantung Benua Amerika Selatan bagian tengah, berbatasan dengan Brasil, Paraguay, Argentina, Chili, dan Peru.",
         capital: "Sucre (ibukota konstitusional) dan La Paz (pusat pemerintahan)",
@@ -932,7 +932,7 @@ const APP_DATA = {
               { word: "Echolocation", meaning: "Sending clicking sounds to find underwater objects by echo." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Lumba-lumba Sungai Bolivia",
             typeLabel: "🐾 Mamalia Air (Hewan)",
             habitat: "Aliran Sungai Mamoré dan Madeira di pedalaman hutan Amazon Bolivia.",
@@ -977,7 +977,7 @@ const APP_DATA = {
               { word: "Endangered", meaning: "At very high risk of disappearing unless humans protect it." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Makaw Leher Biru",
             typeLabel: "🐾 Burung Nuri (Hewan)",
             habitat: "Padang rumput sabana basah dan gugusan pulau palem di Beni, Bolivia.",
@@ -1022,7 +1022,7 @@ const APP_DATA = {
               { word: "Foraging", meaning: "Searching through dry forests to find wild fruits and seeds." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Makaw Dahi Merah",
             typeLabel: "🐾 Burung Nuri (Hewan)",
             habitat: "Lembah berduri kering dan ngarai tebing berbatu di Pegunungan Andes Bolivia.",
@@ -1067,7 +1067,7 @@ const APP_DATA = {
               { word: "Pendant", meaning: "Hanging down gracefully from rocky cliff edges." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Kaktus Ekor Tikus Emas",
             typeLabel: "🌿 Kaktus Gantung (Tumbuhan)",
             habitat: "Dinding tebing batu terjal di lembah kering antarmountain Andes.",
@@ -1112,7 +1112,7 @@ const APP_DATA = {
               { word: "Taproot", meaning: "A long primary root that digs deep down into dirt for water." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Pohon Cardenasiodendron",
             typeLabel: "🌿 Pohon Lembah Kering (Tumbuhan)",
             habitat: "Lembah kering gersang antarmountain Andes di Bolivia tengah dan selatan.",
@@ -1157,7 +1157,7 @@ const APP_DATA = {
               { word: "Glacier", meaning: "A massive, frozen mountain field of ancient snow and ice." }
             ]
           },
-          id: {
+          id_lang: {
             name: "Pohon Queñua Pegunungan",
             typeLabel: "🌿 Pohon Kerdil Salju (Tumbuhan)",
             habitat: "Lereng Pegunungan Andes yang sangat tinggi dan membeku (di atas 4.000 meter!).",
@@ -1194,7 +1194,7 @@ const APP_DATA = {
         answer: 0,
         explanation: "Correct! The colorful Hispaniolan Trogon needs soft, old dead trees because it cannot drill hard wood."
       },
-      id: {
+      id_lang: {
         question: "Burung berwarna indah dari Haiti manakah yang membutuhkan batang pohon mati untuk bersarang?",
         options: ["Burung Trogon Hispaniola", "Elang Harpy", "Burung Pauraque", "Makaw Leher Biru"],
         answer: 0,
@@ -1209,7 +1209,7 @@ const APP_DATA = {
         answer: 1,
         explanation: "Spot on! The Margay spends its life in tree branches and is too afraid to cross wide, empty mining roads on the ground."
       },
-      id: {
+      id_lang: {
         question: "Mengapa kucing Margay di Suriname bisa terperangkap saat ada jalan tambang baru?",
         options: ["Karena lupa jalan pulang", "Karena takut berjalan menyeberangi jalan tanah terbuka", "Karena suka bermain pasir", "Karena tidak bisa melompat"],
         answer: 1,
@@ -1224,7 +1224,7 @@ const APP_DATA = {
         answer: 2,
         explanation: "That's right! Gold miners use toxic mercury, which washes into rivers and poisons fish and dolphins."
       },
-      id: {
+      id_lang: {
         question: "Zat kimia berbahaya apa yang digunakan tambang emas sungai sehingga membuat lumba-lumba Bolivia sakit?",
         options: ["Garam dapur", "Air kelapa", "Merkuri (Air raksa)", "Minyak goreng"],
         answer: 2,
@@ -1239,7 +1239,7 @@ const APP_DATA = {
         answer: 1,
         explanation: "Awesome! Its shaggy, paper-like layered bark and thick moss carpet act like a warm winter jacket."
       },
-      id: {
+      id_lang: {
         question: "Apa yang melindungi pohon Queñua de Altura dari hawa dingin membeku di pegunungan Bolivia?",
         options: ["Pemanas listrik", "Kulit batang berlapis seperti kertas dan selimut lumut", "Buah tropis yang besar", "Kain terpal"],
         answer: 1,
@@ -1254,7 +1254,7 @@ const APP_DATA = {
         answer: 1,
         explanation: "You got it! The Marsh Pitcher Plant forms water-filled cups that trap bugs for nutrients."
       },
-      id: {
+      id_lang: {
         question: "Tumbuhan apakah yang bentuknya seperti cangkir piala berisi air untuk menjebak serangga?",
         options: ["Palem Ceri Oviedo", "Kantong Semar Rawa (Marsh Pitcher Plant)", "Pinus Hispaniola", "Kaktus Ekor Tikus Emas"],
         answer: 1,
@@ -1441,3 +1441,21 @@ const APP_DATA = {
     }
   }
 };
+
+// Compatibility aliases for language lookups
+APP_DATA.general.id = APP_DATA.general.id_lang;
+APP_DATA.sdgConcepts.id = APP_DATA.sdgConcepts.id_lang;
+if (APP_DATA.solutions && APP_DATA.solutions.id_lang) {
+  APP_DATA.solutions.id = APP_DATA.solutions.id_lang;
+} else if (APP_DATA.solutions && APP_DATA.solutions.id) {
+  APP_DATA.solutions.id_lang = APP_DATA.solutions.id;
+}
+if (APP_DATA.notebookStarters) {
+  if (APP_DATA.notebookStarters.country) {
+    APP_DATA.notebookStarters.country.id = APP_DATA.notebookStarters.country.id_lang || APP_DATA.notebookStarters.country.id;
+  }
+  if (APP_DATA.notebookStarters.organism) {
+    APP_DATA.notebookStarters.organism.id = APP_DATA.notebookStarters.organism.id_lang || APP_DATA.notebookStarters.organism.id;
+  }
+}
+

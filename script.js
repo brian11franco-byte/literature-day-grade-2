@@ -104,7 +104,10 @@
   // Safe Language Accessor Helper (en or id)
   function getLang(obj) {
     if (!obj) return {};
-    return obj[state.lang] || obj.en || {};
+    if (state.lang === 'id') {
+      return obj.id_lang || (typeof obj.id === 'object' ? obj.id : obj.en) || {};
+    }
+    return obj.en || {};
   }
 
   // Web Speech API
