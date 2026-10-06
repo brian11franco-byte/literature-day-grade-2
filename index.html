@@ -28,7 +28,7 @@
          SCREEN 1: WELCOME SCREEN
          ======================================================== -->
     <section class="story-screen active" id="screenWelcome" aria-label="Welcome Screen">
-      <!-- Top Utility Bar (Corner EN | ID toggle & Audio) -->
+      <!-- Top Utility Bar -->
       <header class="screen-top-bar welcome-bar">
         <div class="brand-chip" aria-label="EcoExplorers">
           <span class="brand-chip-icon" aria-hidden="true">🌍</span>
@@ -64,7 +64,7 @@
             </linearGradient>
           </defs>
 
-          <!-- Soft Glow Behind Mascot -->
+          <!-- Soft Glow -->
           <circle cx="160" cy="140" r="130" fill="url(#mascotGlow)"/>
 
           <!-- Bear Ears -->
@@ -76,11 +76,9 @@
           <!-- Bear Head -->
           <circle cx="160" cy="145" r="68" fill="url(#bearFur)"/>
 
-          <!-- Muzzle Area -->
+          <!-- Muzzle & Smile -->
           <ellipse cx="160" cy="165" rx="34" ry="26" fill="#fef3c7"/>
-          <!-- Nose -->
           <ellipse cx="160" cy="154" rx="12" ry="8" fill="#78350f"/>
-          <!-- Cheerful Smile -->
           <path d="M150 167 C155 175, 165 175, 170 167" stroke="#78350f" stroke-width="3.5" stroke-linecap="round" fill="none"/>
           <path d="M160 158 L160 169" stroke="#78350f" stroke-width="3" stroke-linecap="round"/>
 
@@ -97,27 +95,23 @@
           <circle cx="191" cy="132" r="4.5" fill="#ffffff"/>
           <circle cx="186" cy="141" r="2" fill="#ffffff"/>
 
-          <!-- Explorer Hat (Safari Pith Helmet) -->
-          <!-- Hat Crown -->
+          <!-- Explorer Hat -->
           <path d="M105 105 C105 52, 215 52, 215 105 Z" fill="url(#hatGradient)"/>
-          <!-- Hat Ribbon -->
           <path d="M105 102 C135 96, 185 96, 215 102 L215 107 C185 101, 135 101, 105 107 Z" fill="#047857"/>
-          <!-- Hat Leaf Badge -->
           <circle cx="160" cy="98" r="9" fill="#10b981"/>
           <path d="M160 93 C164 97, 163 103, 160 104 C157 103, 156 97, 160 93 Z" fill="#ffffff"/>
-          <!-- Hat Brim -->
           <ellipse cx="160" cy="106" rx="72" ry="14" fill="#fbbf24"/>
 
-          <!-- Bear Body & Explorer Vest -->
+          <!-- Body & Explorer Vest -->
           <path d="M110 205 C110 190, 210 190, 210 205 L225 270 C225 285, 95 285, 95 270 Z" fill="url(#bearFur)"/>
           <path d="M115 208 C130 200, 190 200, 205 208 L220 270 C190 262, 130 262, 100 270 Z" fill="url(#vestGradient)"/>
           <path d="M160 202 L160 266" stroke="#065f46" stroke-width="3" stroke-dasharray="4 3"/>
 
-          <!-- Compass Badge on Vest -->
+          <!-- Badge -->
           <circle cx="136" cy="235" r="9" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
           <polygon points="136 229, 139 235, 136 241, 133 235" fill="#ef4444"/>
 
-          <!-- Welcoming Waving Paw (Right) -->
+          <!-- Waving Paw -->
           <g class="mascot-waving-paw">
             <ellipse cx="236" cy="180" rx="18" ry="15" fill="url(#bearFur)" transform="rotate(-20 236 180)"/>
             <circle cx="236" cy="180" r="8" fill="#fef3c7"/>
@@ -126,16 +120,13 @@
             <circle cx="245" cy="171" r="4" fill="#fef3c7"/>
           </g>
 
-          <!-- Left Paw Resting on Vest -->
           <ellipse cx="85" cy="225" rx="16" ry="14" fill="url(#bearFur)"/>
           <circle cx="85" cy="225" r="7" fill="#fef3c7"/>
 
-          <!-- Floating Nature Sparkles -->
+          <!-- Sparkles -->
           <g class="mascot-sparkles">
             <path d="M60 90 L63 97 L70 100 L63 103 L60 110 L57 103 L50 100 L57 97 Z" fill="#f59e0b"/>
             <path d="M265 80 L267 85 L272 87 L267 89 L265 94 L263 89 L258 87 L263 85 Z" fill="#10b981"/>
-            <circle cx="75" cy="150" r="4" fill="#38bdf8"/>
-            <circle cx="250" cy="140" r="4" fill="#f43f5e"/>
           </g>
         </svg>
       </div>
@@ -190,14 +181,14 @@
         </div>
       </header>
 
-      <!-- Three Giant Country Cards Stacked Vertically (~1/3 height each) -->
+      <!-- Three Giant Country Cards Stacked Vertically -->
       <div class="country-cards-stack" id="countryCardsContainer">
-        <!-- Rendered dynamically by script.js with large photos & per-country colors -->
+        <!-- Rendered dynamically by script.js -->
       </div>
     </section>
 
     <!-- ========================================================
-         SCREEN 3: THE TRAIL
+         SCREEN 3: THE TRAIL (All 6 creatures connected)
          ======================================================== -->
     <section class="story-screen" id="screenTrail" aria-label="The Wildlife Trail Screen">
       <!-- Trail Top Bar -->
@@ -232,15 +223,276 @@
 
       <!-- Winding Trail Viewport -->
       <div class="trail-viewport" id="trailViewport">
-        <!-- Connecting SVG Path -->
-        <svg class="trail-path-svg" id="trailPathSvg" viewBox="0 0 340 540" fill="none" aria-hidden="true">
-          <path id="trailCurvedLine" d="M 75,55 C 265,95 265,160 265,190 C 265,225 75,255 75,285 C 75,320 265,350 265,380 C 265,415 165,445 165,475" stroke="var(--country-theme)" stroke-width="10" stroke-dasharray="14 12" stroke-linecap="round" opacity="0.35"/>
+        <!-- Connecting SVG Path traversing through ALL 6 creatures -->
+        <svg class="trail-path-svg" id="trailPathSvg" viewBox="0 0 340 680" fill="none" aria-hidden="true">
+          <path id="trailCurvedLine" d="M 80,50 C 260,80 260,130 260,155 C 260,200 80,225 80,265 C 80,310 260,335 260,375 C 260,420 80,445 80,485 C 80,535 200,560 200,595" stroke="var(--country-theme)" stroke-width="10" stroke-dasharray="14 12" stroke-linecap="round" opacity="0.35"/>
         </svg>
 
         <!-- 6 Creature Bubbles positioned along the winding trail -->
         <div class="trail-bubbles-grid" id="trailBubblesGrid">
           <!-- Rendered dynamically by script.js -->
         </div>
+
+        <!-- End-of-Trail Mission Action Card (Direct Bridge to Quiz!) -->
+        <div class="trail-end-card" id="trailEndCard">
+          <div class="trail-end-icon" id="trailEndIcon">🌟</div>
+          <p class="trail-end-text" id="trailEndText">Meet all 6 friends on the trail to unlock your Quiz!</p>
+          <button type="button" class="btn-trail-action" id="btnTrailActionQuiz">Take the Quiz 🚀</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SCREEN 4: MEET THE CREATURE (Full Details & 3 Picture Tiles)
+         ======================================================== -->
+    <section class="story-screen" id="screenCreature" aria-label="Meet the Creature Screen">
+      <!-- Top Bar -->
+      <header class="screen-top-bar">
+        <button type="button" class="btn-icon-nav" id="btnCreatureBack" aria-label="Back to Trail">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="screen-title-group">
+          <h1 class="screen-heading-sm" id="creatureHeaderTitle">Meet Creature</h1>
+        </div>
+        <div class="lang-segmented-toggle" role="group" aria-label="Language selection">
+          <button type="button" class="lang-segment active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-segment" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+      </header>
+
+      <!-- Scrollable Creature Body -->
+      <div class="creature-scroll-body" id="creatureScrollBody">
+        
+        <!-- Photo Container (Fully uncropped photo view + Zoom button) -->
+        <div class="creature-photo-hero">
+          <img id="creatureHeroImg" src="" alt="" width="360" height="240" class="creature-main-photo">
+          <span class="creature-stamp-overlay" id="creatureStampOverlay" aria-hidden="true">⭐</span>
+          <button type="button" class="btn-view-full-photo" id="btnViewFullPhoto" aria-label="View photo in full screen">
+            <span aria-hidden="true">🔍</span> <span id="labelViewFullPhoto">Full Photo</span>
+          </button>
+        </div>
+
+        <!-- Name, Type, and Main Audio -->
+        <div class="creature-title-section">
+          <div class="creature-name-row">
+            <div>
+              <h2 class="creature-big-name" id="creatureBigName">Creature Name</h2>
+              <span class="creature-type-chip" id="creatureTypeChip">🐾 Animal</span>
+            </div>
+            <button type="button" class="btn-speaker" id="btnCreatureMainAudio" aria-label="Listen to creature introduction" title="Listen">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3 Picture Tiles: 🏠 Where It Lives, ⭐ What is Special, ⚠️ Human & Mining Threats -->
+        <div class="creature-tiles-row" role="tablist" aria-label="Creature topics">
+          <button type="button" class="picture-tile active" id="tileLives" data-tile="lives" role="tab" aria-selected="true">
+            <span class="tile-icon" aria-hidden="true">🏠</span>
+            <span class="tile-label" id="tileLivesLabel">Where It Lives</span>
+          </button>
+          <button type="button" class="picture-tile" id="tileSpecial" data-tile="special" role="tab" aria-selected="false">
+            <span class="tile-icon" aria-hidden="true">⭐</span>
+            <span class="tile-label" id="tileSpecialLabel">What is Special</span>
+          </button>
+          <button type="button" class="picture-tile tile-threat" id="tileThreats" data-tile="threats" role="tab" aria-selected="false">
+            <span class="tile-icon" aria-hidden="true">⚠️</span>
+            <span class="tile-label" id="tileThreatsLabel">Mining Threats</span>
+          </button>
+        </div>
+
+        <!-- Active Tile Display Card -->
+        <div class="active-tile-card" id="activeTileCard">
+          <div class="tile-content-row">
+            <div class="tile-badge-icon" id="tileBadgeIcon">🏠</div>
+            <p class="tile-content-text" id="tileContentText">Story sentence appears here.</p>
+            <button type="button" class="btn-speaker-sm" id="btnTileSpeak" aria-label="Listen to this card" title="Listen">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tell Me More Expander (Rich facts, how it survives, deep mining impact, vocab chips) -->
+        <div class="tell-me-more-section">
+          <button type="button" class="btn-toggle-details" id="btnToggleDetails">
+            <span id="labelTellMeMore">📖 Tell Me More</span>
+          </button>
+
+          <div class="details-drawer" id="detailsDrawer" style="display: none;">
+            <!-- How It Survives / Food -->
+            <div class="detail-block">
+              <h3 class="detail-block-title" id="titleHowSurvives">How it Survives & Eats:</h3>
+              <p class="detail-block-text" id="textHowSurvives"></p>
+            </div>
+
+            <!-- Human Activities & Mining Impact (Addressing Issue 3) -->
+            <div class="detail-block threat-block">
+              <h3 class="detail-block-title" id="titleHumanThreats">How Mining & Humans Threaten It:</h3>
+              <p class="detail-block-text" id="textHumanThreats"></p>
+            </div>
+
+            <!-- Full Story -->
+            <div class="detail-block">
+              <h3 class="detail-block-title" id="titleFullStory">Full Classroom Story:</h3>
+              <p class="detail-block-text" id="textFullStory"></p>
+            </div>
+
+            <!-- Tappable Vocab Chips -->
+            <div class="vocab-section" id="vocabSection">
+              <h4 class="vocab-title">Vocabulary Words (Tap to hear):</h4>
+              <div class="vocab-chips-list" id="vocabChipsList"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Star Stamp Collected Feedback -->
+        <div class="creature-stamp-banner">
+          <span class="stamp-pill" id="creatureStampPill">⭐ Star Stamp Collected!</span>
+        </div>
+
+        <!-- Bottom Action Button -->
+        <div class="creature-bottom-actions">
+          <button type="button" class="btn-creature-back" id="btnCreatureContinue">Back to Trail 🗺️</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SCREEN 6: JUNIOR EXPLORER QUIZ
+         ======================================================== -->
+    <section class="story-screen" id="screenQuiz" aria-label="Quiz Screen">
+      <!-- Top Bar -->
+      <header class="screen-top-bar">
+        <button type="button" class="btn-icon-nav" id="btnQuizBack" aria-label="Back to Trail">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="screen-title-group">
+          <h1 class="screen-heading-sm" id="quizHeaderTitle">Junior Explorer Quiz</h1>
+          <button type="button" class="btn-speaker-sm" id="btnQuizAudio" aria-label="Listen to question" title="Listen">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="lang-segmented-toggle" role="group" aria-label="Language selection">
+          <button type="button" class="lang-segment active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-segment" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+      </header>
+
+      <!-- Quiz Body -->
+      <div class="quiz-scroll-body" id="quizScrollBody">
+        
+        <!-- Active Question View -->
+        <div class="quiz-active-view" id="quizActiveView">
+          <div class="quiz-progress-row">
+            <span class="quiz-progress-text" id="quizProgressText">Question 1 of 5</span>
+            <div class="quiz-stars-earned" id="quizStarsEarned">⭐⭐⭐⭐⭐</div>
+          </div>
+
+          <!-- Question Box -->
+          <div class="quiz-question-box">
+            <p class="quiz-question-text" id="quizQuestionText">Loading question...</p>
+          </div>
+
+          <!-- 2-4 Big Option Buttons -->
+          <div class="quiz-options-container" id="quizOptionsContainer">
+            <!-- Rendered by script.js -->
+          </div>
+
+          <!-- Gentle Feedback Area -->
+          <div class="quiz-feedback-box" id="quizFeedbackBox" style="display: none;">
+            <p class="quiz-feedback-message" id="quizFeedbackMessage"></p>
+            <button type="button" class="btn-quiz-next" id="btnQuizNext">Next Question ➡️</button>
+          </div>
+        </div>
+
+        <!-- Quiz Completed View -->
+        <div class="quiz-completed-view" id="quizCompletedView" style="display: none;">
+          <div class="quiz-trophy-icon">🏆</div>
+          <h2 class="quiz-complete-title" id="quizCompleteTitle">🌟 Explorer Superstar!</h2>
+          <p class="quiz-complete-msg" id="quizCompleteMsg">You completed the Junior Explorer Quiz! Fantastic job protecting Life on Land!</p>
+          <div class="quiz-final-score-pill" id="quizFinalScorePill">Score: 5 of 5 Stars ⭐</div>
+
+          <button type="button" class="btn-claim-badge" id="btnClaimBadge">Claim Guardian Badge 🛡️</button>
+          <button type="button" class="btn-quiz-restart" id="btnQuizRestart">Play Again 🔄</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SCREEN 7: GUARDIAN OF NATURE BADGE
+         ======================================================== -->
+    <section class="story-screen" id="screenBadge" aria-label="Guardian Badge Screen">
+      <!-- Top Bar -->
+      <header class="screen-top-bar">
+        <button type="button" class="btn-icon-nav" id="btnBadgeBack" aria-label="Back to Trail">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="screen-title-group">
+          <h1 class="screen-heading-sm" id="badgeHeaderTitle">Guardian Badge</h1>
+        </div>
+        <div class="lang-segmented-toggle" role="group" aria-label="Language selection">
+          <button type="button" class="lang-segment active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-segment" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+      </header>
+
+      <!-- Badge Scroll Body -->
+      <div class="badge-scroll-body" id="badgeScrollBody">
+        
+        <!-- Printable / Screenshot Certificate Card -->
+        <div class="badge-certificate-card" id="badgeCertificateCard">
+          <div class="badge-award-shield">
+            <svg viewBox="0 0 100 100" class="shield-svg" aria-hidden="true">
+              <path d="M50 5 L88 22 L88 55 C88 78 50 95 50 95 C50 95 12 78 12 55 L12 22 Z" fill="#f59e0b" stroke="#b45309" stroke-width="4"/>
+              <path d="M50 12 L80 26 L80 53 C80 72 50 86 50 86 C50 86 20 72 20 53 L20 26 Z" fill="#fbbf24"/>
+              <text x="50" y="58" font-size="34" text-anchor="middle" fill="#78350f">🛡️</text>
+            </svg>
+          </div>
+
+          <h2 class="badge-card-title" id="badgeCardTitle">🛡️ Guardian of Nature Award</h2>
+          <div class="badge-country-tag" id="badgeCountryTag">🇭🇹 Haiti • Class 2A</div>
+          
+          <div class="badge-input-group">
+            <label for="badgeStudentName" class="badge-input-label" id="labelStudentName">Explorer Name:</label>
+            <input type="text" id="badgeStudentName" class="badge-student-input" placeholder="Type your name here..." maxlength="30">
+          </div>
+
+          <p class="badge-congrats-text" id="badgeCongratsText">
+            Congratulations, Super Explorer! You discovered every creature and completed all missions for SDG 15: Life on Land!
+          </p>
+
+          <div class="badge-seal-stamp">
+            <span>⭐ CERTIFIED GUARDIAN 2026 ⭐</span>
+          </div>
+        </div>
+
+        <!-- Badge Actions -->
+        <div class="badge-actions-group">
+          <button type="button" class="btn-print-badge" id="btnPrintBadge">🖨️ Print / Save Certificate</button>
+          <button type="button" class="btn-badge-done" id="btnBadgeBackToTrail">Back to Trail 🗺️</button>
+        </div>
+
       </div>
     </section>
 
@@ -260,54 +512,20 @@
         <span class="nav-icon" aria-hidden="true">⭐</span>
         <span class="nav-label" id="bottomNavQuizLabel">Quiz</span>
       </button>
-      <button type="button" class="bottom-nav-item" id="navItemBadges" data-screen="badges" aria-label="My Badges">
+      <button type="button" class="bottom-nav-item" id="navItemBadges" data-screen="badge" aria-label="My Badges">
         <span class="nav-icon" aria-hidden="true">🛡️</span>
         <span class="nav-label" id="bottomNavBadgesLabel">My Badges</span>
       </button>
     </nav>
 
     <!-- ========================================================
-         CREATURE PREVIEW MODAL / BOTTOM SHEET
-         (Feedback when tapping a trail bubble)
+         FULL PHOTO LIGHTBOX (Issue 1: View Photos Fully)
          ======================================================== -->
-    <div class="story-sheet-backdrop" id="creatureSheet" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sheetCreatureName">
-      <div class="story-sheet">
-        <button type="button" class="sheet-close-btn" id="btnSheetClose" aria-label="Close dialog">✕</button>
-        <div class="sheet-photo-container">
-          <img id="sheetCreatureImg" src="" alt="" width="320" height="220" class="sheet-creature-photo">
-          <span class="sheet-stamp-pop" id="sheetStampBadge" aria-hidden="true">⭐</span>
-        </div>
-        <div class="sheet-body">
-          <div class="sheet-title-row">
-            <h2 class="sheet-creature-name" id="sheetCreatureName">Creature Name</h2>
-            <button type="button" class="btn-speaker" id="btnSheetAudio" aria-label="Listen to creature description" title="Listen">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-              </svg>
-            </button>
-          </div>
-          <span class="sheet-type-pill" id="sheetTypePill">🐾 Animal</span>
-          <p class="sheet-quick-read" id="sheetQuickRead">Quick read sentence goes here.</p>
-          <div class="sheet-feedback" id="sheetFeedback">
-            <span class="stamp-pill" id="sheetStampPill">⭐ Star Stamp Collected!</span>
-          </div>
-          <button type="button" class="btn-sheet-action" id="btnSheetContinue">Keep Exploring 🌟</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========================================================
-         INFO / TEASER MODAL FOR QUIZ & BADGES
-         ======================================================== -->
-    <div class="story-sheet-backdrop" id="teaserSheet" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="teaserTitle">
-      <div class="story-sheet teaser-sheet">
-        <button type="button" class="sheet-close-btn" id="btnTeaserClose" aria-label="Close dialog">✕</button>
-        <div class="teaser-icon" id="teaserIcon">🌟</div>
-        <h2 class="teaser-title" id="teaserTitle">Almost There!</h2>
-        <p class="teaser-desc" id="teaserDesc">Explore all 6 creatures on the trail to unlock this screen!</p>
-        <button type="button" class="btn-sheet-action" id="btnTeaserAction">Back to Trail 🗺️</button>
+    <div class="photo-lightbox-backdrop" id="photoLightboxModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Full-size creature photograph">
+      <button type="button" class="btn-lightbox-close" id="btnCloseLightbox" aria-label="Close photo view">✕</button>
+      <div class="photo-lightbox-content">
+        <img id="lightboxFullImg" src="" alt="" class="lightbox-image">
+        <div class="lightbox-caption" id="lightboxCaption">Creature photo</div>
       </div>
     </div>
 
