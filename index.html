@@ -24,6 +24,12 @@
     <!-- Screen Reader Live Announcer -->
     <div id="srLiveAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
+    <!-- Lock Notification Toast Banner -->
+    <div class="lock-toast-banner" id="lockToastBanner" role="alert" aria-live="assertive" style="display: none;">
+      <span class="toast-lock-icon" aria-hidden="true">🔒</span>
+      <span class="toast-lock-message" id="lockToastMessage">Meet all 6 friends on the trail to unlock!</span>
+    </div>
+
     <!-- ========================================================
          SCREEN 1: WELCOME SCREEN
          ======================================================== -->
@@ -557,10 +563,12 @@
       <button type="button" class="bottom-nav-item" id="navItemQuiz" data-screen="quiz" aria-label="Quiz">
         <span class="nav-icon" aria-hidden="true">⭐</span>
         <span class="nav-label" id="bottomNavQuizLabel">Quiz</span>
+        <span class="nav-lock-badge" id="quizLockBadge" aria-hidden="true">🔒</span>
       </button>
       <button type="button" class="bottom-nav-item" id="navItemBadges" data-screen="badge" aria-label="My Badges">
         <span class="nav-icon" aria-hidden="true">🛡️</span>
         <span class="nav-label" id="bottomNavBadgesLabel">My Badges</span>
+        <span class="nav-lock-badge" id="badgesLockBadge" aria-hidden="true">🔒</span>
       </button>
     </nav>
 

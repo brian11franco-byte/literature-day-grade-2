@@ -131,6 +131,25 @@
     } catch (e) {}
   }
 
+  function playLockedSound() {
+    try {
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(280, now);
+      osc.frequency.exponentialRampToValueAtTime(140, now + 0.16);
+      gain.gain.setValueAtTime(0.18, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.16);
+    } catch (e) {}
+  }
+
   function playQuizCheer() {
     try {
       const ctx = getAudioContext();
@@ -206,6 +225,22 @@
     const data = getAppData();
     if (!data || !data.countries) return null;
     return data.countries.find(c => c.id === state.country) || data.countries[0];
+  }
+
+  function getCurrentCountryCollectedCount() {
+    const country = getCurrentCountry();
+    if (!country || !country.organisms) return 0;
+    let count = 0;
+    country.organisms.forEach(org => {
+      if (state.visited[org.id]) count++;
+    });
+    return count;
+  }
+
+  function isCurrentCountryComplete() {
+    const country = getCurrentCountry();
+    if (!country || !country.organisms || country.organisms.length === 0) return false;
+    return getCurrentCountryCollectedCount() >= country.organisms.length;
   }
 
   function getCountryName(country) {
@@ -340,6 +375,10 @@
       navItemTrail: document.getElementById('navItemTrail'),
       navItemQuiz: document.getElementById('navItemQuiz'),
       navItemBadges: document.getElementById('navItemBadges'),
+      quizLockBadge: document.getElementById('quizLockBadge'),
+      badgesLockBadge: document.getElementById('badgesLockBadge'),
+      lockToastBanner: document.getElementById('lockToastBanner'),
+      lockToastMessage: document.getElementById('lockToastMessage'),
       bottomNavHomeLabel: document.getElementById('bottomNavHomeLabel'),
       bottomNavTrailLabel: document.getElementById('bottomNavTrailLabel'),
       bottomNavQuizLabel: document.getElementById('bottomNavQuizLabel'),
@@ -347,11 +386,84 @@
     };
   }
 
+  // Lock notification toast timer & helper
+  let toastTimer = null;
+  function showLockToast(message) {
+    if (!dom.lockToastBanner || !dom.lockToastMessage) return;
+    dom.lockToastMessage.textContent = message;
+    dom.lockToastBanner.style.display = 'flex';
+    void dom.lockToastBanner.offsetWidth;
+    dom.lockToastBanner.classList.add('show');
+
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      if (dom.lockToastBanner) {
+        dom.lockToastBanner.classList.remove('show');
+        setTimeout(() => {
+          if (dom.lockToastBanner && !dom.lockToastBanner.classList.contains('show')) {
+            dom.lockToastBanner.style.display = 'none';
+          }
+        }, 250);
+      }
+    }, 3200);
+  }
+
+  function updateBottomNavLocks() {
+    const complete = isCurrentCountryComplete();
+    const count = getCurrentCountryCollectedCount();
+
+    if (dom.navItemQuiz) {
+      if (complete) {
+        dom.navItemQuiz.classList.remove('is-locked');
+        dom.navItemQuiz.removeAttribute('aria-disabled');
+        dom.navItemQuiz.title = getGeneralString('bottomNavQuiz', 'Quiz');
+      } else {
+        dom.navItemQuiz.classList.add('is-locked');
+        dom.navItemQuiz.setAttribute('aria-disabled', 'true');
+        dom.navItemQuiz.title = state.lang === 'id' ?
+          `🔒 Terkunci (${count}/6 Bintang) - Kumpulkan semua bintang untuk membuka Kuis` :
+          `🔒 Locked (${count}/6 Stars) - Collect all stars to unlock Quiz`;
+      }
+    }
+
+    if (dom.navItemBadges) {
+      if (complete) {
+        dom.navItemBadges.classList.remove('is-locked');
+        dom.navItemBadges.removeAttribute('aria-disabled');
+        dom.navItemBadges.title = getGeneralString('bottomNavBadges', 'My Badges');
+      } else {
+        dom.navItemBadges.classList.add('is-locked');
+        dom.navItemBadges.setAttribute('aria-disabled', 'true');
+        dom.navItemBadges.title = state.lang === 'id' ?
+          `🔒 Terkunci (${count}/6 Bintang) - Selesaikan jalur untuk membuka Lencana` :
+          `🔒 Locked (${count}/6 Stars) - Complete trail to unlock Badges`;
+      }
+    }
+  }
+
   // --------------------------------------------------------
   // 6. SCREEN NAVIGATION
   // --------------------------------------------------------
   function goToScreen(screenName) {
     stopSpeech();
+
+    // Guard locked sections (quiz & badge) if current country is not completed
+    if ((screenName === 'quiz' || screenName === 'badge') && !isCurrentCountryComplete()) {
+      playLockedSound();
+      const count = getCurrentCountryCollectedCount();
+      const msg = state.lang === 'id' ?
+        `🔒 Bagian ini terkunci! Kumpulkan semua 6 bintang di jalur terlebih dahulu (${count}/6 bintang terkumpul).` :
+        `🔒 This section is locked! Collect all 6 stars on the trail first (${count} of 6 stars collected).`;
+      showLockToast(msg);
+      speakText(msg);
+
+      if (state.country) {
+        screenName = 'trail';
+      } else {
+        screenName = 'pickCountry';
+      }
+    }
+
     state.currentScreen = screenName;
 
     const screens = [
@@ -370,7 +482,9 @@
       }
     });
 
-    // Bottom nav active state
+    // Update bottom nav locks & active state
+    updateBottomNavLocks();
+
     if (dom.navItemHome) dom.navItemHome.classList.remove('active');
     if (dom.navItemTrail) dom.navItemTrail.classList.remove('active');
     if (dom.navItemQuiz) dom.navItemQuiz.classList.remove('active');
@@ -446,6 +560,7 @@
     });
 
     updateStaticText();
+    updateBottomNavLocks();
     renderCountryCards();
     renderTrailScreen();
 
@@ -610,18 +725,28 @@
       });
     }
 
-    // End-of-Trail Mission Card (Issue 4 & 5)
+    // End-of-Trail Mission Card
     if (dom.trailEndCard) {
       if (collectedCount >= 6) {
+        if (dom.trailEndIcon) dom.trailEndIcon.textContent = '🌟';
         dom.trailEndText.textContent = getGeneralString('trailCompleteNotice', "🎉 All 6 Stars Collected! Take the Quiz to earn your Guardian Badge!");
         dom.btnTrailActionQuiz.textContent = getGeneralString('takeQuizBtn', "Take the Quiz 🚀");
+        dom.btnTrailActionQuiz.classList.remove('btn-locked');
         dom.btnTrailActionQuiz.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
       } else {
-        dom.trailEndText.textContent = getGeneralString('trailIncompleteNotice', "⭐ Meet all 6 friends on the trail to unlock your Quiz!");
-        dom.btnTrailActionQuiz.textContent = getGeneralString('takeQuizBtn', "Take the Quiz 🚀");
-        dom.btnTrailActionQuiz.style.background = 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
+        if (dom.trailEndIcon) dom.trailEndIcon.textContent = '🔒';
+        dom.trailEndText.textContent = state.lang === 'id' ?
+          `🔒 Kuis Terkunci! Kenali semua 6 sahabat di jalur (${collectedCount}/6 Bintang) untuk membuka Kuis!` :
+          `🔒 Quiz Locked! Meet all 6 friends on the trail (${collectedCount} of 6 Stars) to unlock your Quiz!`;
+        dom.btnTrailActionQuiz.textContent = state.lang === 'id' ?
+          `🔒 Kuis Terkunci (${collectedCount}/6 Bintang)` :
+          `🔒 Quiz Locked (${collectedCount}/6 Stars)`;
+        dom.btnTrailActionQuiz.classList.add('btn-locked');
+        dom.btnTrailActionQuiz.style.background = 'linear-gradient(135deg, #64748b, #475569)';
       }
     }
+
+    updateBottomNavLocks();
   }
 
   // --------------------------------------------------------
@@ -637,6 +762,7 @@
     state.visited[organism.id] = true;
     saveStateKey(STORAGE_KEYS.VISITED, state.visited);
     playStarChime();
+    updateBottomNavLocks();
 
     renderCreatureScreen(organism);
     goToScreen('creature');
@@ -1083,6 +1209,16 @@
     // Trail Action: Go to Quiz
     if (dom.btnTrailActionQuiz) {
       dom.btnTrailActionQuiz.addEventListener('click', () => {
+        if (!isCurrentCountryComplete()) {
+          playLockedSound();
+          const count = getCurrentCountryCollectedCount();
+          const msg = state.lang === 'id' ?
+            `🔒 Kuis Terkunci! Kumpulkan semua 6 bintang di jalur terlebih dahulu (${count}/6 bintang terkumpul).` :
+            `🔒 Quiz Locked! Collect all 6 stars on the trail first (${count} of 6 stars collected).`;
+          showLockToast(msg);
+          speakText(msg);
+          return;
+        }
         playTapBoop();
         goToScreen('quiz');
       });
@@ -1251,6 +1387,16 @@
 
     if (dom.navItemQuiz) {
       dom.navItemQuiz.addEventListener('click', () => {
+        if (!isCurrentCountryComplete()) {
+          playLockedSound();
+          const count = getCurrentCountryCollectedCount();
+          const msg = state.lang === 'id' ?
+            `🔒 Kuis Terkunci! Kumpulkan semua 6 bintang di jalur terlebih dahulu (${count}/6 bintang terkumpul).` :
+            `🔒 Quiz Locked! Collect all 6 stars on the trail first (${count} of 6 stars collected).`;
+          showLockToast(msg);
+          speakText(msg);
+          return;
+        }
         playTapBoop();
         goToScreen('quiz');
       });
@@ -1258,8 +1404,24 @@
 
     if (dom.navItemBadges) {
       dom.navItemBadges.addEventListener('click', () => {
+        if (!isCurrentCountryComplete()) {
+          playLockedSound();
+          const count = getCurrentCountryCollectedCount();
+          const msg = state.lang === 'id' ?
+            `🔒 Lencana Terkunci! Kumpulkan semua 6 bintang di jalur terlebih dahulu (${count}/6 bintang terkumpul).` :
+            `🔒 Badges Locked! Collect all 6 stars on the trail first (${count} of 6 stars collected).`;
+          showLockToast(msg);
+          speakText(msg);
+          return;
+        }
         playTapBoop();
         goToScreen('badge');
+      });
+    }
+
+    if (dom.lockToastBanner) {
+      dom.lockToastBanner.addEventListener('click', () => {
+        dom.lockToastBanner.classList.remove('show');
       });
     }
 
@@ -1317,6 +1479,7 @@
     renderTrailScreen();
     attachAudioButtons();
     attachEventListeners();
+    updateBottomNavLocks();
 
     document.querySelectorAll('.lang-segment').forEach(btn => {
       if (btn.getAttribute('data-lang') === state.lang) {

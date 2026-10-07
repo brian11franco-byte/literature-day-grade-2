@@ -1655,6 +1655,99 @@ html, body {
   transform: scale(1.15);
 }
 
+.bottom-nav-item.is-locked {
+  position: relative;
+  opacity: 0.52;
+  cursor: not-allowed;
+}
+
+.bottom-nav-item.is-locked .nav-icon {
+  filter: grayscale(0.7);
+}
+
+.nav-lock-badge {
+  position: absolute;
+  top: 4px;
+  right: calc(50% - 24px);
+  font-size: 11px;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+  border: 1.5px solid #cbd5e1;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.bottom-nav-item:not(.is-locked) .nav-lock-badge {
+  display: none !important;
+}
+
+.btn-trail-action.btn-locked {
+  background: linear-gradient(135deg, #64748b, #475569) !important;
+  box-shadow: 0 4px 12px rgba(71, 85, 105, 0.25) !important;
+  border: 2px dashed #94a3b8;
+  opacity: 0.92;
+}
+
+.btn-trail-action.btn-locked:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(71, 85, 105, 0.35) !important;
+}
+
+/* Toast Banner */
+.lock-toast-banner {
+  position: absolute;
+  top: 74px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.35), 0 0 0 1.5px rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  max-width: 92%;
+  width: max-content;
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.lock-toast-banner.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  animation: lockShake 0.4s ease;
+}
+
+@keyframes lockShake {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  20%, 60% { transform: translateX(calc(-50% - 6px)) translateY(0); }
+  40%, 80% { transform: translateX(calc(-50% + 6px)) translateY(0); }
+}
+
+.toast-lock-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.toast-lock-message {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fef08a;
+}
+
 /* ==========================================================
    ACCESSIBILITY & MOTION
    ========================================================== */
