@@ -999,9 +999,25 @@ html, body {
   border: 1px solid #fde047;
 }
 
-.creature-col-visual,
-.creature-col-content {
-  display: contents;
+.creature-hero-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.creature-overview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.creature-story-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
 .creature-bottom-actions {
@@ -1813,60 +1829,148 @@ html, body {
     border-radius: 34px;
   }
 
-  /* SCREEN 2: PICK COUNTRY DESKTOP (3 Columns Side-by-Side) */
+  /* SCREEN 2: PICK COUNTRY TABLET/DESKTOP (Vertically Aligned Showcase) */
   .country-cards-stack {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 28px;
     height: calc(100% - 64px);
-    align-items: stretch;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .country-big-card {
+    flex: 1;
+    min-height: 180px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    border-radius: 24px;
-    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 26px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--card-theme, #0284c7);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+    border: 3px solid rgba(255, 255, 255, 0.35);
+    transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.22s ease, border-color 0.22s ease;
   }
 
   .country-big-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px) scale(1.008);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+    border-color: #ffffff;
+  }
+
+  .country-big-card:active {
+    transform: scale(0.99);
+  }
+
+  .card-photo-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .card-bg-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.95);
+    transition: transform 0.35s ease;
+  }
+
+  .country-big-card:hover .card-bg-photo {
+    transform: scale(1.03);
   }
 
   .card-gradient-overlay {
+    position: absolute;
+    inset: 0;
     background: linear-gradient(
-      180deg,
-      rgba(15, 23, 42, 0.15) 0%,
-      rgba(15, 23, 42, 0.65) 55%,
-      rgba(15, 23, 42, 0.95) 100%
+      90deg,
+      rgba(15, 23, 42, 0.92) 0%,
+      rgba(15, 23, 42, 0.72) 42%,
+      rgba(15, 23, 42, 0.2) 75%,
+      rgba(15, 23, 42, 0.05) 100%
     );
   }
 
   .card-content {
-    max-width: 100%;
-    padding: 22px;
+    position: relative;
+    z-index: 2;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 8px;
+    max-width: 65%;
+  }
+
+  .card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 16px;
+    width: fit-content;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .card-flag {
+    font-size: 22px;
   }
 
   .card-country-name {
-    font-size: 32px;
+    font-family: var(--font-display);
+    font-size: clamp(30px, 3.8vw, 40px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
   }
 
   .card-creature-highlight {
-    font-size: 18px;
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 700;
+    color: #fef08a;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
 
   .card-arrow-circle {
-    top: auto;
-    bottom: 22px;
-    right: 22px;
-    transform: none;
-    width: 52px;
-    height: 52px;
-    font-size: 22px;
+    position: absolute;
+    top: 50%;
+    right: 32px;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--country-theme, #0284c7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+
+  .country-big-card:hover .card-arrow-circle {
+    transform: translateY(-50%) scale(1.1);
+    background: #fef08a;
+    color: #1e293b;
   }
 
   /* SCREEN 3: TRAIL DESKTOP (Spacious Nature Trail) */
@@ -1952,42 +2056,52 @@ html, body {
     font-size: 22px;
   }
 
-  /* SCREEN 4: MEET THE CREATURE DESKTOP (2-Column Showcase) */
+  /* SCREEN 4: MEET THE CREATURE TABLET/DESKTOP (Balanced Hero + Full-Width Story) */
   .creature-scroll-body {
     display: flex;
-    flex-direction: row;
-    gap: 32px;
-    padding: 24px 32px 48px;
-    max-width: 1100px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 28px 48px;
+    max-width: 960px;
     margin: 0 auto;
-    align-items: flex-start;
+    width: 100%;
+    align-items: stretch;
   }
 
-  .creature-col-visual {
+  /* Top Hero Row: Photo on Left, Overview & Topic Tabs on Right */
+  .creature-hero-layout {
     display: flex;
-    flex-direction: column;
-    width: 440px;
-    flex-shrink: 0;
-    gap: 16px;
-  }
-
-  .creature-col-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 0;
-    gap: 16px;
+    flex-direction: row;
+    gap: 22px;
+    align-items: stretch;
+    width: 100%;
   }
 
   .creature-photo-hero {
-    height: 360px;
-    min-height: 360px;
+    flex: 0 0 clamp(280px, 38%, 350px);
+    width: clamp(280px, 38%, 350px);
+    height: auto;
+    min-height: 270px;
+    max-height: 330px;
     border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  }
+
+  .creature-overview-panel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
   }
 
   .creature-title-section {
     border-radius: 20px;
-    padding: 16px 20px;
+    padding: 14px 20px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   }
 
   .creature-big-name {
@@ -1998,24 +2112,13 @@ html, body {
     font-size: 15px;
   }
 
-  .creature-bottom-actions {
-    order: unset;
-    width: 100%;
-  }
-
-  .btn-creature-back {
-    min-height: 58px;
-    font-size: 20px;
-    border-radius: 29px;
-  }
-
   .creature-tiles-row {
-    gap: 12px;
+    gap: 10px;
   }
 
   .picture-tile {
-    min-height: 80px;
-    padding: 12px 10px;
+    min-height: 76px;
+    padding: 10px 8px;
     border-radius: 18px;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
@@ -2026,21 +2129,31 @@ html, body {
   }
 
   .tile-icon {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .tile-label {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .active-tile-card {
-    padding: 20px 24px;
-    border-radius: 22px;
+    padding: 18px 22px;
+    border-radius: 20px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   }
 
   .tile-content-text {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.5;
+  }
+
+  /* Full-Width Story & Detailed Exploration Section (No Wasted Space) */
+  .creature-story-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
   }
 
   .tell-me-more-section {
@@ -2050,12 +2163,47 @@ html, body {
   .btn-toggle-details {
     min-height: 56px;
     font-size: 19px;
+    border-radius: 28px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   }
 
+  .btn-toggle-details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Details Drawer: 2-Column Responsive Grid on Tablet */
   .details-drawer {
-    padding: 22px 24px;
-    border-radius: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
+    padding: 22px 24px;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    animation: slideDown 0.25s ease-out;
+  }
+
+  .detail-block {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px 20px;
+    gap: 8px;
+  }
+
+  .detail-block.threat-block {
+    background: #fff1f2;
+    border: 2px solid #fecdd3;
+    border-left: 6px solid #f43f5e;
+  }
+
+  .detail-block.story-full-block {
+    grid-column: 1 / -1;
+    background: #fffbeb;
+    border: 2px solid #fde68a;
+    padding: 22px 24px;
   }
 
   .detail-block-title {
@@ -2063,12 +2211,66 @@ html, body {
   }
 
   .detail-block-text {
-    font-size: 19px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .vocab-section {
+    grid-column: 1 / -1;
+    border-top: 2px solid #e2e8f0;
+    padding-top: 14px;
+  }
+
+  .vocab-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .vocab-chip {
+    font-size: 16px;
+    padding: 8px 18px;
+    min-height: 46px;
+    border-radius: 18px;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .vocab-chip:hover {
+    transform: translateY(-2px);
+    background: #e2e8f0;
   }
 
   .creature-stamp-banner {
-    justify-content: flex-start;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 4px 0;
+  }
+
+  .stamp-pill {
+    font-size: 18px;
+    padding: 8px 22px;
+    border-radius: 22px;
+  }
+
+  .creature-bottom-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .btn-creature-back {
+    max-width: 440px;
+    min-height: 60px;
+    font-size: 22px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-creature-back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
   }
 
   /* SCREEN 6: QUIZ DESKTOP */
@@ -2099,7 +2301,7 @@ html, body {
 
   .quiz-options-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 18px;
   }
 

@@ -689,7 +689,7 @@
     }
 
     // Reset details drawer
-    if (dom.detailsDrawer) dom.detailsDrawer.style.display = state.detailsExpanded ? 'flex' : 'none';
+    if (dom.detailsDrawer) dom.detailsDrawer.style.display = state.detailsExpanded ? '' : 'none';
     if (dom.labelTellMeMore) {
       dom.labelTellMeMore.textContent = state.detailsExpanded ?
         getGeneralString('hideDetailsBtn', '🔼 Hide Details') :
@@ -1132,7 +1132,7 @@
       dom.btnToggleDetails.addEventListener('click', () => {
         playTapBoop();
         state.detailsExpanded = !state.detailsExpanded;
-        if (dom.detailsDrawer) dom.detailsDrawer.style.display = state.detailsExpanded ? 'flex' : 'none';
+        if (dom.detailsDrawer) dom.detailsDrawer.style.display = state.detailsExpanded ? '' : 'none';
         if (dom.labelTellMeMore) {
           dom.labelTellMeMore.textContent = state.detailsExpanded ?
             getGeneralString('hideDetailsBtn', '🔼 Hide Details') :
@@ -1328,7 +1328,30 @@
       }
     });
 
-    goToScreen('welcome');
+    const hash = (window.location.hash || '').replace('#', '');
+    if (hash === 'pickCountry' || hash === 'trail' || hash === 'creature' || hash === 'creatureBottom' || hash === 'quiz' || hash === 'badge') {
+      if (hash === 'creature' || hash === 'creatureBottom') {
+        const bolivia = (getAppData()?.countries || []).find(c => c.id === 'bolivia');
+        const cact = bolivia && (bolivia.organisms || []).find(o => o.id === 'golden_rat_tail_cactus');
+        if (cact) {
+          state.country = 'bolivia';
+          openCreatureScreen(cact);
+          state.detailsExpanded = true;
+          renderCreatureScreen(cact);
+          if (hash === 'creatureBottom') {
+            setTimeout(() => {
+              if (dom.creatureScrollBody) dom.creatureScrollBody.scrollTop = 9999;
+            }, 100);
+          }
+        } else {
+          goToScreen(hash);
+        }
+      } else {
+        goToScreen(hash);
+      }
+    } else {
+      goToScreen('welcome');
+    }
   }
 
   if (document.readyState === 'loading') {
