@@ -415,8 +415,28 @@
         <!-- Active Question View -->
         <div class="quiz-active-view" id="quizActiveView">
           <div class="quiz-progress-row">
-            <span class="quiz-progress-text" id="quizProgressText">Question 1 of 5</span>
-            <div class="quiz-stars-earned" id="quizStarsEarned">⭐⭐⭐⭐⭐</div>
+            <span class="quiz-progress-text" id="quizProgressText">Question 1 of 6</span>
+            <div class="quiz-stars-earned" id="quizStarsEarned">⭐⭐⭐⭐⭐⭐</div>
+          </div>
+
+          <!-- Creature Visual Guide & Photo Card -->
+          <div class="quiz-creature-guide-card" id="quizCreatureCard">
+            <div class="quiz-creature-thumb-wrap" id="quizCreatureThumbWrap" role="button" tabindex="0" aria-label="View full photo" title="Tap to view full photo">
+              <img id="quizCreatureImg" src="" alt="Creature Photo" class="quiz-creature-photo" loading="eager">
+              <button type="button" class="quiz-photo-zoom-btn" id="btnQuizPhotoZoom" aria-label="View photo full size" title="View Full Photo">
+                <span aria-hidden="true">🔍</span>
+              </button>
+            </div>
+            <div class="quiz-creature-info">
+              <div class="quiz-creature-type-badge" id="quizCreatureTypeBadge">
+                <span class="badge-text" id="quizCreatureTypeText">🐾 ANIMAL GUIDE</span>
+              </div>
+              <h2 class="quiz-creature-name" id="quizCreatureName">Creature Name</h2>
+              <div class="quiz-creature-country-pill" id="quizCreatureCountryPill">
+                <span class="tag-flag" id="quizCreatureFlag">🌍</span>
+                <span class="tag-name" id="quizCreatureCountryName">Country</span>
+              </div>
+            </div>
           </div>
 
           <!-- Question Box -->

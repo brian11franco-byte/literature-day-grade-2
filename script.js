@@ -336,6 +336,16 @@
       quizCompletedView: document.getElementById('quizCompletedView'),
       quizProgressText: document.getElementById('quizProgressText'),
       quizStarsEarned: document.getElementById('quizStarsEarned'),
+      quizCreatureCard: document.getElementById('quizCreatureCard'),
+      quizCreatureThumbWrap: document.getElementById('quizCreatureThumbWrap'),
+      quizCreatureImg: document.getElementById('quizCreatureImg'),
+      btnQuizPhotoZoom: document.getElementById('btnQuizPhotoZoom'),
+      quizCreatureTypeBadge: document.getElementById('quizCreatureTypeBadge'),
+      quizCreatureTypeText: document.getElementById('quizCreatureTypeText'),
+      quizCreatureName: document.getElementById('quizCreatureName'),
+      quizCreatureCountryPill: document.getElementById('quizCreatureCountryPill'),
+      quizCreatureFlag: document.getElementById('quizCreatureFlag'),
+      quizCreatureCountryName: document.getElementById('quizCreatureCountryName'),
       quizQuestionText: document.getElementById('quizQuestionText'),
       quizOptionsContainer: document.getElementById('quizOptionsContainer'),
       quizFeedbackBox: document.getElementById('quizFeedbackBox'),
@@ -875,18 +885,23 @@
   // --------------------------------------------------------
   // 12. FULL PHOTO LIGHTBOX (Issue 1)
   // --------------------------------------------------------
-  function openPhotoLightbox() {
+  function openPhotoLightbox(customSrc, customCaption) {
     playTapBoop();
-    const organism = state.currentCreature;
-    if (!organism) return;
-    const orgName = getOrganismName(organism);
+    let src = customSrc;
+    let caption = customCaption;
+    if (!src) {
+      const organism = state.currentCreature;
+      if (!organism) return;
+      src = organism.image;
+      caption = getOrganismName(organism);
+    }
 
     if (dom.lightboxFullImg) {
-      dom.lightboxFullImg.src = organism.image;
-      dom.lightboxFullImg.alt = orgName;
+      dom.lightboxFullImg.src = src;
+      dom.lightboxFullImg.alt = caption || '';
     }
     if (dom.lightboxCaption) {
-      dom.lightboxCaption.textContent = orgName;
+      dom.lightboxCaption.textContent = caption || '';
     }
     if (dom.photoLightboxModal) {
       dom.photoLightboxModal.classList.add('open');
@@ -964,6 +979,60 @@
 
     if (dom.quizFeedbackBox) {
       dom.quizFeedbackBox.style.display = 'none';
+    }
+
+    // Render Creature Visual Guide Card with Photo & Proper ID
+    const country = getCurrentCountry();
+    let organism = null;
+    if (country && country.organisms) {
+      if (qItem.organismId) {
+        organism = country.organisms.find(o => o.id === qItem.organismId);
+      }
+      if (!organism && country.organisms[state.quizIndex]) {
+        organism = country.organisms[state.quizIndex];
+      }
+    }
+
+    if (organism || qItem.image) {
+      const orgName = organism ? getOrganismName(organism) : (state.lang === 'id' ? (qItem.organismNameId || qItem.organismNameEn) : (qItem.organismNameEn || qItem.organismNameId));
+      const imgSrc = organism ? organism.image : qItem.image;
+      const orgType = (organism ? organism.type : qItem.organismType) || 'animal';
+      const isPlant = orgType === 'plant';
+
+      const typeLabel = isPlant ?
+        (state.lang === 'id' ? '🌿 TUMBUHAN' : '🌿 PLANT') :
+        (state.lang === 'id' ? '🐾 HEWAN' : '🐾 ANIMAL');
+      const guideLabel = state.lang === 'id' ?
+        `${typeLabel} • PANDUAN KELAS 2` :
+        `${typeLabel} • GRADE 2 GUIDE`;
+
+      if (dom.quizCreatureCard) dom.quizCreatureCard.style.display = 'flex';
+      if (dom.quizCreatureImg) {
+        dom.quizCreatureImg.src = imgSrc;
+        dom.quizCreatureImg.alt = `${orgName} - ${typeLabel}`;
+      }
+      if (dom.quizCreatureName) {
+        dom.quizCreatureName.textContent = orgName;
+      }
+      if (dom.quizCreatureTypeText) {
+        dom.quizCreatureTypeText.textContent = guideLabel;
+      }
+      if (dom.quizCreatureCountryName && country) {
+        dom.quizCreatureCountryName.textContent = getCountryName(country);
+      }
+      if (dom.quizCreatureFlag && country) {
+        dom.quizCreatureFlag.textContent = country.flagEmoji || '🌍';
+      }
+
+      // Zoom lightbox click handlers
+      const zoomHandler = (e) => {
+        if (e) e.stopPropagation();
+        openPhotoLightbox(imgSrc, `${orgName} (${typeLabel})`);
+      };
+      if (dom.btnQuizPhotoZoom) dom.btnQuizPhotoZoom.onclick = zoomHandler;
+      if (dom.quizCreatureThumbWrap) dom.quizCreatureThumbWrap.onclick = zoomHandler;
+    } else {
+      if (dom.quizCreatureCard) dom.quizCreatureCard.style.display = 'none';
     }
 
     // Render big options
@@ -1165,7 +1234,10 @@
     if (dom.btnQuizAudio) {
       dom.btnQuizAudio.addEventListener('click', () => {
         const qText = dom.quizQuestionText ? dom.quizQuestionText.textContent : '';
-        speakText(qText);
+        const orgName = (dom.quizCreatureName && dom.quizCreatureCard && dom.quizCreatureCard.style.display !== 'none') ?
+          dom.quizCreatureName.textContent : '';
+        const speech = orgName ? `${orgName}. ${qText}` : qText;
+        speakText(speech);
       });
     }
   }

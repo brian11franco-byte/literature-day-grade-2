@@ -1264,12 +1264,17 @@ const APP_DATA = {
 
   // ----------------------------------------------------
   // COUNTRY-SPECIFIC QUIZ QUESTIONS (Kids Friendly Grade 2)
-  // Issue 2: Specific questions for Haiti, Suriname, and Bolivia
+  // Featuring all 6 trail organisms with photos and proper IDs
   // ----------------------------------------------------
   countryQuizzes: {
     haiti: [
       {
         id: 1,
+        organismId: "hispaniolan_trogon",
+        image: "assets/images/haiti/hispaniolan_trogon.webp",
+        organismNameEn: "Hispaniolan Trogon",
+        organismNameId: "Burung Trogon Hispaniola",
+        organismType: "animal",
         en: {
           question: "Where does the colorful Hispaniolan Trogon build its cozy nest?",
           options: [
@@ -1295,11 +1300,46 @@ const APP_DATA = {
       },
       {
         id: 2,
+        organismId: "least_pauraque",
+        image: "assets/images/haiti/least_pauraque.webp",
+        organismNameEn: "Least Pauraque",
+        organismNameId: "Burung Pauraque Kerdil",
+        organismType: "animal",
         en: {
-          question: "What special body feature helps the ancient Hispaniolan Solenodon find insects in the dark?",
+          question: "How does the little Least Pauraque stay hidden safely from danger during the day?",
+          options: [
+            "By turning bright neon pink like bubblegum",
+            "Its brown mottled feathers camouflage safely among dry leaves and rocks",
+            "By building a stone castle with bricks",
+            "By swimming under lake water all afternoon"
+          ],
+          answer: 1,
+          explanation: "Spot on! The Least Pauraque has patterned brown feathers that look just like dry fallen leaves, keeping it camouflaged and safe!"
+        },
+        id_lang: {
+          question: "Bagaimana burung Pauraque Kerdil bersembunyi dengan aman dari pemangsa di siang hari?",
+          options: [
+            "Berubah warna menjadi merah muda terang",
+            "Bulu cokelat bermotifnya berkamuflase sempurna di antara daun kering dan bebatuan",
+            "Membangun benteng batu bata di jalan raya",
+            "Berenang di bawah air danau sepanjang siang"
+          ],
+          answer: 1,
+          explanation: "Tepat sekali! Burung Pauraque Kerdil memiliki corak bulu cokelat yang persis seperti dedaunan kering sehingga tidak terlihat oleh musuh!"
+        }
+      },
+      {
+        id: 3,
+        organismId: "hispaniolan_solenodon",
+        image: "assets/images/haiti/hispaniolan_solenodon.webp",
+        organismNameEn: "Hispaniolan Solenodon",
+        organismNameId: "Solenodon Hispaniola",
+        organismType: "animal",
+        en: {
+          question: "What special feature helps the ancient Hispaniolan Solenodon sniff out insects in the dark?",
           options: [
             "Feathery wings for high flying",
-            "A long, flexible snout for sniffing soil",
+            "A long, flexible snout that wiggles into soil",
             "Giant flippers for swimming",
             "Shining headlights on its ears"
           ],
@@ -1307,54 +1347,94 @@ const APP_DATA = {
           explanation: "Super! The solenodon has a long flexible snout that wiggles into the ground to sniff out tasty insects at night!"
         },
         id_lang: {
-          question: "Ciri tubuh istimewa apa yang membantu Solenodon Hispaniola mencari serangga di malam hari?",
+          question: "Ciri tubuh istimewa apa yang membantu Solenodon Hispaniola mengendus serangga di dalam tanah?",
           options: [
-            "Sayap berbulu untuk terbang tinggi di langit",
-            "Moncong panjang yang lentur untuk mengendus tanah",
-            "Kaki berselaput lebar untuk menyelam di sungai",
-            "Lampu senter yang menyala terang di daun telinganya"
+            "Sayap berbulu untuk terbang tinggi",
+            "Moncong panjang lentur yang lincah mengendus tanah",
+            "Kaki berselaput lebar untuk menyelam",
+            "Lampu senter yang menyala di telinganya"
           ],
           answer: 1,
           explanation: "Hebat! Solenodon memiliki moncong panjang yang sangat lincah untuk mengendus serangga lezat di dalam tanah pada malam hari!"
         }
       },
       {
-        id: 3,
+        id: 4,
+        organismId: "cherry_palm",
+        image: "assets/images/haiti/cherry_palm.webp",
+        organismNameEn: "Oviedo's Cherry Palm",
+        organismNameId: "Palem Ceri Oviedo",
+        organismType: "plant",
         en: {
-          question: "What friendly feature gave the Rhinoceros Iguana its special name?",
+          question: "What tasty treat does Oviedo's Cherry Palm produce that forest birds and animals love to eat?",
           options: [
-            "Big floppy elephant ears",
-            "Bright striped tiger fur",
-            "Three small horn-like bumps on its snout",
-            "A curly tail like a pig"
+            "Vanilla ice cream scoops",
+            "Metal nuts and bolts",
+            "Sweet little red fruits",
+            "Plastic bottles"
           ],
           answer: 2,
-          explanation: "Spot on! It has three little bumpy scales on its nose that look just like tiny rhino horns!"
+          explanation: "Awesome! The Cherry Palm grows clusters of little red berry-like fruits that provide yummy food for Haiti's wild birds and animals!"
         },
         id_lang: {
-          question: "Ciri apakah yang membuat Iguana Badak mendapatkan namanya yang unik?",
+          question: "Makanan lezat apa yang dihasilkan oleh Palem Ceri Oviedo untuk burung dan satwa di hutan?",
           options: [
-            "Telinga lebar dan belalai panjang seperti gajah",
-            "Bulu lebat belang-belang seperti harimau",
-            "Tiga tonjolan sisik mirip cula badak di atas hidungnya",
-            "Ekor melingkar seperti ekor anak babi"
+            "Es krim vanila dingin",
+            "Baut dan mur besi",
+            "Buah-buah kecil berwarna merah yang manis",
+            "Gelas plastik air mineral"
           ],
           answer: 2,
-          explanation: "Tepat sekali! Iguana ini memiliki tiga sisik menonjol di atas hidungnya yang tampak gagah mirip cula badak kecil!"
+          explanation: "Keren! Palem Ceri menghasilkan buah-buah kecil merah seperti ceri yang menjadi makanan berharga bagi burung dan satwa hutan!"
         }
       },
       {
-        id: 4,
+        id: 5,
+        organismId: "bayahibe_rose",
+        image: "assets/images/haiti/bayahibe_rose.webp",
+        organismNameEn: "Bayahibe Rose",
+        organismNameId: "Mawar Bayahibe",
+        organismType: "plant",
+        en: {
+          question: "What unique feature makes the rare Bayahibe Rose cactus special in Haiti?",
+          options: [
+            "It swims across the Caribbean Sea",
+            "Lovely pink flowers blooming with sharp protective thorns on its stems",
+            "It produces cold chocolate pudding",
+            "It flies high with eagle feathers"
+          ],
+          answer: 1,
+          explanation: "You got it! The Bayahibe Rose is one of the only cacti in the world that has beautiful green leaves and pink flowers, guarded by sharp thorns!"
+        },
+        id_lang: {
+          question: "Keistimewaan apa yang dimiliki oleh kaktus Mawar Bayahibe yang langka di Haiti?",
+          options: [
+            "Berenang menyeberangi Laut Karibia",
+            "Bunga merah muda cantik yang mekar dengan duri tajam pelindung di batangnya",
+            "Menghasilkan puding cokelat dingin",
+            "Terbang tinggi dengan sayap elang"
+          ],
+          answer: 1,
+          explanation: "Pintar! Mawar Bayahibe adalah jenis kaktus unik berdaun hijau yang memiliki bunga merah muda cantik dan duri tajam pelindung!"
+        }
+      },
+      {
+        id: 6,
+        organismId: "hispaniolan_pine",
+        image: "assets/images/haiti/hispaniolan_pine.webp",
+        organismNameEn: "Hispaniolan Pine",
+        organismNameId: "Pinus Hispaniola",
+        organismType: "plant",
         en: {
           question: "How do Hispaniolan Pine trees help protect Haiti's steep mountains?",
           options: [
             "They turn mountain clouds into sweet juice",
             "They build wooden houses by themselves",
-            "Their strong roots hold the soil so rain does not wash hillsides away",
+            "Their strong roots hold the soil so heavy rains do not wash hillsides away",
             "They blow cold wind like giant electric fans"
           ],
           answer: 2,
-          explanation: "Awesome! Deep pine roots hold the mountain dirt tightly like a strong net, preventing soil from washing away during heavy rains!"
+          explanation: "Fantastic! Deep pine roots hold the mountain dirt tightly like a strong net, preventing soil from washing away during heavy rains!"
         },
         id_lang: {
           question: "Bagaimana pohon Pinus Hispaniola membantu melindungi pegunungan curam di Haiti?",
@@ -1365,68 +1445,53 @@ const APP_DATA = {
             "Meniupkan angin dingin seperti kipas angin raksasa"
           ],
           answer: 2,
-          explanation: "Keren! Akar pohon pinus yang dalam mencengkeram tanah gunung dengan kuat seperti jaring penyelamat saat hujan lebat!"
-        }
-      },
-      {
-        id: 5,
-        en: {
-          question: "How can we help Haiti's cloud forests and support SDG 15 (Life on Land)?",
-          options: [
-            "Cut down all mountain trees for mining trucks",
-            "Leave plastic garbage along bird nests",
-            "Scrape away all fertile soil from hills",
-            "Plant new native trees and keep mining away from national parks"
-          ],
-          answer: 3,
-          explanation: "Fantastic! SDG 15 teaches us to protect wild cloud forests, replant native trees, and keep animal homes safe from harmful digging!"
-        },
-        id_lang: {
-          question: "Bagaimana cara kita membantu hutan awan Haiti dan mendukung SDG 15 (Ekosistem Daratan)?",
-          options: [
-            "Menebang semua pohon gunung untuk jalan truk tambang",
-            "Meninggalkan sampah plastik di sarang burung",
-            "Mengeruk habis seluruh lapisan tanah subur di perbukitan",
-            "Menanam kembali bibit pohon asli dan menjauhkan tambang dari hutan lindung"
-          ],
-          answer: 3,
-          explanation: "Luar biasa! SDG 15 mengajak kita menjaga hutan awan, menanam bibit pohon asli, dan melindungi rumah satwa dari kerusakan galian tambang!"
+          explanation: "Luar biasa! Akar pohon pinus yang dalam mencengkeram tanah gunung dengan kuat seperti jaring penyelamat saat hujan lebat!"
         }
       }
     ],
     suriname: [
       {
         id: 1,
+        organismId: "harpy_eagle",
+        image: "assets/images/suriname/harpy_eagle.webp",
+        organismNameEn: "Harpy Eagle",
+        organismNameId: "Elang Harpy",
+        organismType: "animal",
         en: {
-          question: "What helps the Giant Otter swim super fast in Suriname's clean rivers?",
+          question: "Where does the mighty Harpy Eagle build its giant nest in Suriname's rainforest?",
           options: [
-            "Webbed paws and a strong flat tail",
-            "Heavy iron boots",
-            "Golden wings on its back",
-            "A floating plastic surfboard"
+            "High in the crowns of giant canopy trees",
+            "Deep under muddy river sand",
+            "Inside dark underground caves",
+            "On floating plastic rafts"
           ],
           answer: 0,
-          explanation: "Correct! Giant otters have webbed toes like natural swim flippers and a powerful tail that guides them like a boat paddle!"
+          explanation: "Awesome! The Harpy Eagle builds huge stick nests high up in the crowns of giant rainforest trees like the Kapok and Baromalli!"
         },
         id_lang: {
-          question: "Apa yang membantu Berang-berang Raksasa berenang sangat cepat di sungai bersih Suriname?",
+          question: "Di manakah Elang Harpy yang perkasa membangun sarang raksasanya di hutan hujan Suriname?",
           options: [
-            "Kaki berselaput dan ekor pipih yang mendayung air",
-            "Sepatu bot dari besi yang berat",
-            "Sayap emas berbulu di punggungnya",
-            "Papan selancar terapung dari plastik"
+            "Tinggi di tajuk pohon-pohon raksasa hutan hujan",
+            "Jauh di dalam lumpur dasar sungai",
+            "Di dalam gua bawah tanah yang gelap",
+            "Di atas rakit plastik terapung"
           ],
           answer: 0,
-          explanation: "Benar sekali! Kaki berselaput dan ekor pipihnya bekerja seperti dayung perahu alami untuk meluncur lincah di dalam air!"
+          explanation: "Hebat! Elang Harpy membangun sarang ranting yang sangat besar di pucuk pohon-pohon raksasa tertinggi di hutan hujan!"
         }
       },
       {
         id: 2,
+        organismId: "cock_of_the_rock",
+        image: "assets/images/suriname/cock_of_the_rock.webp",
+        organismNameEn: "Guianan Cock-of-the-Rock",
+        organismNameId: "Burung Cadas Guyana",
+        organismType: "animal",
         en: {
-          question: "What does the bright orange male Guianan Cock-of-the-rock show off to friends?",
+          question: "What bright feature does the male Guianan Cock-of-the-rock show off proudly on its head?",
           options: [
-            "A shiny pair of sunglasses",
-            "A wonderful half-moon crest of orange feathers",
+            "A pair of shiny sunglasses",
+            "A glorious half-moon crest of bright orange feathers",
             "A loud ringing bicycle bell",
             "A necklace of river seashells"
           ],
@@ -1436,215 +1501,315 @@ const APP_DATA = {
         id_lang: {
           question: "Apa hiasan indah di kepala burung Cadas Guyana jantan yang berwarna jingga menyala?",
           options: [
-            "Kacamata hitam yang berkilau",
+            "Kacamata hitam berkilau",
             "Jambul bulu jingga indah berbentuk kipas setengah lingkaran",
             "Bel sepeda yang berbunyi nyaring",
             "Kalung mutiara dari kerang sungai"
           ],
           answer: 1,
-          explanation: "Hebat! Burung jantan memiliki jambul bulu jingga terang berbentuk kipas setengah lingkaran yang berdiri anggun di kepalanya!"
+          explanation: "Bagus sekali! Burung jantan memiliki jambul bulu jingga terang berbentuk kipas setengah lingkaran yang berdiri anggun di kepalanya!"
         }
       },
       {
         id: 3,
+        organismId: "margay",
+        image: "assets/images/suriname/margay.webp",
+        organismNameEn: "Margay",
+        organismNameId: "Kucing Margay",
+        organismType: "animal",
         en: {
-          question: "Why do Jaguars need big, connected rainforests to roam in Suriname?",
+          question: "What amazing climbing superpower helps the Margay wildcat move easily down Suriname's trees?",
           options: [
-            "They enjoy going to outdoor movie theaters",
-            "They only like walking on concrete roads",
-            "They need wide territories to hunt prey, swim in rivers, and raise cubs",
-            "They are scared of tall green trees"
+            "Flexible ankles that can twist backwards to climb down trunks headfirst",
+            "Roller skates on all four paws",
+            "Sticky bubblegum stuck to its paws",
+            "A parachute strapped to its tail"
           ],
-          answer: 2,
-          explanation: "You got it! Jaguars are magnificent big cats that need plenty of connected jungle to hunt, swim, and protect their baby cubs!"
+          answer: 0,
+          explanation: "Correct! The Margay can rotate its back ankles 180 degrees, allowing it to scamper down tree trunks headfirst like a squirrel!"
         },
         id_lang: {
-          question: "Mengapa Jaguar membutuhkan hutan hujan yang luas dan tersambung di Suriname?",
+          question: "Kemampuan memanjat super apa yang membantu Kucing Margay bergerak lincah menuruni pepohonan Suriname?",
           options: [
-            "Karena mereka suka bermain bola di lapangan rumput kota",
-            "Karena mereka hanya mau berjalan di jalan beraspal",
-            "Karena mereka butuh wilayah luas untuk berburu, berenang, dan membesarkan anak",
-            "Karena mereka takut melihat dedaunan pohon yang hijau"
+            "Pergelangan kaki lentur yang bisa berputar 180 derajat untuk turun dengan kepala di bawah",
+            "Sepatu roda di keempat telapak kakinya",
+            "Permen karet lengket di telapak kakinya",
+            "Parasut yang terikat di ujung ekornya"
           ],
-          answer: 2,
-          explanation: "Pintar! Jaguar adalah kucing besar perkasa yang membutuhkan hutan lebat tak terputus untuk berburu mangsa, berenang bebas, dan menjaga anaknya!"
+          answer: 0,
+          explanation: "Benar sekali! Kucing Margay bisa memutar pergelangan kaki belakangnya hingga 180 derajat sehingga dapat turun pohon dengan kepala di depan seperti tupai!"
         }
       },
       {
         id: 4,
+        organismId: "clump_wallaba",
+        image: "assets/images/suriname/clump_wallaba.webp",
+        organismNameEn: "Clump Wallaba",
+        organismNameId: "Pohon Wallaba Rumpun",
+        organismType: "plant",
         en: {
-          question: "What makes the Giant Water Lily in Suriname's calm waterways so amazing?",
+          question: "What special flowers and pods hang down from the grand Clump Wallaba tree?",
           options: [
-            "It shoots laser beams into the clouds",
-            "Its giant round floating pads are so wide small birds can walk on them",
-            "It produces cold chocolate milk",
-            "It sinks down to sleep in river mud every noon"
+            "Drooping purple blossoms with heavy seed pods",
+            "Electric glowing lamps",
+            "Metal toy cars",
+            "Sweet cotton candy bags"
           ],
-          answer: 1,
-          explanation: "Spot on! The Giant Water Lily has enormous floating round leaves that can grow two meters wide with strong upturned edges!"
+          answer: 0,
+          explanation: "Spot on! The Clump Wallaba produces drooping strings of purple flowers and heavy flat pods that release seeds into the forest soil!"
         },
         id_lang: {
-          question: "Apa keajaiban daun Teratai Raksasa yang terapung di perairan tenang Suriname?",
+          question: "Bunga dan polong biji seperti apa yang menjuntai dari pohon Wallaba Rumpun?",
           options: [
-            "Tenggelam ke dasar sungai seperti batu kali yang berat",
-            "Daun bundar terapungnya sangat lebar sehingga burung kecil bisa berdiri di atasnya",
-            "Menghasilkan susu cokelat yang dingin dan manis",
-            "Tumbuh berduri tajam di pucuk pohon kelapa"
+            "Untaian bunga ungu yang menjuntai dengan polong biji yang kokoh",
+            "Lampu pijar listrik yang menyala",
+            "Mobil-mobilan mainan dari besi",
+            "Kantong permen kapas manis"
           ],
-          answer: 1,
-          explanation: "Tepat sekali! Teratai Raksasa memiliki daun bundar mengapung selebar dua meter dengan tepi terlipat kokoh di atas permukaan air!"
+          answer: 0,
+          explanation: "Tepat sekali! Pohon Wallaba Rumpun memiliki untaian bunga ungu yang menjuntai dan polong biji pipih yang kokoh untuk menyebarkan bibit ke tanah hutan!"
         }
       },
       {
         id: 5,
+        organismId: "marsh_pitcher_plant",
+        image: "assets/images/suriname/marsh_pitcher_plant.webp",
+        organismNameEn: "Marsh Pitcher Plant",
+        organismNameId: "Kantong Semar Rawa",
+        organismType: "plant",
         en: {
-          question: "Why does SDG 15 encourage us to stop using toxic mercury in river gold mining?",
+          question: "How does the Marsh Pitcher Plant catch water and nourishment on Suriname's misty mountains?",
           options: [
-            "Because mercury makes fish turn into gold coins",
-            "Because mercury helps river water freeze faster",
-            "Because loud river mining machines make water warm",
-            "Because mercury poisons river water and harms fish, otters, and people"
+            "Its green pitcher-like cups catch rain and trap tiny insects",
+            "It shops at supermarkets",
+            "It drinks water from plastic cups",
+            "It runs to the river every morning"
           ],
-          answer: 3,
-          explanation: "Brilliant! Banning toxic mercury protects our freshwater rivers, keeping fish, river otters, and human communities safe and healthy!"
+          answer: 0,
+          explanation: "Brilliant! The pitcher cups hold rainwater and make special enzymes to digest insects, helping it thrive in poor mountain soil!"
         },
         id_lang: {
-          question: "Mengapa SDG 15 mendorong penghentian penggunaan zat merkuri beracun pada tambang emas sungai?",
+          question: "Bagaimana Kantong Semar Rawa mengumpulkan air dan nutrisi di pegunungan berkabut Suriname?",
           options: [
-            "Karena merkuri mengubah batu kali menjadi kue manis",
-            "Karena merkuri membuat air sungai cepat berubah jadi es",
-            "Karena suara mesin tambang membuat air menjadi hangat",
-            "Karena merkuri meracuni air sungai dan membahayakan ikan, berang-berang, serta manusia"
+            "Daun berbentuk cangkir menangkap tetesan air hujan dan menjebak serangga kecil",
+            "Pergi berbelanja ke supermarket",
+            "Meminum air dari cangkir plastik",
+            "Berlari ke sungai setiap pagi"
           ],
-          answer: 3,
-          explanation: "Luar biasa! Melarang zat merkuri beracun menjaga kemurnian sungai agar ikan, berang-berang, dan masyarakat tetap aman dan sehat!"
+          answer: 0,
+          explanation: "Hebat! Cangkir daunnya menampung air hujan dan memiliki enzim khusus untuk mencerna serangga kecil, membantunya tumbuh subur di tanah pegunungan!"
+        }
+      },
+      {
+        id: 6,
+        organismId: "sand_baromalli",
+        image: "assets/images/suriname/sand_baromalli.webp",
+        organismNameEn: "Sand Baromalli",
+        organismNameId: "Pohon Baromalli Pasir",
+        organismType: "plant",
+        en: {
+          question: "What protects the towering Sand Baromalli tree from toppling over in fierce tropical storms?",
+          options: [
+            "Enormous buttress roots that spread wide like wooden anchor walls",
+            "Ropes tied to passing airplanes",
+            "Sticky glue poured onto its bark",
+            "Piles of plastic bricks around the trunk"
+          ],
+          answer: 0,
+          explanation: "Super! The Sand Baromalli grows giant buttress roots that act like natural flying buttresses, anchoring it deep into sandy rainforest soil!"
+        },
+        id_lang: {
+          question: "Apa yang menjaga pohon Baromalli Pasir raksasa agar tidak roboh saat diterjang badai tropis lebat?",
+          options: [
+            "Akar papan (banir) raksasa yang melebar kokoh seperti dinding penopang kayu",
+            "Tali tambang yang diikatkan ke pesawat terbang",
+            "Lem perekat yang disiramkan ke kulit kayunya",
+            "Tumpukan balok plastik di sekitar batangnya"
+          ],
+          answer: 0,
+          explanation: "Luar biasa! Pohon Baromalli Pasir memiliki akar banir raksasa yang melebar ke samping seperti dinding penopang alami agar tetap kokoh di tanah berpasir!"
         }
       }
     ],
     bolivia: [
       {
         id: 1,
+        organismId: "bolivian_river_dolphin",
+        image: "assets/images/bolivia/bolivian_river_dolphin.webp",
+        organismNameEn: "Bolivian River Dolphin",
+        organismNameId: "Lumba-lumba Sungai Bolivia",
+        organismType: "animal",
         en: {
-          question: "How does the Andean Condor soar high above Bolivia's snowy mountain peaks?",
+          question: "What unique body feature helps the pink Bolivian River Dolphin steer among flooded jungle tree trunks?",
           options: [
-            "It flaps tiny wings a thousand times a minute",
-            "It spreads its huge wings and glides gracefully on rising mountain air",
-            "It rides on the backs of wild llamas",
-            "It climbs ladder steps carved into rocks"
+            "A flexible neck that turns sideways to weave around underwater branches",
+            "Sharp eagle claws",
+            "Four walking legs like a dog",
+            "A hard metal turtle shell"
           ],
-          answer: 1,
-          explanation: "Awesome! With its massive three-meter wingspan, the condor glides gently across the sky on mountain breezes without tiring out!"
+          answer: 0,
+          explanation: "Correct! Unlike ocean dolphins, its neck vertebrae are unfused, allowing its head to turn sideways to hunt fish in flooded forests!"
         },
         id_lang: {
-          question: "Bagaimana burung Kondor Andes melayang di langit pegunungan tinggi Bolivia?",
+          question: "Ciri tubuh unik apa yang membantu Lumba-lumba Sungai Bolivia berenang lincah di antara dahan pohon yang terendam air?",
           options: [
-            "Mengepakkan sayap kecil seribu kali setiap menit",
-            "Membentangkan sayap raksasanya dan melayang anggun mengikuti hembusan angin gunung",
-            "Menunggangi punggung kawanan llama liar",
-            "Menaiki tangga batu yang diukir di tebing"
+            "Leher lentur yang dapat menoleh ke samping untuk meliuk di antara dahan bawah air",
+            "Cakar tajam seperti cakar elang",
+            "Empat kaki jalan seperti anjing",
+            "Tempurung penyu dari logam keras"
           ],
-          answer: 1,
-          explanation: "Hebat! Dengan bentang sayap raksasa hingga tiga meter, burung Kondor melayang anggun mengikuti angin gunung tanpa cepat lelah!"
+          answer: 0,
+          explanation: "Benar sekali! Tulang lehernya tidak menyatu kaku, sehingga kepalanya bisa menoleh ke kiri dan kanan untuk mencari ikan di sela-sela hutan banjir!"
         }
       },
       {
         id: 2,
+        organismId: "blue_throated_macaw",
+        image: "assets/images/bolivia/blue_throated_macaw.webp",
+        organismNameEn: "Blue-throated Macaw",
+        organismNameId: "Makaw Leher Biru",
+        organismType: "animal",
         en: {
-          question: "What special winter coat keeps the Queñua de Altura tree warm near freezing glaciers?",
+          question: "Where does the rare Blue-throated Macaw build its cozy nest in the Beni savannas?",
           options: [
-            "Layers of thin, papery bark and cozy moss around its roots",
-            "A knitted wool scarf around every branch",
-            "A glass dome built over the tree",
-            "A hot bath of boiling water"
+            "Inside hollow cavities of tall palm trees",
+            "Deep under river gravel",
+            "On railway train tracks",
+            "Inside dark coal mines"
           ],
           answer: 0,
-          explanation: "Spot on! The Queñua has peeling layers of papery bark that trap warm air like a puffy winter jacket, surviving high up in freezing frost!"
+          explanation: "Awesome! The Blue-throated Macaw nests inside hollow cavities of old palm trees (Motte palms) in the tropical savanna islands!"
         },
         id_lang: {
-          question: "Jaket musim dingin alami apa yang melindungi pohon Queñua de Altura dari hawa dingin membeku di pegunungan Andes?",
+          question: "Di manakah burung Makaw Leher Biru yang langka suka bersarang di padang sabana Beni Bolivia?",
           options: [
-            "Kulit batang tipis berlapis-lapis mirip kertas dan selimut lumut tebal di akarnya",
-            "Syal wol rajutan hangat di setiap rantingnya",
-            "Kubah kaca pelindung di atas seluruh pohon",
-            "Bak air hangat mendidih di sekeliling batangnya"
+            "Di dalam rongga alami batang pohon palem yang tinggi",
+            "Jauh di dalam kerikil dasar sungai",
+            "Di atas rel kereta api yang melintas",
+            "Di dalam tambang batu bara yang gelap"
           ],
           answer: 0,
-          explanation: "Bagus sekali! Kulit batangnya mengelupas berlapis-lapis seperti kertas untuk memerangkap udara hangat seperti jaket tebal di udara beku!"
+          explanation: "Hebat! Makaw Leher Biru memilih rongga alami di batang pohon palem tua untuk tempat bertelur dan merawat anak-anaknya!"
         }
       },
       {
         id: 3,
+        organismId: "red_fronted_macaw",
+        image: "assets/images/bolivia/red_fronted_macaw.webp",
+        organismNameEn: "Red-fronted Macaw",
+        organismNameId: "Makaw Dahi Merah",
+        organismType: "animal",
         en: {
-          question: "How does the little Short-tailed Chinchilla stay warm on freezing Andean mountaintops?",
+          question: "Where do Red-fronted Macaws make their safe nesting homes in Bolivia's dry valleys?",
           options: [
-            "It drinks hot tea every morning",
-            "It wears thick rubber rain boots",
-            "It has super dense, ultra-soft fur that keeps out chilly winds",
-            "It sleeps inside warm caves made of ice"
+            "In the sand on beach shores",
+            "In crevices high on steep, rocky river cliffs",
+            "Inside floating ice caves",
+            "In busy city train stations"
           ],
-          answer: 2,
-          explanation: "Great job! Chinchillas have the densest and softest fur of any land mammal, keeping them cozy and warm on icy mountain rocks!"
+          answer: 1,
+          explanation: "Spot on! Red-fronted Macaws are cliff-nesting parrots that sleep and raise their chicks in safe crevices on steep mountain river canyons!"
         },
         id_lang: {
-          question: "Bagaimana Chinchilla Ekor Pendek menjaga tubuhnya tetap hangat di puncak berbatu Andes yang dingin?",
+          question: "Di manakah Makaw Dahi Merah membuat sarang yang aman di lembah kering Bolivia?",
           options: [
-            "Meminum teh madu hangat setiap pagi",
-            "Memakai sepatu bot karet tebal warna-warni",
-            "Memiliki bulu yang sangat lebat dan luar biasa lembut untuk menahan angin beku",
-            "Tidur di dalam iglo yang terbuat dari balok es"
+            "Di dalam pasir pantai berombak",
+            "Di celah-celah tebing batu curam yang tinggi di tepi sungai",
+            "Di dalam gua es terapung",
+            "Di stasiun kereta api kota yang ramai"
           ],
-          answer: 2,
-          explanation: "Pintar! Chinchilla memiliki bulu paling lebat dan lembut di dunia yang melindunginya seperti mantel hangat di tengah hawa dingin pegunungan!"
+          answer: 1,
+          explanation: "Tepat sekali! Makaw Dahi Merah adalah burung tebing yang memilih celah-celah tebing batu curam agar anak-anaknya aman dari pemangsa!"
         }
       },
       {
         id: 4,
+        organismId: "golden_rat_tail_cactus",
+        image: "assets/images/bolivia/golden_rat_tail_cactus.webp",
+        organismNameEn: "Golden Rat Tail Cactus",
+        organismNameId: "Kaktus Ekor Tikus Emas",
+        organismType: "plant",
         en: {
-          question: "Why is South America's only bear called the Spectacled Bear?",
+          question: "How does the Golden Rat Tail Cactus survive the hot, dry seasons on Bolivian rock walls?",
           options: [
-            "It builds pairs of wooden spectacles for birds",
-            "It wears glass goggles to swim in deep pools",
-            "It has creamy yellow circles around its eyes that look like eyeglasses",
-            "It reads books in the mountain library"
+            "Its long spiny stems store water inside like a water bottle",
+            "It drinks cold iced tea from a bottle",
+            "It swims down into mountain pools",
+            "It wears woolen socks"
           ],
-          answer: 2,
-          explanation: "That's right! Light yellowish circles of fur around its eyes look just like a cute pair of eyeglasses (spectacles)!"
+          answer: 0,
+          explanation: "You got it! Its thick, fleshy stems are packed with stored water and shielded by golden spines from hot sunshine and drying winds!"
         },
         id_lang: {
-          question: "Mengapa satu-satunya jenis beruang asli Amerika Selatan ini dinamakan Beruang Kacamata (Spectacled Bear)?",
+          question: "Bagaimana Kaktus Ekor Tikus Emas bertahan hidup melewati musim kemarau di tebing batu Bolivia?",
           options: [
-            "Karena membuat kacamata kayu untuk burung di hutan",
-            "Karena suka memakai kacamata renang di dalam danau",
-            "Karena memiliki lingkaran bulu kuning cerah di sekitar matanya yang mirip kacamata",
-            "Karena suka membaca buku cerita di gua batu"
+            "Batang panjang berduri menyimpan cadangan air seperti botol air alami",
+            "Meminum es teh manis dari botol",
+            "Berenang masuk ke dalam kolam air terjun",
+            "Memakai kaus kaki wol tebal"
           ],
-          answer: 2,
-          explanation: "Tepat sekali! Lingkaran bulu berwarna kuning muda di sekeliling matanya tampak lucu persis seperti kacamata bulat!"
+          answer: 0,
+          explanation: "Pintar! Batangnya yang tebal dan menjuntai menyimpan cadangan air berharga serta dilindungi oleh duri emas dari terik matahari!"
         }
       },
       {
         id: 5,
+        organismId: "cardenasiodendron_tree",
+        image: "assets/images/bolivia/cardenasiodendron_tree.webp",
+        organismNameEn: "Cardenasiodendron Tree",
+        organismNameId: "Pohon Cardenasiodendron",
+        organismType: "plant",
         en: {
-          question: "What does SDG 15 remind us to do when extracting metals and lithium in the high Andes?",
+          question: "How does the rare Cardenasiodendron tree find moisture in dry Bolivian mountain valleys?",
           options: [
-            "Leave big empty digging pits with no cleanup",
-            "Protect precious mountain water and keep high-altitude wetland habitats safe",
-            "Take away all rocks where bears and chinchillas sleep",
-            "Turn off the sun over snowy peaks"
+            "Deep taproots reach groundwater far beneath rocky soil",
+            "It asks garden hoses to water it",
+            "It buys bottles of water online",
+            "It floats in air balloons"
           ],
-          answer: 1,
-          explanation: "Super! SDG 15 reminds us to protect mountain wetlands, conserve freshwater, and take good care of high mountain animals and plants!"
+          answer: 0,
+          explanation: "Great job! The Cardenasiodendron sends deep taproots down into the rocky valley earth to find hidden groundwater reservoirs!"
         },
         id_lang: {
-          question: "Apa pesan penting SDG 15 saat manusia menambang logam dan litium di pegunungan tinggi Andes?",
+          question: "Bagaimana pohon Cardenasiodendron yang langka mendapatkan air di lembah kering berbatu Bolivia?",
           options: [
-            "Meninggalkan lubang galian raksasa tanpa dibersihkan kembali",
-            "Melindungi sumber air pegunungan yang berharga dan menjaga kelestarian habitat satwa liar",
-            "Membongkar seluruh bebatuan tempat tidur beruang dan chinchilla",
-            "Memadamkan cahaya matahari di atas puncak salju"
+            "Akar tunggang yang dalam menembus bebatuan untuk menjangkau air tanah tersembunyi",
+            "Meminta selang air taman untuk menyiramnya",
+            "Membeli air botol lewat internet",
+            "Naik balon udara untuk mencari awan"
           ],
-          answer: 1,
-          explanation: "Luar biasa! SDG 15 mengingatkan kita untuk menjaga kelestarian sumber air gunung, merawat lahan basah, dan menyayangi habitat satwa serta tumbuhan!"
+          answer: 0,
+          explanation: "Hebat! Pohon Cardenasiodendron memiliki akar tunggang yang menghunjam jauh ke dalam tanah berbatu untuk menyerap air tanah tersembunyi!"
+        }
+      },
+      {
+        id: 6,
+        organismId: "quenua_de_altura",
+        image: "assets/images/bolivia/quenua_de_altura.webp",
+        organismNameEn: "Queñua de Altura",
+        organismNameId: "Pohon Queñua Pegunungan",
+        organismType: "plant",
+        en: {
+          question: "What cozy winter jacket protects the Queñua tree from freezing near Andean glaciers?",
+          options: [
+            "Many papery layers of bark that trap warm air around the trunk",
+            "Knitted woolen sweaters from sheep",
+            "Glass windows placed on branches",
+            "Hot electric heaters"
+          ],
+          answer: 0,
+          explanation: "Super! The Queñua has peeling papery bark that traps warm air like a puffy winter jacket, surviving at higher altitudes than any other tree!"
+        },
+        id_lang: {
+          question: "Jaket musim dingin alami apa yang melindungi pohon Queñua de Altura dari hawa beku di dekat gletser pegunungan Andes?",
+          options: [
+            "Kulit batang tipis berlapis-lapis mirip kertas yang memerangkap udara hangat",
+            "Baju hangat rajutan wol domba",
+            "Jendela kaca yang dipasang di setiap dahan",
+            "Pemanas listrik berenergi tinggi"
+          ],
+          answer: 0,
+          explanation: "Luar biasa! Kulit batang pohon Queñua berlapis-lapis tipis seperti kertas untuk memerangkap udara hangat seperti jaket tebal di ketinggian yang membeku!"
         }
       }
     ]
