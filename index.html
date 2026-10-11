@@ -274,13 +274,26 @@
         
         <!-- Top Hero Overview Section (Photo on Left, Title & Quick Topic Tiles on Right on Tablet/Desktop) -->
         <div class="creature-hero-layout">
-          <!-- Photo Container (Fully uncropped photo view + Zoom button) -->
-          <div class="creature-photo-hero">
-            <img id="creatureHeroImg" src="" alt="" width="360" height="240" class="creature-main-photo">
-            <span class="creature-stamp-overlay" id="creatureStampOverlay" aria-hidden="true">⭐</span>
-            <button type="button" class="btn-view-full-photo" id="btnViewFullPhoto" aria-label="View photo in full screen">
-              <span aria-hidden="true">🔍</span> <span id="labelViewFullPhoto">Full Photo</span>
-            </button>
+          <!-- Photo Gallery & Mode Switcher (Creature ⟷ Habitat) -->
+          <div class="creature-gallery-card">
+            <div class="gallery-toggle-bar" role="tablist" aria-label="Photo View">
+              <button type="button" class="gallery-toggle-btn active" id="btnShowCreaturePhoto" role="tab" aria-selected="true">
+                <span aria-hidden="true">🐾</span> <span id="labelPhotoCreature">Creature</span>
+              </button>
+              <button type="button" class="gallery-toggle-btn" id="btnShowHabitatPhoto" role="tab" aria-selected="false">
+                <span aria-hidden="true">🏠</span> <span id="labelPhotoHabitat">Natural Habitat</span>
+              </button>
+            </div>
+
+            <!-- Photo Container (Fully uncropped photo view + Zoom button) -->
+            <div class="creature-photo-hero" id="creaturePhotoHero">
+              <img id="creatureHeroImg" src="" alt="" width="360" height="240" class="creature-main-photo">
+              <span class="photo-category-pill" id="photoCategoryPill">🐾 Creature</span>
+              <span class="creature-stamp-overlay" id="creatureStampOverlay" aria-hidden="true">⭐</span>
+              <button type="button" class="btn-view-full-photo" id="btnViewFullPhoto" aria-label="View photo in full screen">
+                <span aria-hidden="true">🔍</span> <span id="labelViewFullPhoto">Full Photo</span>
+              </button>
+            </div>
           </div>
 
           <!-- Overview & Quick Interactive Topics Panel -->
@@ -595,11 +608,19 @@
     <!-- ========================================================
          FULL PHOTO LIGHTBOX (Issue 1: View Photos Fully)
          ======================================================== -->
-    <div class="photo-lightbox-backdrop" id="photoLightboxModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Full-size creature photograph">
+    <div class="photo-lightbox-backdrop" id="photoLightboxModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Full-size photograph">
       <button type="button" class="btn-lightbox-close" id="btnCloseLightbox" aria-label="Close photo view">✕</button>
       <div class="photo-lightbox-content">
+        <div class="lightbox-gallery-nav" role="tablist" aria-label="Lightbox gallery">
+          <button type="button" class="lightbox-tab-btn active" id="btnLightboxCreature" role="tab" aria-selected="true">
+            <span>🐾</span> <span id="labelLightboxCreature">Creature</span>
+          </button>
+          <button type="button" class="lightbox-tab-btn" id="btnLightboxHabitat" role="tab" aria-selected="false">
+            <span>🏠</span> <span id="labelLightboxHabitat">Natural Habitat</span>
+          </button>
+        </div>
         <img id="lightboxFullImg" src="" alt="" class="lightbox-image">
-        <div class="lightbox-caption" id="lightboxCaption">Creature photo</div>
+        <div class="lightbox-caption" id="lightboxCaption">Photo caption</div>
       </div>
     </div>
 

@@ -24,6 +24,8 @@
     visited: {},
     currentCreature: null,
     currentTile: 'lives', // 'lives' | 'special' | 'threats'
+    photoMode: 'creature', // 'creature' | 'habitat'
+    lightboxPhotoMode: 'creature',
     detailsExpanded: false,
     quizIndex: 0,
     quizScore: 0,
@@ -300,6 +302,11 @@
       creatureScrollBody: document.getElementById('creatureScrollBody'),
       creaturePhotoHero: document.querySelector('.creature-photo-hero'),
       creatureHeroImg: document.getElementById('creatureHeroImg'),
+      photoCategoryPill: document.getElementById('photoCategoryPill'),
+      btnShowCreaturePhoto: document.getElementById('btnShowCreaturePhoto'),
+      btnShowHabitatPhoto: document.getElementById('btnShowHabitatPhoto'),
+      labelPhotoCreature: document.getElementById('labelPhotoCreature'),
+      labelPhotoHabitat: document.getElementById('labelPhotoHabitat'),
       creatureStampOverlay: document.getElementById('creatureStampOverlay'),
       btnViewFullPhoto: document.getElementById('btnViewFullPhoto'),
       labelViewFullPhoto: document.getElementById('labelViewFullPhoto'),
@@ -379,6 +386,10 @@
       btnCloseLightbox: document.getElementById('btnCloseLightbox'),
       lightboxFullImg: document.getElementById('lightboxFullImg'),
       lightboxCaption: document.getElementById('lightboxCaption'),
+      btnLightboxCreature: document.getElementById('btnLightboxCreature'),
+      btnLightboxHabitat: document.getElementById('btnLightboxHabitat'),
+      labelLightboxCreature: document.getElementById('labelLightboxCreature'),
+      labelLightboxHabitat: document.getElementById('labelLightboxHabitat'),
       // Bottom Bar
       bottomNav: document.getElementById('storyBottomNav'),
       navItemHome: document.getElementById('navItemHome'),
@@ -604,6 +615,10 @@
     if (dom.titleHowSurvives) dom.titleHowSurvives.textContent = getGeneralString('howSurvivesTitle', 'How it Survives & Eats:');
     if (dom.titleHumanThreats) dom.titleHumanThreats.textContent = getGeneralString('humanThreatsTitle', 'How Mining & Humans Threaten It:');
     if (dom.creatureStampPill) dom.creatureStampPill.textContent = getGeneralString('stampCollected', '⭐ Star Stamp Collected!');
+    if (dom.labelPhotoCreature) dom.labelPhotoCreature.textContent = state.lang === 'id' ? 'Spesies' : 'Creature';
+    if (dom.labelPhotoHabitat) dom.labelPhotoHabitat.textContent = state.lang === 'id' ? 'Habitat Asli' : 'Natural Habitat';
+    if (dom.labelLightboxCreature) dom.labelLightboxCreature.textContent = state.lang === 'id' ? 'Spesies' : 'Creature';
+    if (dom.labelLightboxHabitat) dom.labelLightboxHabitat.textContent = state.lang === 'id' ? 'Habitat Asli' : 'Natural Habitat';
 
     // Quiz labels
     if (dom.quizHeaderTitle) dom.quizHeaderTitle.textContent = getGeneralString('quizTitle', 'Junior Explorer Quiz');
@@ -790,10 +805,9 @@
     // Header & Photo
     if (dom.creatureHeaderTitle) dom.creatureHeaderTitle.textContent = orgName;
     if (dom.creatureBigName) dom.creatureBigName.textContent = orgName;
-    if (dom.creatureHeroImg) {
-      dom.creatureHeroImg.src = organism.image;
-      dom.creatureHeroImg.alt = orgName;
-    }
+
+    state.photoMode = (state.currentTile === 'lives' && organism.habitatImage) ? 'habitat' : 'creature';
+    updateCreaturePhoto();
 
     // Type Badge
     if (dom.creatureTypeChip) {
@@ -836,6 +850,69 @@
     renderCreatureTile(state.currentTile);
   }
 
+  function updateCreaturePhoto() {
+    const organism = state.currentCreature;
+    if (!organism) return;
+    const lk = getLang();
+    const orgName = getOrganismName(organism);
+    const orgData = organism[lk] || organism.en;
+
+    const showHabitat = (state.photoMode === 'habitat' && organism.habitatImage);
+
+    if (showHabitat) {
+      if (dom.creatureHeroImg) {
+        dom.creatureHeroImg.src = organism.habitatImage;
+        dom.creatureHeroImg.alt = orgData.habitatTitle ? `${orgName} - ${orgData.habitatTitle}` : `${orgName} Habitat`;
+      }
+      if (dom.photoCategoryPill) {
+        dom.photoCategoryPill.textContent = (state.lang === 'id') ? '🏠 Habitat Asli' : '🏠 Natural Habitat';
+      }
+      if (dom.btnShowHabitatPhoto) {
+        dom.btnShowHabitatPhoto.classList.add('active');
+        dom.btnShowHabitatPhoto.setAttribute('aria-selected', 'true');
+      }
+      if (dom.btnShowCreaturePhoto) {
+        dom.btnShowCreaturePhoto.classList.remove('active');
+        dom.btnShowCreaturePhoto.setAttribute('aria-selected', 'false');
+      }
+    } else {
+      if (dom.creatureHeroImg) {
+        dom.creatureHeroImg.src = organism.image;
+        dom.creatureHeroImg.alt = orgName;
+      }
+      if (dom.photoCategoryPill) {
+        dom.photoCategoryPill.textContent = (organism.type === 'plant') ?
+          (state.lang === 'id' ? '🌿 Tumbuhan' : '🌿 Plant') :
+          (state.lang === 'id' ? '🐾 Hewan' : '🐾 Animal');
+      }
+      if (dom.btnShowCreaturePhoto) {
+        dom.btnShowCreaturePhoto.classList.add('active');
+        dom.btnShowCreaturePhoto.setAttribute('aria-selected', 'true');
+      }
+      if (dom.btnShowHabitatPhoto) {
+        dom.btnShowHabitatPhoto.classList.remove('active');
+        dom.btnShowHabitatPhoto.setAttribute('aria-selected', 'false');
+      }
+    }
+
+    if (dom.labelPhotoCreature) {
+      dom.labelPhotoCreature.textContent = (organism.type === 'plant') ?
+        (state.lang === 'id' ? 'Tumbuhan' : 'Plant') :
+        (state.lang === 'id' ? 'Satwa' : 'Creature');
+    }
+    if (dom.labelPhotoHabitat) {
+      dom.labelPhotoHabitat.textContent = (state.lang === 'id') ? 'Habitat Asli' : 'Natural Habitat';
+    }
+    if (dom.labelLightboxCreature) {
+      dom.labelLightboxCreature.textContent = (organism.type === 'plant') ?
+        (state.lang === 'id' ? 'Tumbuhan' : 'Plant') :
+        (state.lang === 'id' ? 'Satwa' : 'Creature');
+    }
+    if (dom.labelLightboxHabitat) {
+      dom.labelLightboxHabitat.textContent = (state.lang === 'id') ? 'Habitat Asli' : 'Natural Habitat';
+    }
+  }
+
   function renderCreatureTile(tileName) {
     state.currentTile = tileName;
     const organism = state.currentCreature;
@@ -867,15 +944,23 @@
       icon = '🏠';
       text = orgData.habitat || orgData.quickRead?.[0] || '';
       if (dom.activeTileCard) dom.activeTileCard.classList.remove('threat-mode');
+      if (organism.habitatImage) {
+        state.photoMode = 'habitat';
+        updateCreaturePhoto();
+      }
     } else if (tileName === 'special') {
       icon = '⭐';
       text = orgData.uniqueFeature || orgData.quickRead?.[1] || '';
       if (dom.activeTileCard) dom.activeTileCard.classList.remove('threat-mode');
+      state.photoMode = 'creature';
+      updateCreaturePhoto();
     } else if (tileName === 'threats') {
       icon = '⚠️';
       // Highlighting human mining activities & deforestation impact
       text = orgData.whyThreatened || orgData.quickRead?.[2] || '';
       if (dom.activeTileCard) dom.activeTileCard.classList.add('threat-mode');
+      state.photoMode = 'creature';
+      updateCreaturePhoto();
     }
 
     if (dom.tileBadgeIcon) dom.tileBadgeIcon.textContent = icon;
@@ -883,29 +968,75 @@
   }
 
   // --------------------------------------------------------
-  // 12. FULL PHOTO LIGHTBOX (Issue 1)
+  // 12. FULL PHOTO LIGHTBOX (Creature & Habitat Gallery)
   // --------------------------------------------------------
   function openPhotoLightbox(customSrc, customCaption) {
     playTapBoop();
-    let src = customSrc;
-    let caption = customCaption;
-    if (!src) {
-      const organism = state.currentCreature;
-      if (!organism) return;
-      src = organism.image;
-      caption = getOrganismName(organism);
+    const organism = state.currentCreature;
+
+    if (customSrc) {
+      state.lightboxPhotoMode = 'custom';
+      if (dom.lightboxFullImg) dom.lightboxFullImg.src = customSrc;
+      if (dom.lightboxCaption) dom.lightboxCaption.textContent = customCaption || '';
+      if (dom.btnLightboxCreature && dom.btnLightboxCreature.parentElement) {
+        dom.btnLightboxCreature.parentElement.style.display = 'none';
+      }
+    } else if (organism) {
+      if (dom.btnLightboxCreature && dom.btnLightboxCreature.parentElement) {
+        dom.btnLightboxCreature.parentElement.style.display = organism.habitatImage ? 'flex' : 'none';
+      }
+      setLightboxPhotoMode(state.photoMode || 'creature');
     }
 
-    if (dom.lightboxFullImg) {
-      dom.lightboxFullImg.src = src;
-      dom.lightboxFullImg.alt = caption || '';
-    }
-    if (dom.lightboxCaption) {
-      dom.lightboxCaption.textContent = caption || '';
-    }
     if (dom.photoLightboxModal) {
       dom.photoLightboxModal.classList.add('open');
       dom.photoLightboxModal.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  function setLightboxPhotoMode(mode) {
+    state.lightboxPhotoMode = mode;
+    const organism = state.currentCreature;
+    if (!organism) return;
+    const lk = getLang();
+    const orgName = getOrganismName(organism);
+    const orgData = organism[lk] || organism.en;
+
+    if (mode === 'habitat' && organism.habitatImage) {
+      if (dom.lightboxFullImg) {
+        dom.lightboxFullImg.src = organism.habitatImage;
+        dom.lightboxFullImg.alt = orgData.habitatTitle || `${orgName} Habitat`;
+      }
+      if (dom.lightboxCaption) {
+        const title = orgData.habitatTitle ? ` - ${orgData.habitatTitle}` : '';
+        dom.lightboxCaption.textContent = (state.lang === 'id' ? `🏠 Habitat Asli: ${orgName}${title}` : `🏠 Natural Habitat: ${orgName}${title}`);
+      }
+      if (dom.btnLightboxHabitat) {
+        dom.btnLightboxHabitat.classList.add('active');
+        dom.btnLightboxHabitat.setAttribute('aria-selected', 'true');
+      }
+      if (dom.btnLightboxCreature) {
+        dom.btnLightboxCreature.classList.remove('active');
+        dom.btnLightboxCreature.setAttribute('aria-selected', 'false');
+      }
+    } else {
+      if (dom.lightboxFullImg) {
+        dom.lightboxFullImg.src = organism.image;
+        dom.lightboxFullImg.alt = orgName;
+      }
+      if (dom.lightboxCaption) {
+        dom.lightboxCaption.textContent = (organism.type === 'plant') ?
+          (state.lang === 'id' ? `🌿 Foto Tumbuhan: ${orgName}` : `🌿 Plant Photograph: ${orgName}`) :
+          (state.lang === 'id' ? `🐾 Foto Satwa: ${orgName}` : `🐾 Creature Photograph: ${orgName}`);
+      }
+      if (dom.btnLightboxCreature) {
+        dom.btnLightboxCreature.classList.add('active');
+        dom.btnLightboxCreature.setAttribute('aria-selected', 'true');
+      }
+      if (dom.btnLightboxHabitat) {
+        dom.btnLightboxHabitat.classList.remove('active');
+        dom.btnLightboxHabitat.setAttribute('aria-selected', 'false');
+      }
     }
   }
 
@@ -1346,6 +1477,41 @@
             getGeneralString('hideDetailsBtn', '🔼 Hide Details') :
             getGeneralString('tellMeMoreBtn', '📖 Tell Me More');
         }
+      });
+    }
+
+    // Photo Gallery Switcher (Creature ⟷ Habitat)
+    if (dom.btnShowCreaturePhoto) {
+      dom.btnShowCreaturePhoto.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playTapBoop();
+        state.photoMode = 'creature';
+        updateCreaturePhoto();
+      });
+    }
+
+    if (dom.btnShowHabitatPhoto) {
+      dom.btnShowHabitatPhoto.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playTapBoop();
+        state.photoMode = 'habitat';
+        updateCreaturePhoto();
+      });
+    }
+
+    if (dom.btnLightboxCreature) {
+      dom.btnLightboxCreature.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playTapBoop();
+        setLightboxPhotoMode('creature');
+      });
+    }
+
+    if (dom.btnLightboxHabitat) {
+      dom.btnLightboxHabitat.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playTapBoop();
+        setLightboxPhotoMode('habitat');
       });
     }
 
